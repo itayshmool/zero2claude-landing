@@ -1132,7 +1132,7 @@ section {
 
   .desktop-nav .theme-toggle { display: flex; }
 
-  .btn-header-cta {
+  .desktop-nav .btn-header-cta {
     display: inline-flex;
     align-items: center;
     padding: 8px 20px;
@@ -1147,9 +1147,10 @@ section {
     text-decoration: none;
   }
 
-  .btn-header-cta:hover {
+  .desktop-nav .btn-header-cta:hover {
     box-shadow: var(--shadow-button);
     transform: translateY(-1px);
+    color: white;
     opacity: 1;
   }
 
