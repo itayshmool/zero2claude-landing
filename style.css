@@ -50,6 +50,63 @@
   --section-padding: 80px 20px;
 }
 
+/* --- Light Mode --- */
+[data-theme="light"] {
+  --bg-primary: #FAFAF8;
+  --bg-secondary: #F3F1EE;
+  --bg-card: #FFFFFF;
+  --bg-elevated: #EDECEA;
+
+  --text-primary: #111113;
+  --text-secondary: #4A4A52;
+  --text-muted: #8A8A96;
+
+  --accent-soft: rgba(255, 107, 53, 0.06);
+  --accent-glow: rgba(255, 107, 53, 0.1);
+  --accent-border: rgba(255, 107, 53, 0.25);
+
+  --green-soft: rgba(34, 197, 94, 0.08);
+  --blue-soft: rgba(59, 130, 246, 0.08);
+  --teal-soft: rgba(20, 184, 166, 0.08);
+  --yellow-soft: rgba(234, 179, 8, 0.08);
+
+  --border: rgba(0, 0, 0, 0.08);
+  --border-strong: rgba(0, 0, 0, 0.14);
+
+  --shadow-card: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-button: 0 0 20px rgba(255, 107, 53, 0.2);
+  --shadow-glow: 0 0 20px rgba(255, 107, 53, 0.08);
+}
+
+[data-theme="light"] .site-header {
+  background: rgba(250, 250, 248, 0.85);
+}
+
+[data-theme="light"] .mobile-nav {
+  background: rgba(250, 250, 248, 0.97);
+}
+
+[data-theme="light"] .terminal-mockup {
+  background: #1A1A20;
+  border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme="light"] .terminal-titlebar {
+  background: #222228;
+}
+
+[data-theme="light"] .hero-glow {
+  background: radial-gradient(ellipse, rgba(255, 107, 53, 0.04) 0%, transparent 70%);
+}
+
+[data-theme="light"] ::selection {
+  background-color: rgba(255, 107, 53, 0.2);
+  color: #111113;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track { background: var(--bg-secondary); }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: rgba(0, 0, 0, 0.15); }
+
 /* --- Base --- */
 html {
   scroll-behavior: smooth;
@@ -307,6 +364,51 @@ section {
 
 .mobile-nav a:hover {
   color: var(--accent);
+}
+
+/* Header right (mobile) */
+.header-right-mobile {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Theme toggle */
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 0;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.theme-toggle:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Show sun in dark mode, moon in light mode */
+.theme-toggle .icon-moon { display: none; }
+.theme-toggle .icon-sun { display: block; }
+
+[data-theme="light"] .theme-toggle .icon-moon { display: block; }
+[data-theme="light"] .theme-toggle .icon-sun { display: none; }
+
+/* Hide the mobile theme toggle on desktop (nav has its own) */
+.desktop-nav .theme-toggle {
+  display: none;
 }
 
 /* CTA button (header) */
@@ -1024,7 +1126,11 @@ section {
 
   .hamburger { display: none; }
 
+  .header-right-mobile .theme-toggle { display: none; }
+
   .desktop-nav { display: flex; }
+
+  .desktop-nav .theme-toggle { display: flex; }
 
   .btn-header-cta {
     display: inline-flex;

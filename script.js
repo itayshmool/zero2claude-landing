@@ -4,6 +4,34 @@
 (function () {
   'use strict';
 
+  // ---- Theme Toggle ----
+  var THEME_KEY = 'landing-theme';
+  var themeToggles = document.querySelectorAll('.theme-toggle');
+
+  function getPreferredTheme() {
+    var stored = localStorage.getItem(THEME_KEY);
+    if (stored) return stored;
+    return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+  }
+
+  function applyTheme(theme) {
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+    } else {
+      document.documentElement.removeAttribute('data-theme');
+    }
+    localStorage.setItem(THEME_KEY, theme);
+  }
+
+  applyTheme(getPreferredTheme());
+
+  themeToggles.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var current = document.documentElement.getAttribute('data-theme');
+      applyTheme(current === 'light' ? 'dark' : 'light');
+    });
+  });
+
   // ---- Hamburger Menu ----
   const hamburger = document.querySelector('.hamburger');
   const mobileNav = document.querySelector('.mobile-nav');
