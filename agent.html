@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Self-Healing Agent — Autonomous Bug Triage with Claude Code</title>
+  <meta name="description" content="A local Node.js agent that polls GitHub issues, investigates bugs with Claude Code, and autonomously creates fix PRs. Zero config, full observability.">
+  <meta name="theme-color" content="#09090B">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ======================================== */
+    /* RESET & TOKENS                           */
+    /* ======================================== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --void: #09090B;
+      --surface: #111114;
+      --card: #16161A;
+      --elevated: #1E1E23;
+      --border: #2A2A2E;
+      --border-subtle: #1F1F24;
+      --orange: #FF6B35;
+      --orange-dim: #FF6B3520;
+      --orange-soft: #FF6B3510;
+      --green: #22C55E;
+      --green-dim: #22C55E20;
+      --yellow: #EAB308;
+      --yellow-dim: #EAB30820;
+      --red: #EF4444;
+      --text: #E8E5E0;
+      --text-secondary: #A8A5A0;
+      --text-muted: #6B6B6B;
+      --mono: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+      --sans: 'Space Grotesk', system-ui, sans-serif;
+      --max-w: 1100px;
+      --glow: 0 0 80px rgba(255, 107, 53, 0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--void);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    ::selection { background: var(--orange); color: var(--void); }
+    a { color: var(--orange); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ======================================== */
+    /* LAYOUT                                   */
+    /* ======================================== */
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 20px; }
+    section { padding: 80px 0; }
+    @media (min-width: 768px) { section { padding: 120px 0; } }
+
+    /* ======================================== */
+    /* NOISE OVERLAY                            */
+    /* ======================================== */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      pointer-events: none;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-repeat: repeat;
+      background-size: 256px;
+    }
+
+    /* ======================================== */
+    /* HEADER                                   */
+    /* ======================================== */
+    .site-header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(9, 9, 11, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .header-inner {
+      max-width: var(--max-w); margin: 0 auto; padding: 0 20px;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px;
+    }
+    .header-logo {
+      font-family: var(--mono); font-size: 13px; font-weight: 600;
+      color: var(--text); display: flex; align-items: center; gap: 8px;
+    }
+    .header-logo .prompt { color: var(--orange); }
+    .header-nav { display: flex; gap: 24px; }
+    .header-nav a {
+      font-family: var(--mono); font-size: 12px; color: var(--text-muted);
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: var(--text); text-decoration: none; }
+    @media (max-width: 600px) { .header-nav { display: none; } }
+
+    /* ======================================== */
+    /* HERO                                     */
+    /* ======================================== */
+    .hero {
+      padding-top: 140px; padding-bottom: 80px;
+      text-align: center; position: relative;
+    }
+    @media (min-width: 768px) { .hero { padding-top: 180px; padding-bottom: 120px; } }
+
+    .hero::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(255, 107, 53, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono); font-size: 11px; font-weight: 500;
+      color: var(--orange); background: var(--orange-dim);
+      border: 1px solid rgba(255, 107, 53, 0.15);
+      padding: 6px 14px; border-radius: 100px;
+      margin-bottom: 28px; letter-spacing: 0.5px; text-transform: uppercase;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px; border-radius: 50%; background: var(--orange);
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+
+    .hero h1 {
+      font-family: var(--mono); font-weight: 700;
+      font-size: clamp(28px, 6vw, 56px);
+      line-height: 1.15; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    .hero h1 .accent { color: var(--orange); }
+
+    .hero-sub {
+      font-size: clamp(15px, 2.5vw, 18px); color: var(--text-secondary);
+      max-width: 600px; margin: 0 auto 36px; line-height: 1.7;
+    }
+
+    .hero-stats {
+      display: inline-flex; gap: 32px;
+      font-family: var(--mono); font-size: 12px; color: var(--text-muted);
+      padding: 12px 24px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border-subtle);
+    }
+    .hero-stats .stat-val { color: var(--text); font-weight: 600; font-size: 16px; display: block; }
+    @media (max-width: 480px) {
+      .hero-stats { gap: 20px; padding: 10px 16px; font-size: 10px; }
+      .hero-stats .stat-val { font-size: 14px; }
+    }
+
+    /* ======================================== */
+    /* SECTION HEADERS                          */
+    /* ======================================== */
+    .section-label {
+      font-family: var(--mono); font-size: 11px; font-weight: 600;
+      color: var(--orange); text-transform: uppercase; letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--mono); font-size: clamp(22px, 4vw, 34px);
+      font-weight: 700; letter-spacing: -0.01em; margin-bottom: 16px;
+    }
+    .section-desc {
+      font-size: 15px; color: var(--text-secondary); max-width: 560px; line-height: 1.7;
+    }
+
+    /* ======================================== */
+    /* FLOW DIAGRAM                             */
+    /* ======================================== */
+    .flow-section { background: var(--surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); }
+
+    .flow-diagram {
+      display: flex; flex-direction: column; gap: 0;
+      margin-top: 48px; position: relative;
+    }
+
+    .flow-step {
+      display: flex; align-items: flex-start; gap: 20px;
+      padding: 0 0 32px 0; position: relative;
+    }
+
+    .flow-line {
+      width: 32px; display: flex; flex-direction: column; align-items: center;
+      flex-shrink: 0; position: relative;
+    }
+    .flow-dot {
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--card); border: 2px solid var(--border);
+      z-index: 2; flex-shrink: 0; transition: all 0.3s;
+    }
+    .flow-dot.active { border-color: var(--orange); background: var(--orange-dim); box-shadow: 0 0 12px rgba(255, 107, 53, 0.3); }
+    .flow-dot.green { border-color: var(--green); background: var(--green-dim); }
+    .flow-dot.yellow { border-color: var(--yellow); background: var(--yellow-dim); }
+    .flow-connector {
+      width: 1px; flex: 1; background: var(--border); min-height: 20px;
+    }
+
+    .flow-content { flex: 1; padding-top: 0; }
+    .flow-content h3 {
+      font-family: var(--mono); font-size: 14px; font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .flow-content p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    .flow-code {
+      margin-top: 10px; padding: 10px 14px; border-radius: 6px;
+      background: var(--void); border: 1px solid var(--border-subtle);
+      font-family: var(--mono); font-size: 11px; color: var(--text-muted);
+      overflow-x: auto; white-space: pre;
+    }
+    .flow-code .kw { color: var(--orange); }
+    .flow-code .str { color: var(--green); }
+    .flow-code .cmt { color: #555; }
+
+    .flow-branch {
+      display: grid; grid-template-columns: 1fr; gap: 12px;
+      margin-top: 12px;
+    }
+    @media (min-width: 640px) { .flow-branch { grid-template-columns: repeat(3, 1fr); } }
+
+    .branch-card {
+      padding: 14px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border-subtle);
+    }
+    .branch-card h4 {
+      font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 6px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .branch-card p { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+    .branch-tag {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-family: var(--mono); font-size: 9px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .tag-green { background: var(--green-dim); color: var(--green); }
+    .tag-yellow { background: var(--yellow-dim); color: var(--yellow); }
+    .tag-gray { background: rgba(107, 107, 107, 0.2); color: var(--text-muted); }
+
+    /* ======================================== */
+    /* ARCHITECTURE                             */
+    /* ======================================== */
+    .arch-grid {
+      display: grid; grid-template-columns: 1fr; gap: 16px; margin-top: 48px;
+    }
+    @media (min-width: 768px) { .arch-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .arch-card {
+      padding: 24px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border-subtle);
+      position: relative; overflow: hidden;
+    }
+    .arch-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+      background: linear-gradient(90deg, transparent, var(--orange), transparent);
+      opacity: 0.4;
+    }
+    .arch-card h3 {
+      font-family: var(--mono); font-size: 13px; font-weight: 600;
+      margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+    }
+    .arch-card .arch-loc {
+      font-family: var(--mono); font-size: 10px; color: var(--text-muted); margin-bottom: 12px;
+    }
+    .arch-card p { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+
+    .arch-arrow {
+      display: none; align-items: center; justify-content: center;
+      font-size: 20px; color: var(--border);
+    }
+    @media (min-width: 768px) {
+      .arch-grid { grid-template-columns: 1fr auto 1fr auto 1fr; }
+      .arch-arrow { display: flex; }
+    }
+
+    .arch-files {
+      margin-top: 36px; padding: 20px; border-radius: 8px;
+      background: var(--card); border: 1px solid var(--border-subtle);
+    }
+    .arch-files h3 {
+      font-family: var(--mono); font-size: 12px; font-weight: 600; margin-bottom: 12px;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .file-tree {
+      font-family: var(--mono); font-size: 12px; line-height: 2;
+      color: var(--text-muted);
+    }
+    .file-tree .dir { color: var(--orange); }
+    .file-tree .comment { color: #555; }
+
+    /* ======================================== */
+    /* DASHBOARD PREVIEW                        */
+    /* ======================================== */
+    .dash-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .dash-frame {
+      margin-top: 48px; border-radius: 12px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--void);
+      box-shadow: var(--glow);
+    }
+    .dash-titlebar {
+      display: flex; align-items: center; gap: 8px; padding: 12px 16px;
+      background: var(--card); border-bottom: 1px solid var(--border-subtle);
+    }
+    .titlebar-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot-red { background: #FF5F57; }
+    .dot-yellow { background: #FFBD2E; }
+    .dot-green { background: #28C840; }
+    .titlebar-label {
+      flex: 1; text-align: center; font-family: var(--mono); font-size: 11px; color: var(--text-muted);
+    }
+
+    .dash-body { padding: 20px; }
+    @media (min-width: 768px) { .dash-body { padding: 28px; } }
+
+    .dash-stats {
+      display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+      margin-bottom: 20px;
+    }
+    @media (min-width: 640px) { .dash-stats { grid-template-columns: repeat(4, 1fr); } }
+
+    .dash-stat {
+      padding: 14px; border-radius: 8px;
+      background: var(--surface); border: 1px solid var(--border-subtle);
+    }
+    .dash-stat-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 4px;
+    }
+    .dash-stat-val {
+      font-family: var(--mono); font-size: 20px; font-weight: 700;
+    }
+    .val-default { color: var(--text); }
+    .val-green { color: var(--green); }
+    .val-yellow { color: var(--yellow); }
+    .val-muted { color: var(--text-muted); }
+
+    .dash-bar-section { margin-bottom: 20px; }
+    .dash-bar-label {
+      font-family: var(--mono); font-size: 9px; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .dash-bar {
+      height: 8px; border-radius: 4px; overflow: hidden;
+      background: var(--elevated); display: flex;
+    }
+    .bar-green { background: var(--green); }
+    .bar-yellow { background: var(--yellow); }
+    .bar-gray { background: #555; }
+
+    .dash-legend { display: flex; gap: 16px; margin-top: 8px; }
+    .legend-item { display: flex; align-items: center; gap: 6px; font-family: var(--mono); font-size: 10px; color: var(--text-muted); }
+    .legend-dot { width: 8px; height: 8px; border-radius: 2px; }
+
+    .dash-table { width: 100%; border-collapse: collapse; margin-top: 4px; }
+    .dash-table-header {
+      font-family: var(--mono); font-size: 9px; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+    .dash-table th {
+      text-align: left; padding: 8px 10px;
+      font-family: var(--mono); font-size: 9px; font-weight: 600;
+      color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .dash-table td {
+      padding: 10px 10px;
+      font-family: var(--mono); font-size: 11px; color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .dash-table tr:last-child td { border-bottom: none; }
+    .dash-link { color: var(--orange); }
+    .dash-table .decision-badge {
+      display: inline-block; padding: 2px 8px; border-radius: 4px;
+      font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.3px;
+    }
+    .d-not-a-bug { background: rgba(107, 107, 107, 0.15); color: var(--text-muted); }
+    .d-needs-review { background: var(--yellow-dim); color: var(--yellow); }
+    .d-auto-fixed { background: var(--green-dim); color: var(--green); }
+    .conf-high { color: var(--green); }
+    .conf-low { color: var(--red); }
+
+    .dash-table-wrap { overflow-x: auto; }
+
+    /* ======================================== */
+    /* FEATURES                                 */
+    /* ======================================== */
+    .features-grid {
+      display: grid; grid-template-columns: 1fr; gap: 14px; margin-top: 48px;
+    }
+    @media (min-width: 640px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 900px) { .features-grid { grid-template-columns: repeat(3, 1fr); } }
+
+    .feature-card {
+      padding: 22px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border-subtle);
+      transition: border-color 0.2s;
+    }
+    .feature-card:hover { border-color: var(--border); }
+    .feature-icon {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--orange-dim); display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px; font-size: 16px;
+    }
+    .feature-card h3 {
+      font-family: var(--mono); font-size: 13px; font-weight: 600; margin-bottom: 6px;
+    }
+    .feature-card p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+
+    /* ======================================== */
+    /* TECH STACK                               */
+    /* ======================================== */
+    .stack-section {
+      background: var(--surface);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .stack-grid {
+      display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px;
+    }
+    .stack-tag {
+      font-family: var(--mono); font-size: 12px; font-weight: 500;
+      padding: 8px 16px; border-radius: 6px;
+      background: var(--card); border: 1px solid var(--border-subtle);
+      color: var(--text-secondary); transition: all 0.2s;
+    }
+    .stack-tag:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ======================================== */
+    /* TERMINAL DEMO                            */
+    /* ======================================== */
+    .terminal-block {
+      margin-top: 36px; border-radius: 10px; overflow: hidden;
+      border: 1px solid var(--border); background: var(--void);
+    }
+    .terminal-titlebar {
+      display: flex; align-items: center; gap: 8px; padding: 10px 14px;
+      background: var(--card); border-bottom: 1px solid var(--border-subtle);
+    }
+    .terminal-body {
+      padding: 16px; font-family: var(--mono); font-size: 12px;
+      line-height: 1.9; color: var(--text-muted); overflow-x: auto;
+    }
+    .terminal-body .prompt-line { color: var(--green); }
+    .terminal-body .info { color: var(--text-secondary); }
+    .terminal-body .decision { color: var(--orange); font-weight: 600; }
+    .terminal-body .dim { color: #444; }
+
+    /* ======================================== */
+    /* FOOTER                                   */
+    /* ======================================== */
+    .site-footer {
+      padding: 48px 0; text-align: center;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .site-footer p {
+      font-family: var(--mono); font-size: 12px; color: var(--text-muted);
+    }
+    .site-footer a { color: var(--orange); }
+
+    /* ======================================== */
+    /* ANIMATIONS                               */
+    /* ======================================== */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-in {
+      opacity: 0; animation: fadeUp 0.6s ease-out forwards;
+    }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+    .delay-4 { animation-delay: 0.4s; }
+
+    /* ======================================== */
+    /* SCROLL REVEAL                            */
+    /* ======================================== */
+    .reveal {
+      opacity: 0; transform: translateY(24px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+    .reveal.visible {
+      opacity: 1; transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="header-logo">
+        <span class="prompt">&gt;_</span>
+        <span>self-healing-agent</span>
+      </a>
+      <nav class="header-nav">
+        <a href="#flow">How it works</a>
+        <a href="#architecture">Architecture</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#features">Features</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-badge animate-in">
+        <span class="dot"></span>
+        Built with Claude Code Agent SDK
+      </div>
+      <h1 class="animate-in delay-1">
+        Your codebase<br><span class="accent">heals itself.</span>
+      </h1>
+      <p class="hero-sub animate-in delay-2">
+        A local agent that polls GitHub issues, investigates bugs by spawning Claude&nbsp;Code instances, and autonomously creates fix&nbsp;PRs&mdash;or explains why it&rsquo;s not&nbsp;a&nbsp;bug.
+      </p>
+      <div class="hero-stats animate-in delay-3">
+        <div><span class="stat-val">5</span> issues triaged</div>
+        <div><span class="stat-val">$1.69</span> total cost</div>
+        <div><span class="stat-val">&lt; 5 min</span> per issue</div>
+        <div><span class="stat-val">0</span> config needed</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TERMINAL PREVIEW -->
+  <section style="padding-top: 0; padding-bottom: 60px;">
+    <div class="wrap">
+      <div class="terminal-block animate-in delay-4">
+        <div class="terminal-titlebar">
+          <span class="titlebar-dot dot-red"></span>
+          <span class="titlebar-dot dot-yellow"></span>
+          <span class="titlebar-dot dot-green"></span>
+          <span class="titlebar-label">agent &mdash; triage cycle</span>
+        </div>
+        <div class="terminal-body">
+<span class="prompt-line">$</span> <span class="info">npx tsx src/index.ts</span>
+<span class="dim">[19:14:13]</span> <span class="info">=== Triage Agent started ===</span>
+<span class="dim">[19:14:13]</span> Found <span class="decision">5</span> unprocessed issues
+<span class="dim">[19:14:13]</span> Processing issue <span class="info">#100</span>: Where do I see my progress dashboard?
+<span class="dim">[19:15:25]</span> Investigation complete (cost: $0.48)
+<span class="dim">[19:15:25]</span> Issue #100: isValidBug=<span class="decision">false</span>, confidence=high
+<span class="dim">[19:15:28]</span> <span style="color:var(--text-muted)">Commented, labeled not-a-bug, closed</span>
+<span class="dim">[19:16:23]</span> Issue <span class="info">#101</span>: isValidBug=<span class="decision">false</span> <span style="color:#555">(already fixed in recent commit)</span>
+<span class="dim">[19:17:21]</span> Issue <span class="info">#103</span>: isValidBug=<span class="decision">false</span>
+<span class="dim">[19:18:09]</span> Issue <span class="info">#105</span>: isValidBug=<span class="decision">false</span>
+<span class="dim">[19:19:12]</span> Issue <span class="info">#106</span>: confidence=low &rarr; <span style="color:var(--yellow)">needs-review</span>
+<span class="dim">[19:19:14]</span> Results posted to server (5 issues)
+<span class="dim">[19:19:14]</span> <span class="info">=== Triage complete: 5 issues processed ===</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOW DIAGRAM -->
+  <section class="flow-section" id="flow">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="section-label">How it works</p>
+        <h2 class="section-title">From issue to resolution,<br>fully autonomous.</h2>
+        <p class="section-desc">The agent runs as a macOS launchd job. Every hour it polls, investigates, decides, and acts&mdash;then exits. No long-running process.</p>
+      </div>
+
+      <div class="flow-diagram">
+        <!-- Step 1 -->
+        <div class="flow-step reveal">
+          <div class="flow-line">
+            <div class="flow-dot active"></div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <h3>1. Poll GitHub Issues</h3>
+            <p>Fetches open issues labeled <code>bug</code> + <code>student-report</code> without <code>triage-processed</code>. Oldest first.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="flow-step reveal">
+          <div class="flow-line">
+            <div class="flow-dot active"></div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <h3>2. Parse structured bug report</h3>
+            <p>Extracts lesson ID, description, terminal history, validation rules, filesystem state, reporter info from the markdown body.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="flow-step reveal">
+          <div class="flow-line">
+            <div class="flow-dot active"></div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <h3>3. Investigate with Claude Code</h3>
+            <p>Spawns a <strong>read-only</strong> Claude Code instance via the Agent SDK. It reads CLAUDE.md, lesson JSONs, component code, validation logic, and recent git history.</p>
+            <div class="flow-code"><span class="kw">const</span> result = <span class="kw">await</span> query({
+  prompt: investigationPrompt,
+  options: {
+    allowedTools: [<span class="str">'Read'</span>, <span class="str">'Glob'</span>, <span class="str">'Grep'</span>, <span class="str">'Bash(git log *)'</span>],
+    model: <span class="str">'sonnet'</span>,
+  }
+});</div>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="flow-step reveal">
+          <div class="flow-line">
+            <div class="flow-dot active"></div>
+            <div class="flow-connector"></div>
+          </div>
+          <div class="flow-content">
+            <h3>4. Three-way decision</h3>
+            <p>Based on the investigation, the agent takes one of three paths:</p>
+
+            <div class="flow-branch">
+              <div class="branch-card">
+                <h4><span class="branch-tag tag-green">auto-fix</span></h4>
+                <p>Valid bug, high confidence, auto-fixable. Spawns Claude Code with write+git tools. Creates branch, fixes, commits, pushes. Orchestrator opens draft PR.</p>
+              </div>
+              <div class="branch-card">
+                <h4><span class="branch-tag tag-yellow">needs-review</span></h4>
+                <p>Valid bug, but low confidence or too complex. Comments investigation findings on issue. Adds <code>needs-human-review</code> label.</p>
+              </div>
+              <div class="branch-card">
+                <h4><span class="branch-tag tag-gray">not-a-bug</span></h4>
+                <p>User misunderstanding or already fixed. Comments explanation, adds <code>not-a-bug</code> label, closes issue.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="flow-step reveal">
+          <div class="flow-line">
+            <div class="flow-dot green"></div>
+            <div class="flow-connector" style="background: transparent;"></div>
+          </div>
+          <div class="flow-content">
+            <h3>5. Report &amp; notify</h3>
+            <p>POSTs results to the server API. Server stores in PostgreSQL, sends reporter emails, and delivers admin digest. Agent exits. launchd relaunches next hour.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section id="architecture">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="section-label">Architecture</p>
+        <h2 class="section-title">Local agent, remote server,<br>GitHub glue.</h2>
+        <p class="section-desc">The agent runs on your Mac. The server on Render. They share a single secret: the GitHub PAT.</p>
+      </div>
+
+      <div class="arch-grid reveal">
+        <div class="arch-card">
+          <h3>&#x1F4BB; Local Agent</h3>
+          <p class="arch-loc">Your Mac &middot; launchd &middot; hourly</p>
+          <p>Polls issues, spawns Claude Code for investigation + fix, pushes branches, creates draft PRs via Octokit. POSTs results to server.</p>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-card">
+          <h3>&#x2601;&#xFE0F; Render Server</h3>
+          <p class="arch-loc">Express + PostgreSQL</p>
+          <p>Receives triage results via authenticated POST. Stores runs + issues in DB. Sends reporter emails via Resend. Serves admin dashboard API.</p>
+        </div>
+        <div class="arch-arrow">&rarr;</div>
+        <div class="arch-card">
+          <h3>&#x1F4CA; Admin Dashboard</h3>
+          <p class="arch-loc">/admin/triage</p>
+          <p>Stats, decision breakdown, run history with expandable issue details. Links to GitHub issues and PRs. Real-time cost tracking.</p>
+        </div>
+      </div>
+
+      <div class="arch-files reveal">
+        <h3>Agent file structure</h3>
+        <div class="file-tree">
+<span class="dir">agent/</span>
+<span class="dir">  src/</span>
+    index.ts           <span class="comment"># Entry point &mdash; single poll cycle</span>
+    config.ts          <span class="comment"># Auto-detects token, repo, project root</span>
+    github.ts          <span class="comment"># Octokit: issues, labels, comments, PRs</span>
+    issueParser.ts     <span class="comment"># Parse markdown &rarr; ParsedBugReport</span>
+    claudeAgent.ts     <span class="comment"># Agent SDK: investigate + fix</span>
+    reportResults.ts   <span class="comment"># POST results to server</span>
+    logger.ts          <span class="comment"># Daily rotating file + console</span>
+    types.ts           <span class="comment"># TriageResult, InvestigationResult, ...</span>
+  package.json
+  tsconfig.json
+  com.zero2claude.triage-agent.plist
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DASHBOARD PREVIEW -->
+  <section class="dash-section" id="dashboard">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="section-label">Observability</p>
+        <h2 class="section-title">Full visibility into every decision.</h2>
+        <p class="section-desc">The admin dashboard shows aggregate stats, decision breakdowns, and expandable run details with per-issue cost tracking.</p>
+      </div>
+
+      <div class="dash-frame reveal">
+        <div class="dash-titlebar">
+          <span class="titlebar-dot dot-red"></span>
+          <span class="titlebar-dot dot-yellow"></span>
+          <span class="titlebar-dot dot-green"></span>
+          <span class="titlebar-label">/admin/triage</span>
+        </div>
+        <div class="dash-body">
+          <!-- Stats -->
+          <div class="dash-stats">
+            <div class="dash-stat">
+              <div class="dash-stat-label">Total Runs</div>
+              <div class="dash-stat-val val-default">1</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Issues Processed</div>
+              <div class="dash-stat-val val-default">5</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Needs Review</div>
+              <div class="dash-stat-val val-yellow">1</div>
+            </div>
+            <div class="dash-stat">
+              <div class="dash-stat-label">Total Cost</div>
+              <div class="dash-stat-val val-default">$1.69</div>
+            </div>
+          </div>
+
+          <!-- Breakdown bar -->
+          <div class="dash-bar-section">
+            <div class="dash-bar-label">Decision Breakdown</div>
+            <div class="dash-bar">
+              <div class="bar-yellow" style="width: 20%;"></div>
+              <div class="bar-gray" style="width: 80%;"></div>
+            </div>
+            <div class="dash-legend">
+              <div class="legend-item"><div class="legend-dot" style="background: var(--green);"></div> Auto-fixed (0)</div>
+              <div class="legend-item"><div class="legend-dot" style="background: var(--yellow);"></div> Needs review (1)</div>
+              <div class="legend-item"><div class="legend-dot" style="background: #555;"></div> Not a bug (4)</div>
+            </div>
+          </div>
+
+          <!-- Table -->
+          <div class="dash-bar-label" style="margin-bottom: 8px;">Run Details &mdash; Mar 8, 2026, 9:14 PM</div>
+          <div class="dash-table-wrap">
+            <table class="dash-table">
+              <thead>
+                <tr>
+                  <th>Issue</th>
+                  <th>Title</th>
+                  <th>Decision</th>
+                  <th>Confidence</th>
+                  <th style="text-align: right;">Cost</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><span class="dash-link">#100</span></td>
+                  <td>Where do I see my progress dashboard?</td>
+                  <td><span class="decision-badge d-not-a-bug">not a bug</span></td>
+                  <td><span class="conf-high">high</span></td>
+                  <td style="text-align: right;">$0.48</td>
+                </tr>
+                <tr>
+                  <td><span class="dash-link">#101</span></td>
+                  <td>I don't see the end result of this question</td>
+                  <td><span class="decision-badge d-not-a-bug">not a bug</span></td>
+                  <td><span class="conf-high">high</span></td>
+                  <td style="text-align: right;">$0.25</td>
+                </tr>
+                <tr>
+                  <td><span class="dash-link">#103</span></td>
+                  <td>Doesn't bring me back to dashboard</td>
+                  <td><span class="decision-badge d-not-a-bug">not a bug</span></td>
+                  <td><span class="conf-high">high</span></td>
+                  <td style="text-align: right;">$0.42</td>
+                </tr>
+                <tr>
+                  <td><span class="dash-link">#105</span></td>
+                  <td>Passed these stages yesterday, doesn't show</td>
+                  <td><span class="decision-badge d-not-a-bug">not a bug</span></td>
+                  <td><span class="conf-high">high</span></td>
+                  <td style="text-align: right;">$0.28</td>
+                </tr>
+                <tr>
+                  <td><span class="dash-link">#106</span></td>
+                  <td>Finished challenge but didn't advance</td>
+                  <td><span class="decision-badge d-needs-review">needs review</span></td>
+                  <td><span class="conf-low">low</span></td>
+                  <td style="text-align: right;">$0.27</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Batteries included, guardrails built in.</h2>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x26A1;</div>
+          <h3>Zero config</h3>
+          <p>Auto-detects GitHub token from <code>gh auth token</code>, repo from git remote, Claude auth from local installation. No .env file required for basic operation.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F50D;</div>
+          <h3>Two-phase investigation</h3>
+          <p>Phase 1: read-only Claude Code instance for investigation. Phase 2: write+git instance only if the bug is valid, high confidence, and auto-fixable.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F6E1;&#xFE0F;</div>
+          <h3>Draft PRs only</h3>
+          <p>Never auto-merges. All fixes go through draft PRs for human review. Low-confidence bugs are always routed to manual review.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F9EA;</div>
+          <h3>Dry run mode</h3>
+          <p><code>DRY_RUN=true</code> logs every decision without executing any GitHub actions. Safe testing before going live.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F4DD;</div>
+          <h3>Git history awareness</h3>
+          <p>Checks recent commits before investigating. If a bug was already fixed in a recent commit, it's classified as not-a-bug automatically.</p>
+        </div>
+        <div class="feature-card reveal">
+          <div class="feature-icon">&#x1F4E7;</div>
+          <h3>Email notifications</h3>
+          <p>Server sends terminal-noir themed emails to reporters (fix created / confirmed / not a bug) and admin digest after each cycle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECH STACK -->
+  <section class="stack-section" id="stack">
+    <div class="wrap">
+      <div class="reveal">
+        <p class="section-label">Tech Stack</p>
+        <h2 class="section-title">Minimal dependencies, maximum leverage.</h2>
+      </div>
+
+      <div class="stack-grid reveal">
+        <span class="stack-tag">Claude Code Agent SDK</span>
+        <span class="stack-tag">TypeScript</span>
+        <span class="stack-tag">Node.js</span>
+        <span class="stack-tag">Octokit</span>
+        <span class="stack-tag">Zod</span>
+        <span class="stack-tag">macOS launchd</span>
+        <span class="stack-tag">Express</span>
+        <span class="stack-tag">PostgreSQL</span>
+        <span class="stack-tag">Drizzle ORM</span>
+        <span class="stack-tag">Resend</span>
+        <span class="stack-tag">React</span>
+        <span class="stack-tag">Tailwind CSS</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>Built for <a href="https://about.zero2claude.dev">From Zero to Claude Code</a></p>
+      <p style="margin-top: 8px; color: var(--text-muted);">The agent that triages its own bug reports.</p>
+    </div>
+  </footer>
+
+  <!-- SCROLL REVEAL -->
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
