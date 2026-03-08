@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="7" fill="#09090B"/>
+  <rect x="1" y="1" width="30" height="30" rx="6" fill="none" stroke="#2A2A2E" stroke-width="1"/>
+  <!-- Heartbeat/pulse line -->
+  <polyline points="4,18 9,18 11,12 13,22 15,14 17,18 20,18" fill="none" stroke="#FF6B35" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Terminal cursor -->
+  <rect x="21" y="15" width="7" height="3" rx="0.5" fill="#FF6B35" opacity="0.8"/>
+  <!-- Code brackets -->
+  <text x="8" y="12" font-family="monospace" font-size="7" font-weight="bold" fill="#6B6B6B">{</text>
+  <text x="21" y="12" font-family="monospace" font-size="7" font-weight="bold" fill="#6B6B6B">}</text>
+</svg>
