@@ -229,6 +229,8 @@ window.I18N = {
     "footer.startLearning": "Start Learning",
     "footer.logIn": "Log In",
     "footer.forum": "Community Forum",
+    "footer.terms": "Terms of Service",
+    "footer.privacy": "Privacy Policy",
     "footer.tagline": "From curious beginner to confident builder.",
     "footer.copy": "© 2026 From Zero to Claude Code. All rights reserved."
   },
@@ -458,6 +460,8 @@ window.I18N = {
     "footer.startLearning": "Empezar a Aprender",
     "footer.logIn": "Iniciar Sesión",
     "footer.forum": "Foro de la Comunidad",
+    "footer.terms": "Condiciones del Servicio",
+    "footer.privacy": "Política de Privacidad",
     "footer.tagline": "De principiante curioso a constructor seguro.",
     "footer.copy": "© 2026 De Cero a Claude Code. Todos los derechos reservados."
   },
@@ -687,6 +691,8 @@ window.I18N = {
     "footer.startLearning": "Почати Навчання",
     "footer.logIn": "Увійти",
     "footer.forum": "Форум Спільноти",
+    "footer.terms": "Умови Використання",
+    "footer.privacy": "Політика Конфіденційності",
     "footer.tagline": "Від допитливого початківця до впевненого творця.",
     "footer.copy": "© 2026 Від Нуля до Claude Code. Всі права захищені."
   },
@@ -916,6 +922,8 @@ window.I18N = {
     "footer.startLearning": "התחילו ללמוד",
     "footer.logIn": "התחברו",
     "footer.forum": "פורום הקהילה",
+    "footer.terms": "תנאי שימוש",
+    "footer.privacy": "מדיניות פרטיות",
     "footer.tagline": "ממתחיל סקרן לבונה בטוח.",
     "footer.copy": "© 2026 מאפס ל-Claude Code. כל הזכויות שמורות."
   },
@@ -1146,6 +1154,8 @@ window.I18N = {
     "footer.startLearning": "ابدأ التعلّم",
     "footer.logIn": "تسجيل الدخول",
     "footer.forum": "منتدى المجتمع",
+    "footer.terms": "شروط الخدمة",
+    "footer.privacy": "سياسة الخصوصية",
     "footer.tagline": "من مبتدئ فضولي إلى بانٍ واثق.",
     "footer.copy": "© 2026 من الصفر إلى Claude Code. جميع الحقوق محفوظة."
   }
