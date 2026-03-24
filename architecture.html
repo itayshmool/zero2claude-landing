@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zero2Claude Architecture Overview</title>
+<style>
+  :root {
+    --bg: #09090B; --surface: #18181B; --border: #27272A;
+    --text: #F4F4F5; --text-dim: #A1A1AA;
+    --blue: #60A5FA; --green: #6ABF69; --purple: #C084FC;
+    --orange: #FF6B35; --pink: #F472B6; --yellow: #FACC15;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--bg); color:var(--text); font-family:system-ui,-apple-system,sans-serif; padding:24px; max-width:1200px; margin:0 auto; }
+  h1 { font-family:'SF Mono',Monaco,monospace; font-size:28px; margin-bottom:4px; }
+  .subtitle { color:var(--text-dim); font-size:14px; margin-bottom:32px; }
+
+  /* Stats bar */
+  .stats-bar { display:flex; gap:24px; flex-wrap:wrap; margin-bottom:32px; padding:16px 20px; background:var(--surface); border:1px solid var(--border); border-radius:12px; }
+  .stat { display:flex; flex-direction:column; }
+  .stat-value { font-size:22px; font-weight:700; font-family:'SF Mono',Monaco,monospace; }
+  .stat-label { font-size:11px; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.5px; }
+
+  /* Sections */
+  .section { margin-bottom:36px; }
+  .section-title { font-size:16px; font-weight:700; margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .dot { width:10px; height:10px; border-radius:50%; display:inline-block; }
+
+  /* Architecture diagram */
+  .arch-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:12px; }
+  .arch-tier { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; text-align:center; }
+  .arch-tier-label { font-size:11px; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; font-weight:600; }
+  .arch-tier-items { font-size:13px; color:var(--text-dim); line-height:1.8; }
+  .arch-arrow { display:flex; align-items:center; justify-content:center; color:var(--text-dim); font-size:20px; }
+
+  /* Flow */
+  .flow-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+  .flow-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; }
+  .flow-title { font-weight:700; font-size:14px; margin-bottom:6px; }
+  .flow-desc { font-size:12px; color:var(--text-dim); line-height:1.6; }
+
+  /* Curriculum */
+  .curriculum-table { width:100%; border-collapse:collapse; font-size:13px; }
+  .curriculum-table th { text-align:left; padding:8px 12px; border-bottom:2px solid var(--border); color:var(--text-dim); font-size:11px; text-transform:uppercase; }
+  .curriculum-table td { padding:8px 12px; border-bottom:1px solid var(--border); }
+  .level-id { font-family:'SF Mono',Monaco,monospace; font-weight:700; color:var(--orange); width:40px; }
+  .count { text-align:center; font-family:'SF Mono',Monaco,monospace; color:var(--yellow); }
+
+  /* Features */
+  .feature-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px; }
+  .feature-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; position:relative; }
+  .feature-name { font-weight:700; font-size:14px; margin-bottom:6px; }
+  .feature-desc { font-size:12px; color:var(--text-dim); line-height:1.5; }
+  .feature-tag { position:absolute; top:12px; right:12px; font-size:10px; padding:2px 8px; border-radius:6px; font-weight:600; }
+  .tag-live { background:rgba(106,191,105,0.15); color:var(--green); }
+  .tag-ai { background:rgba(192,132,252,0.15); color:var(--purple); }
+  .tag-realtime { background:rgba(96,165,250,0.15); color:var(--blue); }
+
+  /* Stack */
+  .stack-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(160px,1fr)); gap:12px; }
+  .stack-card { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:16px; }
+  .stack-category { font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px; }
+  .stack-items { font-size:13px; color:var(--text-dim); line-height:1.8; }
+
+  /* Deploy */
+  .deploy-flow { display:flex; gap:8px; flex-wrap:wrap; align-items:center; }
+  .deploy-step { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:12px 16px; text-align:center; min-width:120px; }
+  .step-num { font-size:20px; font-weight:800; color:var(--pink); font-family:'SF Mono',Monaco,monospace; }
+  .step-label { font-size:13px; font-weight:600; margin-top:4px; }
+  .step-detail { font-size:11px; color:var(--text-dim); margin-top:2px; }
+
+  @media(max-width:600px) {
+    .arch-grid { grid-template-columns:1fr; }
+    .arch-arrow { transform:rotate(90deg); }
+    .stats-bar { gap:16px; }
+  }
+</style>
+</head>
+<body>
+<div>
+
+<h1>Zero2Claude Architecture</h1>
+<p class="subtitle">An interactive web app teaching non-technical people the terminal and Claude Code</p>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="stat"><span class="stat-value" style="color:var(--orange);">147</span><span class="stat-label">Lessons</span></div>
+  <div class="stat"><span class="stat-value" style="color:var(--blue);">14</span><span class="stat-label">Levels</span></div>
+  <div class="stat"><span class="stat-value" style="color:var(--green);">15</span><span class="stat-label">Interactive Types</span></div>
+  <div class="stat"><span class="stat-value" style="color:var(--purple);">12</span><span class="stat-label">Platform Features</span></div>
+  <div class="stat"><span class="stat-value" style="color:var(--yellow);">1,200+</span><span class="stat-label">Students</span></div>
+</div>
+
+<!-- System Architecture -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--orange)"></span> System Architecture</div>
+  <div class="arch-grid">
+    <div class="arch-tier">
+      <div class="arch-tier-label" style="color:var(--blue);">Frontend</div>
+      <div class="arch-tier-items">
+        React SPA<br>
+        Virtual Terminal<br>
+        15 Interactive Components<br>
+        Real-time (WebSocket)
+      </div>
+    </div>
+    <div class="arch-arrow">&rarr;</div>
+    <div class="arch-tier">
+      <div class="arch-tier-label" style="color:var(--green);">API</div>
+      <div class="arch-tier-items">
+        RESTful Endpoints<br>
+        Authentication<br>
+        Content Moderation<br>
+        WebSocket Server
+      </div>
+    </div>
+    <div class="arch-arrow">&rarr;</div>
+    <div class="arch-tier">
+      <div class="arch-tier-label" style="color:var(--purple);">Data</div>
+      <div class="arch-tier-items">
+        PostgreSQL<br>
+        Redis (Pub/Sub)<br>
+        Full-text Search<br>
+        Migrations
+      </div>
+    </div>
+    <div class="arch-arrow">&rarr;</div>
+    <div class="arch-tier">
+      <div class="arch-tier-label" style="color:var(--yellow);">AI</div>
+      <div class="arch-tier-items">
+        Personalized Onboarding<br>
+        Bug Triage Agent<br>
+        Feature Request Bot<br>
+        Palette Generation
+      </div>
+    </div>
+    <div class="arch-arrow">&rarr;</div>
+    <div class="arch-tier">
+      <div class="arch-tier-label" style="color:var(--pink);">Infrastructure</div>
+      <div class="arch-tier-items">
+        Cloud Hosting<br>
+        CDN<br>
+        Auto-deploy<br>
+        Health Monitoring
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Key Data Flows -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--green)"></span> Key Data Flows</div>
+  <div class="flow-grid">
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--blue);">Lesson Flow</div>
+      <div class="flow-desc">Student opens lesson &rarr; frontend loads lesson JSON &rarr; renders sections sequentially (narrative, terminal exercises, quizzes) &rarr; progress synced to backend &rarr; achievement check on completion</div>
+    </div>
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--green);">Authentication</div>
+      <div class="flow-desc">Email/password or Google OAuth &rarr; server validates credentials &rarr; issues access + refresh tokens &rarr; frontend auto-refreshes on expiry &rarr; cross-origin cookie support</div>
+    </div>
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--purple);">Forum</div>
+      <div class="flow-desc">Student creates thread &rarr; content moderation pipeline (HTML strip, profanity filter, spam detection) &rarr; stored with full-text search vector &rarr; voting + replies</div>
+    </div>
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--blue);">Peer Help</div>
+      <div class="flow-desc">Student requests help on a lesson &rarr; broadcast via WebSocket &rarr; peer accepts &rarr; real-time chat with moderation &rarr; session closes when resolved</div>
+    </div>
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--yellow);">AI Onboarding</div>
+      <div class="flow-desc">New user describes background &rarr; AI generates personalized learning plan &rarr; priority levels + recommended lessons &rarr; plan shown in dashboard</div>
+    </div>
+    <div class="flow-card">
+      <div class="flow-title" style="color:var(--yellow);">Bug Triage Agent</div>
+      <div class="flow-desc">GitHub issue created &rarr; agent polls hourly &rarr; AI investigates codebase &rarr; creates fix branch + draft PR &rarr; notifies reporter when fix deploys</div>
+    </div>
+  </div>
+</div>
+
+<!-- Curriculum -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--yellow)"></span> Curriculum (147 Lessons)</div>
+  <table class="curriculum-table">
+    <thead><tr><th>Level</th><th>Title</th><th style="text-align:center">Lessons</th><th>Topics</th></tr></thead>
+    <tbody>
+      <tr><td class="level-id">0</td><td>Computers Are Not Magic</td><td class="count">6</td><td>Files, folders, paths, what a terminal is</td></tr>
+      <tr><td class="level-id">1</td><td>Your First 30 Minutes in the Terminal</td><td class="count">13</td><td>Navigate, create, manage files</td></tr>
+      <tr><td class="level-id">2</td><td>Reading and Writing Files</td><td class="count">13</td><td>View files, search text, chain commands</td></tr>
+      <tr><td class="level-id">3</td><td>Your Code Has a History</td><td class="count">17</td><td>Git and GitHub fundamentals</td></tr>
+      <tr><td class="level-id">4</td><td>How Software Actually Works</td><td class="count">14</td><td>Client/server, APIs, databases, cloud</td></tr>
+      <tr><td class="level-id">4B</td><td>Talk to the Internet</td><td class="count">12</td><td>HTTP requests, real APIs, curl</td></tr>
+      <tr><td class="level-id">5</td><td>Building With Real Tools</td><td class="count">15</td><td>Node.js, npm, Express server</td></tr>
+      <tr><td class="level-id">6</td><td>Claude Code &mdash; Your AI Pair Programmer</td><td class="count">15</td><td>Prompting, editing, building with Claude</td></tr>
+      <tr><td class="level-id">6B</td><td>Claude Skills</td><td class="count">5</td><td>Custom slash commands, SKILL.md</td></tr>
+      <tr><td class="level-id">6C</td><td>MCP &mdash; Connect Claude to Everything</td><td class="count">5</td><td>MCP servers, transports, Tool Search</td></tr>
+      <tr><td class="level-id">6D</td><td>Context Is Everything</td><td class="count">5</td><td>CLAUDE.md, memory, sessions, specs</td></tr>
+      <tr><td class="level-id">6E</td><td>Claude Code Advanced</td><td class="count">5</td><td>Subagents, worktrees, hooks, headless, cost</td></tr>
+      <tr><td class="level-id">7</td><td>Junior Developer Patterns</td><td class="count">12</td><td>Debug, deploy, security, pro workflow</td></tr>
+      <tr><td class="level-id">8</td><td>The Project &mdash; Build a Real Game</td><td class="count">10</td><td>WebSockets, Socket.io, multiplayer, deploy</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Deployment -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--pink)"></span> Deployment Pipeline</div>
+  <div class="deploy-flow">
+    <div class="deploy-step">
+      <div class="step-num">1</div>
+      <div class="step-label">Push to Main</div>
+      <div class="step-detail">Git triggers deploy</div>
+    </div>
+    <div class="deploy-step">
+      <div class="step-num">2</div>
+      <div class="step-label">Build</div>
+      <div class="step-detail">Compile + bundle</div>
+    </div>
+    <div class="deploy-step">
+      <div class="step-num">3</div>
+      <div class="step-label">Migrate</div>
+      <div class="step-detail">Schema updates</div>
+    </div>
+    <div class="deploy-step">
+      <div class="step-num">4</div>
+      <div class="step-label">Seed</div>
+      <div class="step-detail">147 lessons synced</div>
+    </div>
+    <div class="deploy-step">
+      <div class="step-num">5</div>
+      <div class="step-label">Rolling Deploy</div>
+      <div class="step-detail">Zero downtime</div>
+    </div>
+    <div class="deploy-step">
+      <div class="step-num">6</div>
+      <div class="step-label">Health Check</div>
+      <div class="step-detail">Automated monitoring</div>
+    </div>
+  </div>
+</div>
+
+<!-- Platform Features -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--orange)"></span> Platform Features</div>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <div class="feature-name">Interactive Terminal</div>
+      <div class="feature-desc">Virtual filesystem with command parser and git simulation. 15 interactive exercise types including terminal steps, quizzes, fill-in-blank, drag-and-drop, and more.</div>
+      <span class="feature-tag tag-live">CORE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Community Forum</div>
+      <div class="feature-desc">Discussion categories, threads, replies, voting, full-text search, image attachments, and content moderation.</div>
+      <span class="feature-tag tag-live">LIVE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Peer Help</div>
+      <div class="feature-desc">Real-time help requests and chat. Students can ask for help on specific lessons and peers can assist live.</div>
+      <span class="feature-tag tag-realtime">REAL-TIME</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">AI Onboarding</div>
+      <div class="feature-desc">AI-generated personalized learning plans based on student background. Recommends priority levels and lessons.</div>
+      <span class="feature-tag tag-ai">AI</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Bug Triage Agent</div>
+      <div class="feature-desc">AI agent that auto-investigates GitHub issues, creates fix branches and draft PRs, and notifies reporters.</div>
+      <span class="feature-tag tag-ai">AI AGENT</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Achievement System</div>
+      <div class="feature-desc">16 achievements across milestones, streaks, speed, and level mastery. Toast notifications on unlock.</div>
+      <span class="feature-tag tag-live">LIVE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Color Palette System</div>
+      <div class="feature-desc">Multiple visual themes with user selection. AI-powered palette generation for admins.</div>
+      <span class="feature-tag tag-live">LIVE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Text-to-Speech</div>
+      <div class="feature-desc">Browser-native speech synthesis reads lesson content aloud. Configurable voice, rate, and pitch.</div>
+      <span class="feature-tag tag-live">LIVE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Personal Notes</div>
+      <div class="feature-desc">Full CRUD notes system tied to specific lessons. Dashboard tab, in-lesson quick-add, markdown support.</div>
+      <span class="feature-tag tag-live">LIVE</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Product Genie</div>
+      <div class="feature-desc">AI classifies forum feature requests, replies as a bot, and creates GitHub issues for the backlog.</div>
+      <span class="feature-tag tag-ai">AI AGENT</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Admin Dashboard</div>
+      <div class="feature-desc">Comprehensive management: student analytics, lesson editor, theme editor, forum moderation, and more.</div>
+      <span class="feature-tag tag-live">ADMIN</span>
+    </div>
+    <div class="feature-card">
+      <div class="feature-name">Maintenance Mode</div>
+      <div class="feature-desc">Smart health monitoring with automatic detection and graceful degradation during outages.</div>
+      <span class="feature-tag tag-live">ADMIN</span>
+    </div>
+  </div>
+</div>
+
+<!-- Tech Stack (high-level only) -->
+<div class="section">
+  <div class="section-title"><span class="dot" style="background:var(--text-dim)"></span> Tech Stack</div>
+  <div class="stack-grid">
+    <div class="stack-card">
+      <div class="stack-category" style="color:var(--blue);">Frontend</div>
+      <div class="stack-items">React + TypeScript<br>Vite<br>Tailwind CSS<br>Socket.IO</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-category" style="color:var(--green);">Backend</div>
+      <div class="stack-items">Node.js + Express<br>PostgreSQL<br>Drizzle ORM<br>Redis</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-category" style="color:var(--yellow);">AI</div>
+      <div class="stack-items">Anthropic (Claude)<br>Google (Gemini)<br>Claude Code Agent SDK</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-category" style="color:var(--pink);">Infrastructure</div>
+      <div class="stack-items">Cloud Hosting + CDN<br>Auto-deploy on Push<br>Health Monitoring</div>
+    </div>
+    <div class="stack-card">
+      <div class="stack-category" style="color:var(--text-dim);">Testing</div>
+      <div class="stack-items">Vitest (985+ tests)<br>React Testing Library<br>API integration tests</div>
+    </div>
+  </div>
+</div>
+
+<div style="text-align:center;padding:32px 0;color:var(--text-dim);font-size:11px;font-family:'SF Mono',Monaco,monospace;">
+  zero2claude.dev &middot; Architecture Overview
+</div>
+
+</div>
+</body>
+</html>
