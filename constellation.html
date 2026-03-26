@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Zero to Claude Code — Constellation Demo</title>
+  <meta name="description" content="An interactive web app teaching non-technical people the terminal. 147 bite-sized lessons across 14 levels, AI personalization, community forum, achievements. No experience needed.">
+  <meta name="theme-color" content="#09090B">
+  <link rel="canonical" href="https://about.zero2claude.dev">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://about.zero2claude.dev">
+  <meta property="og:title" content="From Zero to Claude Code — Learn the Command Line from Zero">
+  <meta property="og:description" content="147 interactive lessons for non-technical people. AI-powered personalization, community forum, achievements, progress tracking. No experience needed.">
+  <meta property="og:image" content="https://about.zero2claude.dev/social-share.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="From Zero to Claude Code: 147 interactive command-line lessons with AI guidance and progress tracking.">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="From Zero to Claude Code">
+  <meta name="twitter:description" content="Learn the command line from zero. 147 interactive lessons for non-technical people.">
+  <meta name="twitter:image" content="https://about.zero2claude.dev/social-share.png">
+  <meta name="twitter:image:alt" content="From Zero to Claude Code social share image with terminal-style preview and learning highlights.">
+
+  <!-- Alternate languages -->
+  <link rel="alternate" hreflang="en" href="https://about.zero2claude.dev">
+  <link rel="alternate" hreflang="es" href="https://about.zero2claude.dev?lang=es">
+  <link rel="alternate" hreflang="uk" href="https://about.zero2claude.dev?lang=uk">
+  <link rel="alternate" hreflang="he" href="https://about.zero2claude.dev?lang=he">
+  <link rel="alternate" hreflang="ar" href="https://about.zero2claude.dev?lang=ar">
+  <link rel="alternate" hreflang="x-default" href="https://about.zero2claude.dev">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- i18n early detection -->
+  <script>
+  (function(){
+    var A=['en','es','uk','he','ar'],l=null;
+    var p=new URLSearchParams(location.search).get('lang');
+    if(p&&A.indexOf(p)>=0)l=p;
+    if(!l){var s=localStorage.getItem('landing-lang');if(s&&A.indexOf(s)>=0)l=s;}
+    if(!l){var b=(navigator.language||'').slice(0,2);if(A.indexOf(b)>=0)l=b;}
+    if(!l)l='en';
+    document.documentElement.lang=l;
+    if(l==='he'||l==='ar')document.documentElement.dir='rtl';
+  })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="i18n-loading">
+<noscript><style>body.i18n-loading{visibility:visible!important}</style></noscript>
+
+  <!-- Skip Link -->
+  <a href="#main" class="skip-link" data-i18n="nav.skip">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#" class="logo" aria-label="From Zero to Claude Code — Home" data-i18n-aria="nav.logoAria">
+        <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+          <path d="m3.127 10.604 3.135-1.76.053-.153-.053-.085H6.11l-.525-.032-1.791-.048-1.554-.065-1.505-.08-.38-.081L0 7.832l.036-.234.32-.214.455.04 1.009.069 1.513.105 1.097.064 1.626.17h.259l.036-.105-.089-.065-.068-.064-1.566-1.062-1.695-1.121-.887-.646-.48-.327-.243-.306-.104-.67.435-.48.585.04.15.04.593.456 1.267.981 1.654 1.218.242.202.097-.068.012-.049-.109-.181-.9-1.626-.96-1.655-.428-.686-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089.279.242.411.94.666 1.48 1.033 2.014.302.597.162.553.06.17h.105v-.097l.085-1.134.157-1.392.154-1.792.052-.504.25-.605.497-.327.387.186.319.456-.045.294-.19 1.23-.37 1.93-.243 1.29h.142l.161-.16.654-.868 1.097-1.372.484-.545.565-.601.363-.287h.686l.505.751-.226.775-.707.895-.585.759-.839 1.13-.524.904.048.072.125-.012 1.897-.403 1.024-.186 1.223-.21.553.258.06.263-.218.536-1.307.323-1.533.307-2.284.54-.028.02.032.04 1.029.098.44.024h1.077l2.005.15.525.346.315.424-.053.323-.807.411-3.631-.863-.872-.218h-.12v.073l.726.71 1.331 1.202 1.667 1.55.084.383-.214.302-.226-.032-1.464-1.101-.565-.497-1.28-1.077h-.084v.113l.295.432 1.557 2.34.08.718-.112.234-.404.141-.444-.08-.911-1.28-.94-1.44-.759-1.291-.093.053-.448 4.821-.21.246-.484.186-.403-.307-.214-.496.214-.98.258-1.28.21-1.016.19-1.263.112-.42-.008-.028-.092.012-.953 1.307-1.448 1.957-1.146 1.227-.274.109-.477-.247.045-.44.266-.39 1.586-2.018.956-1.25.617-.723-.004-.105h-.036l-4.212 2.736-.75.096-.324-.302.04-.496.154-.162 1.267-.871z"/>
+        </svg>
+        <span data-i18n="footer.brand">From Zero to Claude Code</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="desktop-nav" aria-label="Main navigation">
+        <a href="#journey" data-i18n="nav.journey">Your Journey</a>
+        <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+        <a href="#features" data-i18n="nav.features">Why It's Fun</a>
+        <a href="#community" data-i18n="nav.community">Community</a>
+        <a href="#get-started" data-i18n="nav.getStarted">Get Started</a>
+        <a href="https://zero2claude.dev/register" class="btn-header-cta" data-i18n="nav.startLearning">Start Learning</a>
+        <button class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme" data-i18n-aria="nav.themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <div class="lang-switcher">
+          <button class="lang-current" aria-haspopup="listbox" aria-expanded="false">
+            <span class="lang-code">EN</span>
+            <svg class="lang-chevron" viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+          </button>
+          <ul class="lang-options" role="listbox">
+            <li role="option" data-lang="en"><span class="lang-flag">🇬🇧</span> English</li>
+            <li role="option" data-lang="es"><span class="lang-flag">🇪🇸</span> Español</li>
+            <li role="option" data-lang="uk"><span class="lang-flag">🇺🇦</span> Українська</li>
+            <li role="option" data-lang="he"><span class="lang-flag">🇮🇱</span> עברית</li>
+            <li role="option" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="header-right-mobile">
+        <button class="theme-toggle" aria-label="Toggle light/dark mode" title="Toggle theme" data-i18n-aria="nav.themeToggle">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <!-- Hamburger (mobile) -->
+        <button class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav" data-i18n-aria="nav.openMenu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+          <path d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Nav Overlay -->
+  <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Navigation menu" data-i18n-aria="nav.navMenu">
+    <button class="mobile-nav-close" aria-label="Close menu" data-i18n-aria="nav.closeMenu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <div class="mobile-lang-row">
+      <button class="mobile-lang-btn" data-lang="en">EN</button>
+      <button class="mobile-lang-btn" data-lang="es">ES</button>
+      <button class="mobile-lang-btn" data-lang="uk">UK</button>
+      <button class="mobile-lang-btn" data-lang="he">HE</button>
+      <button class="mobile-lang-btn" data-lang="ar">AR</button>
+    </div>
+    <a href="#journey" data-i18n="nav.journey">Your Journey</a>
+    <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
+    <a href="#features" data-i18n="nav.features">Why It's Fun</a>
+    <a href="#community" data-i18n="nav.community">Community</a>
+    <a href="#get-started" data-i18n="nav.getStarted">Get Started</a>
+    <a href="https://zero2claude.dev/register" class="btn-primary" data-i18n="nav.startLearning">Start Learning</a>
+  </div>
+
+  <!-- ========== MAIN ========== -->
+  <main id="main">
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-icon">
+            <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
+              <path d="m3.127 10.604 3.135-1.76.053-.153-.053-.085H6.11l-.525-.032-1.791-.048-1.554-.065-1.505-.08-.38-.081L0 7.832l.036-.234.32-.214.455.04 1.009.069 1.513.105 1.097.064 1.626.17h.259l.036-.105-.089-.065-.068-.064-1.566-1.062-1.695-1.121-.887-.646-.48-.327-.243-.306-.104-.67.435-.48.585.04.15.04.593.456 1.267.981 1.654 1.218.242.202.097-.068.012-.049-.109-.181-.9-1.626-.96-1.655-.428-.686-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089.279.242.411.94.666 1.48 1.033 2.014.302.597.162.553.06.17h.105v-.097l.085-1.134.157-1.392.154-1.792.052-.504.25-.605.497-.327.387.186.319.456-.045.294-.19 1.23-.37 1.93-.243 1.29h.142l.161-.16.654-.868 1.097-1.372.484-.545.565-.601.363-.287h.686l.505.751-.226.775-.707.895-.585.759-.839 1.13-.524.904.048.072.125-.012 1.897-.403 1.024-.186 1.223-.21.553.258.06.263-.218.536-1.307.323-1.533.307-2.284.54-.028.02.032.04 1.029.098.44.024h1.077l2.005.15.525.346.315.424-.053.323-.807.411-3.631-.863-.872-.218h-.12v.073l.726.71 1.331 1.202 1.667 1.55.084.383-.214.302-.226-.032-1.464-1.101-.565-.497-1.28-1.077h-.084v.113l.295.432 1.557 2.34.08.718-.112.234-.404.141-.444-.08-.911-1.28-.94-1.44-.759-1.291-.093.053-.448 4.821-.21.246-.484.186-.403-.307-.214-.496.214-.98.258-1.28.21-1.016.19-1.263.112-.42-.008-.028-.092.012-.953 1.307-1.448 1.957-1.146 1.227-.274.109-.477-.247.045-.44.266-.39 1.586-2.018.956-1.25.617-.723-.004-.105h-.036l-4.212 2.736-.75.096-.324-.302.04-.496.154-.162 1.267-.871z"/>
+            </svg>
+          </div>
+
+          <h1 class="hero-title" data-i18n="hero.title">From Zero to Claude Code</h1>
+
+          <p class="hero-headline" data-i18n-html="hero.headline">You don't need to be a developer.<br>You just need to be curious.</p>
+
+          <p class="hero-subtext" data-i18n="hero.subtext">147 bite-sized interactive lessons that teach you the command line — at your own pace, with zero prior experience needed.</p>
+
+          <ul class="hero-bullets">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-i18n="hero.bullet1">No coding background required</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-i18n="hero.bullet2">Learn by doing, not watching</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-i18n="hero.bullet3">AI creates a plan just for you</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
+              <span data-i18n="hero.bullet4">Track your progress and earn achievements</span>
+            </li>
+          </ul>
+
+          <div class="hero-ctas">
+            <a href="https://zero2claude.dev/register" class="btn-primary" data-i18n="hero.cta.primary">Start Your Journey</a>
+            <a href="https://zero2claude.dev/login" class="btn-secondary" data-i18n="hero.cta.secondary">Already learning? Welcome back</a>
+          </div>
+
+          <!-- Terminal Mockup -->
+          <div class="terminal-mockup" aria-hidden="true">
+            <div class="terminal-titlebar">
+              <span class="terminal-dot red"></span>
+              <span class="terminal-dot yellow"></span>
+              <span class="terminal-dot green"></span>
+            </div>
+            <div class="terminal-body">
+              <div class="terminal-line"><span class="terminal-prompt">$ </span><span class="terminal-command">whoami</span></div>
+              <div class="terminal-line"><span class="terminal-output" data-i18n="terminal.out1">future-developer</span></div>
+              <div class="terminal-line">&nbsp;</div>
+              <div class="terminal-line"><span class="terminal-prompt">$ </span><span class="terminal-command">echo "I can do this"</span></div>
+              <div class="terminal-line"><span class="terminal-output" data-i18n="terminal.out2">I can do this</span></div>
+              <div class="terminal-line"><span class="terminal-prompt">$ </span><span class="terminal-cursor"></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== YOUR JOURNEY ===== -->
+    <section id="journey">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="journey.title">Your Journey</h2>
+          <p data-i18n="journey.subtitle">From "what's a file?" to building real projects with AI. 14 levels, 147 lessons — one step at a time.</p>
+        </div>
+
+        <div class="journey-grid stagger-children">
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F4BB;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level1.number">Level 1</div>
+              <h3 data-i18n="level1.name">Computers Are Not Magic</h3>
+              <p class="subtitle" data-i18n="level1.subtitle">Files, folders, paths, and what a terminal actually is</p>
+              <p class="encouragement" data-i18n="level1.encouragement">Start here. We explain everything.</p>
+              <span class="lesson-count" data-i18n="level1.lessons">6 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F4DF;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level2.number">Level 2</div>
+              <h3 data-i18n="level2.name">Your First 30 Minutes in the Terminal</h3>
+              <p class="subtitle" data-i18n="level2.subtitle">Navigate, create, and manage files like a developer</p>
+              <p class="encouragement" data-i18n="level2.encouragement">Type your first command. It's easier than you think.</p>
+              <span class="lesson-count" data-i18n="level2.lessons">13 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F4D6;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level3.number">Level 3</div>
+              <h3 data-i18n="level3.name">Reading and Writing Files</h3>
+              <p class="subtitle" data-i18n="level3.subtitle">Look inside files, search for text, and chain commands together</p>
+              <p class="encouragement" data-i18n="level3.encouragement">Look inside files and search like a pro.</p>
+              <span class="lesson-count" data-i18n="level3.lessons">13 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F500;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level4.number">Level 4</div>
+              <h3 data-i18n="level4.name">Your Code Has a History</h3>
+              <p class="subtitle" data-i18n="level4.subtitle">Git and GitHub — never lose your work again</p>
+              <p class="encouragement" data-i18n="level4.encouragement">Never lose your work again with Git.</p>
+              <span class="lesson-count" data-i18n="level4.lessons">17 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x2601;&#xFE0F;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level5.number">Level 5</div>
+              <h3 data-i18n="level5.name">How Software Actually Works</h3>
+              <p class="subtitle" data-i18n="level5.subtitle">Client, server, APIs, databases, and the cloud — demystified</p>
+              <p class="encouragement" data-i18n="level5.encouragement">Finally understand APIs, servers, and the cloud.</p>
+              <span class="lesson-count" data-i18n="level5.lessons">14 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F4E1;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level6.number">Level 6</div>
+              <h3 data-i18n="level6.name">Talk to the Internet</h3>
+              <p class="subtitle" data-i18n="level6.subtitle">Make real HTTP requests, call real APIs, read real data</p>
+              <p class="encouragement" data-i18n="level6.encouragement">Make real requests to real websites.</p>
+              <span class="lesson-count" data-i18n="level6.lessons">12 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F528;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level7.number">Level 7</div>
+              <h3 data-i18n="level7.name">Building With Real Tools</h3>
+              <p class="subtitle" data-i18n="level7.subtitle">Install Node.js, run code, build a real server</p>
+              <p class="encouragement" data-i18n="level7.encouragement">Install Node.js and build a real server.</p>
+              <span class="lesson-count" data-i18n="level7.lessons">15 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F916;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level8.number">Level 8</div>
+              <h3 data-i18n="level8.name">Claude Code — Your AI Pair Programmer</h3>
+              <p class="subtitle" data-i18n="level8.subtitle">Build real projects by describing what you want</p>
+              <p class="encouragement" data-i18n="level8.encouragement">Describe what you want. AI builds it.</p>
+              <span class="lesson-count" data-i18n="level8.lessons">15 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x2699;&#xFE0F;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level9.number">Level 9</div>
+              <h3 data-i18n="level9.name">Claude Skills — Teach Claude Your Workflow</h3>
+              <p class="subtitle" data-i18n="level9.subtitle">Custom slash commands and SKILL.md files</p>
+              <p class="encouragement" data-i18n="level9.encouragement">Make Claude work the way you work.</p>
+              <span class="lesson-count" data-i18n="level9.lessons">5 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F50C;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level10.number">Level 10</div>
+              <h3 data-i18n="level10.name">MCP — Connect Claude to Everything</h3>
+              <p class="subtitle" data-i18n="level10.subtitle">MCP servers, transports, and Tool Search</p>
+              <p class="encouragement" data-i18n="level10.encouragement">Give Claude access to your tools and data.</p>
+              <span class="lesson-count" data-i18n="level10.lessons">5 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F4CB;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level11.number">Level 11</div>
+              <h3 data-i18n="level11.name">Context Is Everything</h3>
+              <p class="subtitle" data-i18n="level11.subtitle">CLAUDE.md, memory, sessions, specs, and handoffs</p>
+              <p class="encouragement" data-i18n="level11.encouragement">Help Claude understand your project deeply.</p>
+              <span class="lesson-count" data-i18n="level11.lessons">5 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x26A1;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level12.number">Level 12</div>
+              <h3 data-i18n="level12.name">Claude Code Advanced</h3>
+              <p class="subtitle" data-i18n="level12.subtitle">Subagents, worktrees, hooks, headless mode, and cost</p>
+              <p class="encouragement" data-i18n="level12.encouragement">Unlock Claude's most powerful features.</p>
+              <span class="lesson-count" data-i18n="level12.lessons">5 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F680;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level13.number">Level 13</div>
+              <h3 data-i18n="level13.name">Junior Developer Patterns</h3>
+              <p class="subtitle" data-i18n="level13.subtitle">Debug, deploy, and work like a professional</p>
+              <p class="encouragement" data-i18n="level13.encouragement">Debug, deploy, and think like a professional.</p>
+              <span class="lesson-count" data-i18n="level13.lessons">12 bite-sized lessons</span>
+            </div>
+          </div>
+
+          <div class="card level-card fade-in">
+            <div class="icon-box">&#x1F3AE;</div>
+            <div class="level-card-content">
+              <div class="level-number" data-i18n="level14.number">Level 14</div>
+              <h3 data-i18n="level14.name">The Project — Build a Real Game</h3>
+              <p class="subtitle" data-i18n="level14.subtitle">Build and deploy a real-time multiplayer tic-tac-toe game</p>
+              <p class="encouragement" data-i18n="level14.encouragement">Everything comes together. Ship a real multiplayer game.</p>
+              <span class="lesson-count" data-i18n="level14.lessons">10 bite-sized lessons</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HOW IT WORKS ===== -->
+    <section id="how-it-works" style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="how.title">How It Works</h2>
+          <p data-i18n="how.subtitle">No installations. No setup. Just open your browser and go.</p>
+        </div>
+
+        <div class="steps-grid stagger-children">
+
+          <div class="card step-card fade-in">
+            <div class="step-icon">&#x1F44B;</div>
+            <div class="step-number">1</div>
+            <h3 data-i18n="step1.title">Sign Up in Seconds</h3>
+            <p data-i18n="step1.text">Pick a username, set a password, and you're in. No credit card, no catches.</p>
+          </div>
+
+          <div class="card step-card fade-in">
+            <div class="step-icon">&#x2728;</div>
+            <div class="step-number">2</div>
+            <h3 data-i18n="step2.title">Get Your Personal AI Plan</h3>
+            <p data-i18n="step2.text">Tell us a bit about yourself — are you a designer? A student? Just curious? Our AI builds a learning path made for you.</p>
+          </div>
+
+          <div class="card step-card fade-in">
+            <div class="step-icon">&#x1F3AE;</div>
+            <div class="step-number">3</div>
+            <h3 data-i18n="step3.title">Learn by Playing</h3>
+            <p data-i18n="step3.text">Each lesson is a mini challenge. Type commands, match answers, explore file trees, solve puzzles. It feels more like a game than a class.</p>
+          </div>
+
+          <div class="card step-card fade-in">
+            <div class="step-icon">&#x1F3C6;</div>
+            <div class="step-number">4</div>
+            <h3 data-i18n="step4.title">Watch Yourself Level Up</h3>
+            <p data-i18n="step4.text">Earn achievements, build streaks, unlock levels. Your dashboard shows how far you've come.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY IT'S FUN ===== -->
+    <section id="features">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="features.title">Learning Should Feel Like Playing</h2>
+          <p data-i18n="features.subtitle">Interactive activities, AI guidance, and a reward system that keeps you coming back.</p>
+        </div>
+
+        <div class="features-grid stagger-children">
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box">&#x1F3B2;</div>
+            <h3 data-i18n="feature1.title">10 Ways to Learn</h3>
+            <p data-i18n="feature1.text">Quizzes, fill-in-the-blanks, terminal simulators, file tree puzzles, drag-and-match — every lesson keeps you engaged with something new.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box blue">&#x1F9E0;</div>
+            <h3 data-i18n="feature2.title">Your AI Coach</h3>
+            <p data-i18n="feature2.text">Not sure where to start? Tell the AI about your goals, and it highlights exactly which lessons matter most for you. Like having a personal tutor.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box yellow">&#x1F525;</div>
+            <h3 data-i18n="feature3.title">Achievements &amp; Streaks</h3>
+            <p data-i18n="feature3.text">Complete lessons to earn badges. Keep your streak alive. Unlock all 16 achievements. See that trophy count grow on your dashboard.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box green">&#x1F504;</div>
+            <h3 data-i18n="feature4.title">Pick Up Where You Left Off</h3>
+            <p data-i18n="feature4.text">Close your laptop, come back tomorrow — the app remembers exactly where you were. Even suggests what to review next.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box teal">&#x1F41B;</div>
+            <h3 data-i18n="feature5.title">Report a Bug, AI Fixes It</h3>
+            <p data-i18n="feature5.text">Found something broken? Report it right from the lesson. An AI agent picks it up, investigates, and opens a fix — automatically.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box blue">&#x1F3AF;</div>
+            <h3 data-i18n="feature6.title">AI-Powered Onboarding</h3>
+            <p data-i18n="feature6.text">Tell us about yourself — your background, goals, and experience. AI builds a personalized learning plan that highlights exactly what to focus on.</p>
+          </div>
+
+          <div class="card feature-card fade-in">
+            <div class="icon-box yellow">&#x1F50A;</div>
+            <h3 data-i18n="feature7.title">Listen to Your Lessons</h3>
+            <p data-i18n="feature7.text">Prefer listening over reading? Tap the listen button and every lesson reads itself aloud — perfect for multitasking or accessibility.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHO IT'S FOR ===== -->
+    <section style="background: var(--bg-secondary);">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="personas.title">Built for People Who've Never Opened a Terminal</h2>
+          <p data-i18n="personas.subtitle">No matter where you're starting from, there's a place for you here.</p>
+        </div>
+
+        <div class="persona-grid stagger-children">
+
+          <div class="card persona-card fade-in">
+            <div class="persona-avatar">&#x1F3A8;</div>
+            <h3 data-i18n="persona1.title">The Curious Creative</h3>
+            <p data-i18n="persona1.text">You're a designer, marketer, or writer who keeps hearing about "the terminal" and wants to finally get it.</p>
+          </div>
+
+          <div class="card persona-card fade-in">
+            <div class="persona-avatar">&#x1F504;</div>
+            <h3 data-i18n="persona2.title">The Career Switcher</h3>
+            <p data-i18n="persona2.text">You're exploring tech careers and need foundational skills before bootcamps or courses.</p>
+          </div>
+
+          <div class="card persona-card fade-in">
+            <div class="persona-avatar">&#x1F4DA;</div>
+            <h3 data-i18n="persona3.title">The Lifelong Learner</h3>
+            <p data-i18n="persona3.text">You just like understanding how things work. Computers shouldn't feel like black boxes.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== COMMUNITY ===== -->
+    <section id="community">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="community.title">You're Not Learning Alone</h2>
+          <p data-i18n="community.subtitle">A community of 200+ students asking questions, sharing projects, and shaping the platform together.</p>
+        </div>
+
+        <div class="community-grid stagger-children">
+
+          <!-- Genie / Feature Requests — hero card -->
+          <div class="card community-card community-hero-card fade-in">
+            <div class="community-card-inner">
+              <svg class="genie-lamp" viewBox="0 0 72 72" fill="none" aria-hidden="true">
+                <ellipse cx="36" cy="52" rx="24" ry="8" fill="#FF6B35" opacity="0.15"/>
+                <path d="M20 48 C20 42, 28 36, 36 36 C44 36, 52 42, 52 48 L50 52 C50 54, 44 56, 36 56 C28 56, 22 54, 22 52 Z" fill="#FF6B35"/>
+                <path d="M24 48 C24 44, 30 40, 36 40 C42 40, 48 44, 48 48" fill="#FF8F5E" opacity="0.4"/>
+                <path d="M48 44 L60 36 L62 38 L52 46" fill="#FF6B35"/>
+                <ellipse cx="36" cy="36" rx="10" ry="3" fill="#FF8F5E"/>
+                <path d="M36 33 L36 26" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="36" cy="23" r="3" fill="#FCD34D" opacity="0.9"/>
+                <circle cx="36" cy="23" r="5" fill="#FCD34D" opacity="0.3"/>
+                <circle cx="28" cy="28" r="1.5" fill="#FCD34D" opacity="0.6"/>
+                <circle cx="46" cy="30" r="1.5" fill="#FCD34D" opacity="0.5"/>
+                <path d="M22 44 C16 44, 14 40, 18 38" stroke="#FF6B35" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+              </svg>
+              <div>
+                <span class="community-tag" data-i18n-html="community.tag">&#x1F9DE; Feature Requests</span>
+                <h3 data-i18n="community.genie.title">Your Wish Is My Command</h3>
+                <p data-i18n="community.genie.text">Wish for a feature and the community votes. Top wishes get built. You don't just use this platform — you shape it.</p>
+                <a href="https://zero2claude.dev/forum" class="community-link" data-i18n-html="community.genie.link">Make a Wish &rarr;</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Forum -->
+          <div class="card community-card fade-in">
+            <div class="icon-box">&#x1F4AC;</div>
+            <h3 data-i18n="community.forum.title">Discussion Forum</h3>
+            <p data-i18n="community.forum.text">Ask questions, share what you've built, and help fellow students. Topics organized by lesson, level, and category.</p>
+            <a href="https://zero2claude.dev/forum" class="community-link" data-i18n-html="community.forum.link">Browse the Forum &rarr;</a>
+          </div>
+
+          <!-- Peer Help -->
+          <div class="card community-card fade-in">
+            <div class="icon-box green">&#x1F91D;</div>
+            <h3 data-i18n="community.help.title">Real-Time Peer Help</h3>
+            <p data-i18n="community.help.text">Stuck on a lesson? Request help and a fellow student can jump in to assist — live, in real time.</p>
+          </div>
+
+          <!-- Voting -->
+          <div class="card community-card fade-in">
+            <div class="icon-box yellow">&#x1F44D;</div>
+            <h3 data-i18n-html="community.vote.title">Upvote &amp; Discuss</h3>
+            <p data-i18n="community.vote.text">Every thread and reply can be upvoted. The best answers and ideas rise to the top, powered by the community.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== GETTING STARTED ===== -->
+    <section id="get-started">
+      <div class="container">
+        <div class="section-header fade-in">
+          <h2 class="accent-underline" data-i18n="getStarted.title">Ready? It Takes 30 Seconds.</h2>
+        </div>
+
+        <div class="getting-started-content">
+
+          <ol class="signup-steps fade-in">
+            <li>
+              <span class="step-num">1</span>
+              <span data-i18n-html="getStarted.step1">Go to <a href="https://zero2claude.dev">zero2claude.dev</a></span>
+            </li>
+            <li>
+              <span class="step-num">2</span>
+              <span data-i18n="getStarted.step2">Click "Create Account"</span>
+            </li>
+            <li>
+              <span class="step-num">3</span>
+              <span data-i18n="getStarted.step3">Pick a username and password</span>
+            </li>
+            <li>
+              <span class="step-num">4</span>
+              <span data-i18n="getStarted.step4">Start Level 1 — no experience needed</span>
+            </li>
+          </ol>
+
+          <!-- Form Mockup -->
+          <div class="form-mockup fade-in" aria-hidden="true">
+            <div class="form-mockup-icon">&gt;_</div>
+            <h3 data-i18n="getStarted.formTitle">Create account</h3>
+            <p class="form-sub" data-i18n="getStarted.formSub">Start your terminal training journey</p>
+            <div class="mock-input" data-i18n="getStarted.input1">your_username</div>
+            <div class="mock-input" data-i18n="getStarted.input2">Your Name</div>
+            <div class="mock-input" data-i18n="getStarted.input3">you@example.com</div>
+            <div class="mock-input" data-i18n="getStarted.input4">8+ characters</div>
+            <div class="mock-btn" data-i18n="getStarted.formBtn">Create account</div>
+          </div>
+
+        </div>
+
+        <div class="getting-started-cta fade-in">
+          <a href="https://zero2claude.dev/register" class="btn-primary" data-i18n="getStarted.cta">Create Your Account</a>
+          <small class="reassurance" data-i18n="getStarted.reassurance">No credit card. No spam. Just learning.</small>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="site-footer">
+    <div class="footer-logo">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" width="20" height="20">
+        <path d="m3.127 10.604 3.135-1.76.053-.153-.053-.085H6.11l-.525-.032-1.791-.048-1.554-.065-1.505-.08-.38-.081L0 7.832l.036-.234.32-.214.455.04 1.009.069 1.513.105 1.097.064 1.626.17h.259l.036-.105-.089-.065-.068-.064-1.566-1.062-1.695-1.121-.887-.646-.48-.327-.243-.306-.104-.67.435-.48.585.04.15.04.593.456 1.267.981 1.654 1.218.242.202.097-.068.012-.049-.109-.181-.9-1.626-.96-1.655-.428-.686-.113-.411a2 2 0 0 1-.068-.484l.496-.674L4.446 0l.662.089.279.242.411.94.666 1.48 1.033 2.014.302.597.162.553.06.17h.105v-.097l.085-1.134.157-1.392.154-1.792.052-.504.25-.605.497-.327.387.186.319.456-.045.294-.19 1.23-.37 1.93-.243 1.29h.142l.161-.16.654-.868 1.097-1.372.484-.545.565-.601.363-.287h.686l.505.751-.226.775-.707.895-.585.759-.839 1.13-.524.904.048.072.125-.012 1.897-.403 1.024-.186 1.223-.21.553.258.06.263-.218.536-1.307.323-1.533.307-2.284.54-.028.02.032.04 1.029.098.44.024h1.077l2.005.15.525.346.315.424-.053.323-.807.411-3.631-.863-.872-.218h-.12v.073l.726.71 1.331 1.202 1.667 1.55.084.383-.214.302-.226-.032-1.464-1.101-.565-.497-1.28-1.077h-.084v.113l.295.432 1.557 2.34.08.718-.112.234-.404.141-.444-.08-.911-1.28-.94-1.44-.759-1.291-.093.053-.448 4.821-.21.246-.484.186-.403-.307-.214-.496.214-.98.258-1.28.21-1.016.19-1.263.112-.42-.008-.028-.092.012-.953 1.307-1.448 1.957-1.146 1.227-.274.109-.477-.247.045-.44.266-.39 1.586-2.018.956-1.25.617-.723-.004-.105h-.036l-4.212 2.736-.75.096-.324-.302.04-.496.154-.162 1.267-.871z"/>
+      </svg>
+      <span data-i18n="footer.brand">From Zero to Claude Code</span>
+    </div>
+
+    <div class="footer-links">
+      <a href="https://zero2claude.dev/register" data-i18n="footer.startLearning">Start Learning</a>
+      <a href="https://zero2claude.dev/login" data-i18n="footer.logIn">Log In</a>
+      <a href="https://zero2claude.dev/forum" data-i18n="footer.forum">Community Forum</a>
+      <a href="https://zero2claude.dev/terms" data-i18n="footer.terms">Terms of Service</a>
+      <a href="https://zero2claude.dev/privacy" data-i18n="footer.privacy">Privacy Policy</a>
+      <a href="https://zero2claude.dev">zero2claude.dev</a>
+    </div>
+
+    <p class="footer-tagline" data-i18n="footer.tagline">Built with care for people starting from zero.</p>
+    <p class="footer-copy" data-i18n-html="footer.copy">&copy; 2026 From Zero to Claude Code</p>
+  </footer>
+
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+  <script src="command-constellation.js"></script>
+</body>
+</html>
