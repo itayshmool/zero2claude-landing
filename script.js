@@ -120,7 +120,7 @@
 
   // ---- i18n Translation Engine ----
   var LANG_KEY = 'landing-lang';
-  var AVAILABLE_LANGS = ['en', 'es', 'uk', 'he', 'ar'];
+  var AVAILABLE_LANGS = ['en', 'es', 'uk', 'he', 'ar', 'ja'];
   var RTL_LANGS = ['he', 'ar'];
 
   function getSavedLang() {

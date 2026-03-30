@@ -1,6 +1,6 @@
 /**
  * Internationalization strings for Zero2Claude landing page
- * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar)
+ * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar), Japanese (ja)
  */
 window.I18N = {
   en: {
@@ -1158,5 +1158,237 @@ window.I18N = {
     "footer.privacy": "سياسة الخصوصية",
     "footer.tagline": "من مبتدئ فضولي إلى بانٍ واثق.",
     "footer.copy": "© 2026 من الصفر إلى Claude Code. جميع الحقوق محفوظة."
+  },
+
+  ja: {
+    // META
+    "meta.title": "ゼロからClaude Codeへ — ターミナルとAI開発をゼロから学ぶ",
+    "meta.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。未経験でも大丈夫。",
+    "meta.og.title": "ゼロからClaude Codeへ",
+    "meta.og.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。",
+    "meta.og.imageAlt": "ゼロからClaude Codeへ - インタラクティブなターミナルトレーニング",
+    "meta.twitter.title": "ゼロからClaude Codeへ",
+    "meta.twitter.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。",
+
+    // NAV
+    "nav.journey": "学習ロードマップ",
+    "nav.how": "仕組み",
+    "nav.features": "特長",
+    "nav.community": "コミュニティ",
+    "nav.getStarted": "はじめる",
+    "nav.startLearning": "学び始める",
+    "nav.skip": "本文へスキップ",
+    "nav.logoAria": "ゼロからClaude Codeへ — ホーム",
+    "nav.themeToggle": "ライト/ダークモードを切り替える",
+    "nav.openMenu": "メニューを開く",
+    "nav.closeMenu": "メニューを閉じる",
+    "nav.navMenu": "ナビゲーションメニュー",
+
+    // LEVEL NUMBERS
+    "level1.number": "レベル 1",
+    "level2.number": "レベル 2",
+    "level3.number": "レベル 3",
+    "level4.number": "レベル 4",
+    "level5.number": "レベル 5",
+    "level6.number": "レベル 6",
+    "level7.number": "レベル 7",
+    "level8.number": "レベル 8",
+    "level9.number": "レベル 9",
+    "level10.number": "レベル 10",
+    "level11.number": "レベル 11",
+    "level12.number": "レベル 12",
+    "level13.number": "レベル 13",
+    "level14.number": "レベル 14",
+
+    // HERO
+    "hero.title": "ゼロからClaude Codeへ",
+    "hero.headline": "開発者じゃなくても大丈夫。<br>好奇心があれば、ここから始められます。",
+    "hero.subtext": "147のインタラクティブレッスンを完全な日本語で学びながら、「ターミナルって何？」からAIで実際のプロジェクトを作るところまで、一歩ずつ進めます。コーディング経験は不要です。",
+    "hero.bullet1": "100%ブラウザ完結。インストール不要",
+    "hero.bullet2": "見るだけで終わらない、手を動かす学習",
+    "hero.bullet3": "AIがあなたに合った学び方を提案",
+    "hero.bullet4": "プラットフォーム全体を完全な日本語で使える",
+    "hero.cta.primary": "無料で学び始める",
+    "hero.cta.secondary": "どんなふうに学ぶか見る",
+
+    // TERMINAL
+    "terminal.out1": "future-developer",
+    "terminal.out2": "私にもできる",
+
+    // JOURNEY
+    "journey.title": "学習ロードマップ",
+    "journey.subtitle": "全14レベル・147レッスン。はじめての一歩から、自分の力で作れるところまで。",
+
+    "level1.name": "コンピュータは魔法じゃない",
+    "level1.subtitle": "ファイル、フォルダ、パス、そしてターミナルとは何か",
+    "level1.encouragement": "ここがスタート地点。ひとつずつ丁寧に進めます。",
+    "level1.lessons": "短いレッスン6本",
+
+    "level2.name": "最初の30分で覚えるターミナル",
+    "level2.subtitle": "開発者のように移動し、作成し、ファイルを扱う",
+    "level2.encouragement": "最初のコマンドを打ってみましょう。きっと思ったよりやさしいです。",
+    "level2.lessons": "短いレッスン13本",
+
+    "level3.name": "ファイルを読む、書く",
+    "level3.subtitle": "ファイルの中身を見て、文字列を検索し、コマンドをつなげる",
+    "level3.encouragement": "ファイルの中身を見て、検索を自在に。",
+    "level3.lessons": "短いレッスン13本",
+
+    "level4.name": "コードには履歴がある",
+    "level4.subtitle": "GitとGitHubで作業を二度と失わない",
+    "level4.encouragement": "Gitで作業を安全に残しましょう。",
+    "level4.lessons": "短いレッスン17本",
+
+    "level5.name": "ソフトウェアはこう動く",
+    "level5.subtitle": "クライアント、サーバー、API、データベース、クラウドを理解する",
+    "level5.encouragement": "APIやサーバーのしくみが、少しずつ見えてきます。",
+    "level5.lessons": "短いレッスン14本",
+
+    "level6.name": "インターネットと話そう",
+    "level6.subtitle": "本物のHTTPリクエストを送り、APIを呼び、データを読む",
+    "level6.encouragement": "本物のWebに向けて、実際にリクエストしてみましょう。",
+    "level6.lessons": "短いレッスン12本",
+
+    "level7.name": "実際のツールで作る",
+    "level7.subtitle": "Node.jsを入れて、コードを実行し、本物のサーバーを作る",
+    "level7.encouragement": "Node.jsを入れて、本物のサーバーを動かしてみましょう。",
+    "level7.lessons": "短いレッスン15本",
+
+    "level8.name": "Claude Code — あなたのAIペアプログラマー",
+    "level8.subtitle": "作りたいものを言葉で伝えて、実際のプロジェクトを作る",
+    "level8.encouragement": "やりたいことを言葉にして、AIといっしょに形にしていきましょう。",
+    "level8.lessons": "短いレッスン15本",
+
+    "level9.name": "Claude Skills — Claudeに自分の流儀を教える",
+    "level9.subtitle": "カスタムスラッシュコマンドとSKILL.md",
+    "level9.encouragement": "Claudeを自分らしい学び方に合わせていきましょう。",
+    "level9.lessons": "短いレッスン5本",
+
+    "level10.name": "MCP — Claudeをあらゆるものにつなぐ",
+    "level10.subtitle": "MCPサーバー、トランスポート、Tool Search",
+    "level10.encouragement": "Claudeをいろいろなツールや情報につないでみましょう。",
+    "level10.lessons": "短いレッスン5本",
+
+    "level11.name": "コンテキストがすべて",
+    "level11.subtitle": "CLAUDE.md、メモリ、セッション、仕様、引き継ぎ",
+    "level11.encouragement": "Claudeがあなたのプロジェクトをしっかり理解できるようにしていきます。",
+    "level11.lessons": "短いレッスン5本",
+
+    "level12.name": "Claude Code 上級編",
+    "level12.subtitle": "サブエージェント、ワークツリー、フック、ヘッドレスモード、コスト",
+    "level12.encouragement": "Claudeのもっと便利な使い方を学んでいきましょう。",
+    "level12.lessons": "短いレッスン5本",
+
+    "level13.name": "ジュニア開発者の実践パターン",
+    "level13.subtitle": "デバッグ、デプロイ、そして開発者らしい進め方",
+    "level13.encouragement": "デバッグして、デプロイして、一歩ずつ開発者の考え方に近づきます。",
+    "level13.lessons": "短いレッスン12本",
+
+    "level14.name": "プロジェクト編 — 本物のゲームを作る",
+    "level14.subtitle": "マルチプレイヤーゲームを作ってデプロイする",
+    "level14.encouragement": "ここまで学んだことを使って、自分の作品を完成させましょう。",
+    "level14.lessons": "短いレッスン10本",
+
+    // HOW IT WORKS
+    "how.title": "仕組み",
+    "how.subtitle": "最初のプロジェクトまで、やさしい4ステップ",
+
+    "step1.title": "数秒で登録",
+    "step1.text": "クレジットカードは不要。長い入力もありません。ユーザー名を決めれば、すぐに学び始められます。",
+
+    "step2.title": "AIがあなた向けに学習プランを作成",
+    "step2.text": "あなたの背景やペースに合わせて、AIがぴったりの学習ルートを提案します。",
+
+    "step3.title": "遊ぶように学ぶ",
+    "step3.text": "インタラクティブ演習、クイズ、本物のターミナル練習で、楽しみながら学べます。",
+
+    "step4.title": "成長が見える",
+    "step4.text": "進み具合を見ながら、実績を集めて、自分の成長をしっかり感じられます。",
+
+    // FEATURES
+    "features.title": "学ぶことが、楽しく続く",
+    "features.subtitle": "学生のみなさんが安心して前に進めるように、日本語でも学びやすく、ひとつひとつ設計しました",
+
+    "feature1.title": "10通りの学び方",
+    "feature1.text": "クイズ、穴埋め、クリックでマッチ、インタラクティブなファイルツリー、ターミナルシミュレーションなど。飽きずに続けられます。",
+
+    "feature2.title": "あなたのAIコーチ",
+    "feature2.text": "詰まったときは、すぐに頼れます。AIが今のレッスンに合わせて、考えるヒントをやさしく返します。",
+
+    "feature3.title": "実績と連続記録",
+    "feature3.text": "学びながら16個の実績を解除。毎日の積み重ねが見えるので、続ける楽しさが増していきます。",
+
+    "feature4.title": "途中からすぐ再開",
+    "feature4.text": "進み具合はデバイス間で同期されます。ノートPCでもスマホでも、いつでも続きから学べます。",
+
+    "feature5.title": "見つけたバグも、みんなでよりよく",
+    "feature5.text": "バグを見つけたら、気軽に知らせてください。AIエージェントが調査を手伝い、学びやすい環境づくりを支えます。",
+
+    "feature6.title": "AIによるオンボーディング",
+    "feature6.text": "AIがあなたの背景をもとに、今の自分に合った学習プランを一緒に考えます。日本語のまま無理なく進められます。",
+
+    "feature7.title": "レッスンを聴ける",
+    "feature7.text": "音声のほうが好みですか？ テキスト読み上げをオンにして、聞きながら進められます。",
+
+    // PERSONAS
+    "personas.title": "学んでみたい気持ちがあれば大丈夫",
+    "personas.subtitle": "世界のどこからでも、自分のペースで始められます",
+
+    "persona1.title": "好奇心旺盛なクリエイター",
+    "persona1.text": "デザイナー、ライター、ものづくりが好きな人へ。ソフトウェアのしくみを知って、自分のアイデアを形にしたい人にぴったりです。",
+
+    "persona2.title": "キャリアチェンジャー",
+    "persona2.text": "新しい進路や学び方を探している人へ。CSの学位がなくても、コードとAIで何かを作り始められます。",
+
+    "persona3.title": "生涯学習者",
+    "persona3.text": "学ぶことそのものが好きな人へ。ターミナルは、これからの学びや創作を広げてくれる新しいスキルです。",
+
+    // COMMUNITY
+    "community.title": "ひとりじゃないから、学び続けられる",
+    "community.subtitle": "世界中の学習者とつながりながら、完全な日本語環境で安心して学べます",
+
+    "community.tag": "🧞 機能リクエスト",
+    "community.genie.title": "願いを機能に",
+    "community.genie.text": "欲しい機能があれば、ぜひ教えてください。コミュニティの声をもとに、みんなに役立つものを少しずつ育てていきます。",
+    "community.genie.link": "リクエストする →",
+
+    "community.forum.title": "ディスカッションフォーラム",
+    "community.forum.text": "質問したり、気づきを共有したりしながら、さまざまなレベルの学習者とつながれます。",
+    "community.forum.link": "フォーラムを見る →",
+
+    "community.help.title": "リアルタイムの仲間サポート",
+    "community.help.text": "レッスンで詰まったら助けを依頼できます。ひと足先に乗り越えた仲間が、やさしく力を貸してくれます。",
+
+    "community.vote.title": "投票して議論する",
+    "community.vote.text": "役立つ回答に投票したり、難しいポイントを話し合ったりしながら、一緒に学べます。",
+
+    // GETTING STARTED
+    "getStarted.title": "準備ができたら、30秒で始められます。",
+
+    "getStarted.step1": "<a href=\"https://zero2claude.dev\">zero2claude.dev</a> にアクセス",
+    "getStarted.step2": "「アカウント作成」をクリック",
+    "getStarted.step3": "ユーザー名とパスワードを決める",
+    "getStarted.step4": "レベル1を開始。経験は不要です",
+
+    "getStarted.formTitle": "アカウント作成",
+    "getStarted.formSub": "ターミナル学習の最初の一歩を、ここから",
+
+    "getStarted.input1": "your_username",
+    "getStarted.input2": "お名前",
+    "getStarted.input3": "you@example.com",
+    "getStarted.input4": "8文字以上",
+    "getStarted.formBtn": "アカウント作成",
+    "getStarted.cta": "無料で参加する",
+    "getStarted.reassurance": "無料で使えます。クレジットカード不要。プラットフォーム全体を完全な日本語で、自分のペースで安心して学べます。",
+
+    // FOOTER
+    "footer.brand": "ゼロからClaude Codeへ",
+    "footer.startLearning": "学び始める",
+    "footer.logIn": "ログイン",
+    "footer.forum": "コミュニティフォーラム",
+    "footer.terms": "利用規約",
+    "footer.privacy": "プライバシーポリシー",
+    "footer.tagline": "好奇心のある学習者が、自分の力で作れるようになる場所。",
+    "footer.copy": "© 2026 ゼロからClaude Codeへ。All rights reserved."
   }
 };
