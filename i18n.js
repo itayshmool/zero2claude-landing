@@ -50,7 +50,7 @@ window.I18N = {
     "hero.bullet1": "100% browser-based — nothing to install",
     "hero.bullet2": "Learn by doing, not watching",
     "hero.bullet3": "AI-powered personalized learning path",
-    "hero.bullet4": "Join 200+ students already learning",
+    "hero.bullet4": "Join 8,000+ students already learning",
     "hero.cta.primary": "Start Learning Free",
     "hero.cta.secondary": "See the Journey",
 
@@ -281,7 +281,7 @@ window.I18N = {
     "hero.bullet1": "100% en el navegador — nada que instalar",
     "hero.bullet2": "Aprende haciendo, no mirando",
     "hero.bullet3": "Ruta de aprendizaje personalizada con IA",
-    "hero.bullet4": "Únete a más de 200 estudiantes aprendiendo",
+    "hero.bullet4": "Únete a más de 8,000 estudiantes aprendiendo",
     "hero.cta.primary": "Empieza Gratis",
     "hero.cta.secondary": "Ver el Viaje",
 
@@ -512,7 +512,7 @@ window.I18N = {
     "hero.bullet1": "100% у браузері — нічого встановлювати",
     "hero.bullet2": "Вчіться на практиці, а не переглядаючи відео",
     "hero.bullet3": "Персоналізований шлях навчання на основі ШІ",
-    "hero.bullet4": "Приєднуйтесь до 200+ студентів, які вже навчаються",
+    "hero.bullet4": "Приєднуйтесь до 8,000+ студентів, які вже навчаються",
     "hero.cta.primary": "Почати Безкоштовно",
     "hero.cta.secondary": "Переглянути Подорож",
 
@@ -743,7 +743,7 @@ window.I18N = {
     "hero.bullet1": "100% בדפדפן — אין מה להתקין",
     "hero.bullet2": "למדו דרך עשייה, לא צפייה",
     "hero.bullet3": "מסלול למידה מותאם אישית מבוסס AI",
-    "hero.bullet4": "הצטרפו ל-200+ סטודנטים שכבר לומדים",
+    "hero.bullet4": "הצטרפו ל-8,000+ סטודנטים שכבר לומדים",
     "hero.cta.primary": "התחילו ללמוד בחינם",
     "hero.cta.secondary": "צפו במסע",
 
@@ -975,7 +975,7 @@ window.I18N = {
     "hero.bullet1": "100% في المتصفح — لا حاجة لتثبيت شيء",
     "hero.bullet2": "تعلّم بالممارسة، لا بالمشاهدة",
     "hero.bullet3": "مسار تعليمي مخصص مدعوم بالذكاء الاصطناعي",
-    "hero.bullet4": "انضم إلى أكثر من 200 طالب يتعلّمون حاليًا",
+    "hero.bullet4": "انضم إلى أكثر من 8,000 طالب يتعلّمون حاليًا",
     "hero.cta.primary": "ابدأ التعلّم مجانًا",
     "hero.cta.secondary": "شاهد الرحلة",
 
