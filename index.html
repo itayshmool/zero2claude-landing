@@ -32,6 +32,8 @@
   <link rel="alternate" hreflang="he" href="https://about.zero2claude.dev?lang=he">
   <link rel="alternate" hreflang="ar" href="https://about.zero2claude.dev?lang=ar">
   <link rel="alternate" hreflang="ja" href="https://about.zero2claude.dev?lang=ja">
+  <link rel="alternate" hreflang="de" href="https://about.zero2claude.dev?lang=de">
+  <link rel="alternate" hreflang="pt" href="https://about.zero2claude.dev?lang=pt">
   <link rel="alternate" hreflang="x-default" href="https://about.zero2claude.dev">
 
   <!-- Favicon -->
@@ -40,7 +42,7 @@
   <!-- i18n early detection -->
   <script>
   (function(){
-    var A=['en','es','uk','he','ar','ja'],l=null;
+    var A=['en','es','uk','he','ar','ja','de','pt'],l=null;
     var p=new URLSearchParams(location.search).get('lang');
     if(p&&A.indexOf(p)>=0)l=p;
     if(!l){var s=localStorage.getItem('landing-lang');if(s&&A.indexOf(s)>=0)l=s;}
@@ -94,6 +96,8 @@
             <li role="option" data-lang="he"><span class="lang-flag">🇮🇱</span> עברית</li>
             <li role="option" data-lang="ar"><span class="lang-flag">🇸🇦</span> العربية</li>
             <li role="option" data-lang="ja"><span class="lang-flag">🇯🇵</span> 日本語</li>
+            <li role="option" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</li>
+            <li role="option" data-lang="pt"><span class="lang-flag">🇧🇷</span> Português</li>
           </ul>
         </div>
       </nav>
@@ -127,6 +131,8 @@
       <button class="mobile-lang-btn" data-lang="he">HE</button>
       <button class="mobile-lang-btn" data-lang="ar">AR</button>
       <button class="mobile-lang-btn" data-lang="ja">JA</button>
+      <button class="mobile-lang-btn" data-lang="de">DE</button>
+      <button class="mobile-lang-btn" data-lang="pt">PT</button>
     </div>
     <a href="#journey" data-i18n="nav.journey">Your Journey</a>
     <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
@@ -503,7 +509,7 @@
       <div class="container">
         <div class="section-header fade-in">
           <h2 class="accent-underline" data-i18n="community.title">You're Not Learning Alone</h2>
-          <p data-i18n="community.subtitle">A community of 8,000+ students asking questions, sharing projects, and shaping the platform together.</p>
+          <p data-i18n="community.subtitle">A community of 11,000+ students asking questions, sharing projects, and shaping the platform together.</p>
         </div>
 
         <div class="community-grid stagger-children">

@@ -1,6 +1,6 @@
 /**
  * Internationalization strings for Zero2Claude landing page
- * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar), Japanese (ja)
+ * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar), Japanese (ja), German (de), Portuguese (pt)
  */
 window.I18N = {
   en: {
@@ -50,7 +50,7 @@ window.I18N = {
     "hero.bullet1": "100% browser-based — nothing to install",
     "hero.bullet2": "Learn by doing, not watching",
     "hero.bullet3": "AI-powered personalized learning path",
-    "hero.bullet4": "Join 8,000+ students already learning",
+    "hero.bullet4": "Join 11,000+ students already learning",
     "hero.cta.primary": "Start Learning Free",
     "hero.cta.secondary": "See the Journey",
 
@@ -281,7 +281,7 @@ window.I18N = {
     "hero.bullet1": "100% en el navegador — nada que instalar",
     "hero.bullet2": "Aprende haciendo, no mirando",
     "hero.bullet3": "Ruta de aprendizaje personalizada con IA",
-    "hero.bullet4": "Únete a más de 8,000 estudiantes aprendiendo",
+    "hero.bullet4": "Únete a más de 11,000 estudiantes aprendiendo",
     "hero.cta.primary": "Empieza Gratis",
     "hero.cta.secondary": "Ver el Viaje",
 
@@ -512,7 +512,7 @@ window.I18N = {
     "hero.bullet1": "100% у браузері — нічого встановлювати",
     "hero.bullet2": "Вчіться на практиці, а не переглядаючи відео",
     "hero.bullet3": "Персоналізований шлях навчання на основі ШІ",
-    "hero.bullet4": "Приєднуйтесь до 8,000+ студентів, які вже навчаються",
+    "hero.bullet4": "Приєднуйтесь до 11,000+ студентів, які вже навчаються",
     "hero.cta.primary": "Почати Безкоштовно",
     "hero.cta.secondary": "Переглянути Подорож",
 
@@ -743,7 +743,7 @@ window.I18N = {
     "hero.bullet1": "100% בדפדפן — אין מה להתקין",
     "hero.bullet2": "למדו דרך עשייה, לא צפייה",
     "hero.bullet3": "מסלול למידה מותאם אישית מבוסס AI",
-    "hero.bullet4": "הצטרפו ל-8,000+ סטודנטים שכבר לומדים",
+    "hero.bullet4": "הצטרפו ל-11,000+ סטודנטים שכבר לומדים",
     "hero.cta.primary": "התחילו ללמוד בחינם",
     "hero.cta.secondary": "צפו במסע",
 
@@ -975,7 +975,7 @@ window.I18N = {
     "hero.bullet1": "100% في المتصفح — لا حاجة لتثبيت شيء",
     "hero.bullet2": "تعلّم بالممارسة، لا بالمشاهدة",
     "hero.bullet3": "مسار تعليمي مخصص مدعوم بالذكاء الاصطناعي",
-    "hero.bullet4": "انضم إلى أكثر من 8,000 طالب يتعلّمون حاليًا",
+    "hero.bullet4": "انضم إلى أكثر من 11,000 طالب يتعلّمون حاليًا",
     "hero.cta.primary": "ابدأ التعلّم مجانًا",
     "hero.cta.secondary": "شاهد الرحلة",
 
@@ -1390,5 +1390,469 @@ window.I18N = {
     "footer.privacy": "プライバシーポリシー",
     "footer.tagline": "好奇心のある学習者が、自分の力で作れるようになる場所。",
     "footer.copy": "© 2026 ゼロからClaude Codeへ。All rights reserved."
+  },
+
+  de: {
+    // META
+    "meta.title": "Von Null auf Claude Code — Lerne Terminal & KI-Programmierung",
+    "meta.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln. Keine Vorkenntnisse nötig.",
+    "meta.og.title": "Von Null auf Claude Code",
+    "meta.og.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln.",
+    "meta.og.imageAlt": "Von Null auf Claude Code - Interaktives Terminal-Training",
+    "meta.twitter.title": "Von Null auf Claude Code",
+    "meta.twitter.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln.",
+
+    // NAV
+    "nav.journey": "Die Reise",
+    "nav.how": "So funktioniert's",
+    "nav.features": "Features",
+    "nav.community": "Community",
+    "nav.getStarted": "Loslegen",
+    "nav.startLearning": "Jetzt Lernen",
+    "nav.skip": "Zum Hauptinhalt springen",
+    "nav.logoAria": "Von Null auf Claude Code — Startseite",
+    "nav.themeToggle": "Hell-/Dunkelmodus umschalten",
+    "nav.openMenu": "Menü öffnen",
+    "nav.closeMenu": "Menü schließen",
+    "nav.navMenu": "Navigationsmenü",
+
+    // LEVEL NUMBERS
+    "level1.number": "Level 1",
+    "level2.number": "Level 2",
+    "level3.number": "Level 3",
+    "level4.number": "Level 4",
+    "level5.number": "Level 5",
+    "level6.number": "Level 6",
+    "level7.number": "Level 7",
+    "level8.number": "Level 8",
+    "level9.number": "Level 9",
+    "level10.number": "Level 10",
+    "level11.number": "Level 11",
+    "level12.number": "Level 12",
+    "level13.number": "Level 13",
+    "level14.number": "Level 14",
+
+    // HERO
+    "hero.title": "Von Null auf Claude Code",
+    "hero.headline": "Du musst kein Entwickler sein,<br>um wie einer zu denken.",
+    "hero.subtext": "147 interaktive Lektionen bringen dich von \"Was ist ein Terminal?\" bis zum Bauen echter Projekte mit KI. Keine Programmiererfahrung nötig.",
+    "hero.bullet1": "100% im Browser — nichts installieren",
+    "hero.bullet2": "Lerne durch Machen, nicht durch Zuschauen",
+    "hero.bullet3": "KI-gestützter persönlicher Lernpfad",
+    "hero.bullet4": "Schließ dich 11.000+ Lernenden an",
+    "hero.cta.primary": "Kostenlos Loslegen",
+    "hero.cta.secondary": "Die Reise ansehen",
+
+    // TERMINAL
+    "terminal.out1": "zukünftiger-entwickler",
+    "terminal.out2": "Ich schaff das",
+
+    // JOURNEY
+    "journey.title": "Die Reise",
+    "journey.subtitle": "14 Level. 147 Lektionen. Vom neugierigen Anfänger zum selbstbewussten Macher.",
+
+    "level1.name": "Computer Sind Keine Magie",
+    "level1.subtitle": "Dateien, Ordner, Pfade und was ein Terminal wirklich ist",
+    "level1.encouragement": "Starte hier. Wir erklären alles.",
+    "level1.lessons": "6 kompakte Lektionen",
+
+    "level2.name": "Deine Ersten 30 Minuten im Terminal",
+    "level2.subtitle": "Navigiere, erstelle und verwalte Dateien wie ein Entwickler",
+    "level2.encouragement": "Tippe deinen ersten Befehl. Es ist leichter als du denkst.",
+    "level2.lessons": "13 kompakte Lektionen",
+
+    "level3.name": "Dateien Lesen und Schreiben",
+    "level3.subtitle": "Schau in Dateien hinein, suche Text und verknüpfe Befehle",
+    "level3.encouragement": "Schau in Dateien hinein und suche wie ein Profi.",
+    "level3.lessons": "13 kompakte Lektionen",
+
+    "level4.name": "Dein Code Hat eine Geschichte",
+    "level4.subtitle": "Git und GitHub — verliere nie wieder deine Arbeit",
+    "level4.encouragement": "Verliere nie wieder deine Arbeit mit Git.",
+    "level4.lessons": "17 kompakte Lektionen",
+
+    "level5.name": "Wie Software Wirklich Funktioniert",
+    "level5.subtitle": "Client, Server, APIs, Datenbanken und die Cloud — entmystifiziert",
+    "level5.encouragement": "Verstehe endlich APIs, Server und die Cloud.",
+    "level5.lessons": "14 kompakte Lektionen",
+
+    "level6.name": "Sprich mit dem Internet",
+    "level6.subtitle": "Sende echte HTTP-Requests, rufe echte APIs auf, lies echte Daten",
+    "level6.encouragement": "Sende echte Requests an echte Websites.",
+    "level6.lessons": "12 kompakte Lektionen",
+
+    "level7.name": "Bauen mit Echten Tools",
+    "level7.subtitle": "Installiere Node.js, führe Code aus, baue einen echten Server",
+    "level7.encouragement": "Installiere Node.js und baue einen echten Server.",
+    "level7.lessons": "15 kompakte Lektionen",
+
+    "level8.name": "Claude Code — Dein KI-Pair-Programmer",
+    "level8.subtitle": "Baue echte Projekte, indem du beschreibst, was du willst",
+    "level8.encouragement": "Beschreib, was du willst. Die KI baut es.",
+    "level8.lessons": "15 kompakte Lektionen",
+
+    "level9.name": "Claude Skills — Bring Claude Deinen Workflow Bei",
+    "level9.subtitle": "Eigene Slash-Befehle und SKILL.md-Dateien",
+    "level9.encouragement": "Lass Claude so arbeiten, wie du arbeitest.",
+    "level9.lessons": "5 kompakte Lektionen",
+
+    "level10.name": "MCP — Verbinde Claude mit Allem",
+    "level10.subtitle": "MCP-Server, Transporte und Tool Search",
+    "level10.encouragement": "Gib Claude Zugriff auf deine Tools und Daten.",
+    "level10.lessons": "5 kompakte Lektionen",
+
+    "level11.name": "Kontext Ist Alles",
+    "level11.subtitle": "CLAUDE.md, Gedächtnis, Sessions, Specs und Übergaben",
+    "level11.encouragement": "Hilf Claude, dein Projekt tiefgreifend zu verstehen.",
+    "level11.lessons": "5 kompakte Lektionen",
+
+    "level12.name": "Claude Code Fortgeschritten",
+    "level12.subtitle": "Subagents, Worktrees, Hooks, Headless-Modus und Kosten",
+    "level12.encouragement": "Schalte Claudes mächtigste Features frei.",
+    "level12.lessons": "5 kompakte Lektionen",
+
+    "level13.name": "Junior-Entwickler-Muster",
+    "level13.subtitle": "Debuggen, deployen und professionell arbeiten",
+    "level13.encouragement": "Debugge, deploye und denke wie ein Profi.",
+    "level13.lessons": "12 kompakte Lektionen",
+
+    "level14.name": "Das Projekt — Baue ein Echtes Spiel",
+    "level14.subtitle": "Baue und deploye ein Echtzeit-Multiplayer-Tic-Tac-Toe-Spiel",
+    "level14.encouragement": "Alles kommt zusammen. Shippe ein echtes Multiplayer-Spiel.",
+    "level14.lessons": "10 kompakte Lektionen",
+
+    // HOW IT WORKS
+    "how.title": "So Funktioniert's",
+    "how.subtitle": "Vier einfache Schritte zu deinem ersten Projekt",
+
+    "step1.title": "Registriere Dich in Sekunden",
+    "step1.text": "Keine Kreditkarte, keine langen Formulare. Wähle einfach einen Benutzernamen und los geht's.",
+
+    "step2.title": "Hol Dir Deinen Persönlichen KI-Plan",
+    "step2.text": "Erzähl uns von deinem Hintergrund. Unsere KI erstellt einen maßgeschneiderten Lernpfad nur für dich.",
+
+    "step3.title": "Lerne Spielerisch",
+    "step3.text": "Interaktive Übungen, Quizze und echte Terminal-Praxis. Keine langweiligen Videos.",
+
+    "step4.title": "Sieh Zu, Wie Du Aufsteigst",
+    "step4.text": "Verfolge deinen Fortschritt, verdiene Auszeichnungen und sieh, wie weit du gekommen bist.",
+
+    // FEATURES
+    "features.title": "Lernen Soll Sich Wie Spielen Anfühlen",
+    "features.subtitle": "Wir haben jedes Feature entwickelt, damit du dranbleibst und vorankommst",
+
+    "feature1.title": "10 Arten zu Lernen",
+    "feature1.text": "Quizze, Lückentexte, Klick-Zuordnung, interaktive Dateibäume, Terminal-Simulationen und mehr. Langeweile ausgeschlossen.",
+
+    "feature2.title": "Dein KI-Coach",
+    "feature2.text": "Hängst du fest? Bitte um Hilfe. Unsere KI versteht deine aktuelle Lektion und gibt dir Hinweise, ohne die Antwort zu verraten.",
+
+    "feature3.title": "Auszeichnungen & Streaks",
+    "feature3.text": "Schalte 16 Auszeichnungen frei, während du lernst. Baue tägliche Streaks auf. Feiere jeden Meilenstein.",
+
+    "feature4.title": "Mach Weiter, Wo Du Aufgehört Hast",
+    "feature4.text": "Dein Fortschritt wird geräteübergreifend synchronisiert. Klappe den Laptop zu, öffne dein Handy, lerne weiter.",
+
+    "feature5.title": "Melde Einen Bug, KI Fixt Ihn",
+    "feature5.text": "Bug gefunden? Melde ihn. Unser KI-Agent untersucht und erstellt einen Fix — oft innerhalb von Stunden.",
+
+    "feature6.title": "KI-Gestütztes Onboarding",
+    "feature6.text": "Unsere KI analysiert deinen Hintergrund und erstellt einen personalisierten Lernplan mit Prioritätsstufen.",
+
+    "feature7.title": "Höre Deine Lektionen",
+    "feature7.text": "Lieber Audio? Schalte Text-to-Speech ein und höre zu, während du mitmachst.",
+
+    // PERSONAS
+    "personas.title": "Für Neugierige Köpfe Gebaut",
+    "personas.subtitle": "Egal, wo du startest",
+
+    "persona1.title": "Der Neugierige Kreative",
+    "persona1.text": "Designer, Autoren und Macher, die verstehen wollen, wie Software funktioniert — und vielleicht eigene Tools bauen möchten.",
+
+    "persona2.title": "Der Quereinsteiger",
+    "persona2.text": "Berufstätige, die Tech erkunden. Du brauchst keinen Informatik-Abschluss, um mit Code und KI loszulegen.",
+
+    "persona3.title": "Der Lebenslange Lerner",
+    "persona3.text": "Du lernst aus Freude daran. Das Terminal ist einfach eine weitere Fähigkeit für dein Repertoire.",
+
+    // COMMUNITY
+    "community.title": "Du Lernst Nicht Allein",
+    "community.subtitle": "Werde Teil einer Community von Lernenden, die sich gegenseitig unterstützen",
+
+    "community.tag": "🧞 Feature-Wünsche",
+    "community.genie.title": "Dein Wunsch Ist Mir Befehl",
+    "community.genie.text": "Du willst ein neues Feature? Äußere einen Wunsch. Die Community stimmt ab und wir bauen, was am wichtigsten ist.",
+    "community.genie.link": "Wunsch äußern →",
+
+    "community.forum.title": "Diskussionsforum",
+    "community.forum.text": "Stelle Fragen, teile Erkenntnisse und vernetze dich mit anderen Lernenden auf jedem Level.",
+    "community.forum.link": "Forum durchstöbern →",
+
+    "community.help.title": "Echtzeit-Hilfe von Peers",
+    "community.help.text": "Hängst du bei einer Lektion fest? Bitte um Hilfe und werde mit jemandem verbunden, der das schon gemeistert hat.",
+
+    "community.vote.title": "Abstimmen & Diskutieren",
+    "community.vote.text": "Stimme für hilfreiche Antworten. Diskutiere knifflige Konzepte. Lerne gemeinsam.",
+
+    // GETTING STARTED
+    "getStarted.title": "Bereit? Dauert Nur 30 Sekunden.",
+
+    "getStarted.step1": "Geh auf <a href=\"https://zero2claude.dev\">zero2claude.dev</a>",
+    "getStarted.step2": "Klicke auf \"Konto erstellen\"",
+    "getStarted.step3": "Wähle einen Benutzernamen und ein Passwort",
+    "getStarted.step4": "Starte Level 1 — keine Vorkenntnisse nötig",
+
+    "getStarted.formTitle": "Konto erstellen",
+    "getStarted.formSub": "Starte deine Terminal-Lernreise",
+
+    "getStarted.input1": "dein_benutzername",
+    "getStarted.input2": "Dein Name",
+    "getStarted.input3": "du@beispiel.com",
+    "getStarted.input4": "8+ Zeichen",
+    "getStarted.formBtn": "Konto erstellen",
+    "getStarted.cta": "Erstelle Dein Konto",
+    "getStarted.reassurance": "Keine Kreditkarte. Kein Spam. Einfach nur Lernen.",
+
+    // FOOTER
+    "footer.brand": "Von Null auf Claude Code",
+    "footer.startLearning": "Jetzt Lernen",
+    "footer.logIn": "Anmelden",
+    "footer.forum": "Community-Forum",
+    "footer.terms": "Nutzungsbedingungen",
+    "footer.privacy": "Datenschutz",
+    "footer.tagline": "Vom neugierigen Anfänger zum selbstbewussten Macher.",
+    "footer.copy": "© 2026 Von Null auf Claude Code. Alle Rechte vorbehalten."
+  },
+
+  pt: {
+    // META
+    "meta.title": "Do Zero ao Claude Code — Aprenda Terminal e Programação com IA",
+    "meta.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis. Nenhuma experiência necessária.",
+    "meta.og.title": "Do Zero ao Claude Code",
+    "meta.og.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis.",
+    "meta.og.imageAlt": "Do Zero ao Claude Code - Treinamento Interativo de Terminal",
+    "meta.twitter.title": "Do Zero ao Claude Code",
+    "meta.twitter.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis.",
+
+    // NAV
+    "nav.journey": "A Jornada",
+    "nav.how": "Como Funciona",
+    "nav.features": "Recursos",
+    "nav.community": "Comunidade",
+    "nav.getStarted": "Começar",
+    "nav.startLearning": "Comece a Aprender",
+    "nav.skip": "Pular para o conteúdo principal",
+    "nav.logoAria": "Do Zero ao Claude Code — Início",
+    "nav.themeToggle": "Alternar modo claro/escuro",
+    "nav.openMenu": "Abrir menu",
+    "nav.closeMenu": "Fechar menu",
+    "nav.navMenu": "Menu de navegação",
+
+    // LEVEL NUMBERS
+    "level1.number": "Nível 1",
+    "level2.number": "Nível 2",
+    "level3.number": "Nível 3",
+    "level4.number": "Nível 4",
+    "level5.number": "Nível 5",
+    "level6.number": "Nível 6",
+    "level7.number": "Nível 7",
+    "level8.number": "Nível 8",
+    "level9.number": "Nível 9",
+    "level10.number": "Nível 10",
+    "level11.number": "Nível 11",
+    "level12.number": "Nível 12",
+    "level13.number": "Nível 13",
+    "level14.number": "Nível 14",
+
+    // HERO
+    "hero.title": "Do Zero ao Claude Code",
+    "hero.headline": "Você não precisa ser desenvolvedor<br>para pensar como um.",
+    "hero.subtext": "147 aulas interativas levam você de \"O que é um terminal?\" até construir projetos reais com IA. Nenhuma experiência em programação necessária.",
+    "hero.bullet1": "100% no navegador — nada para instalar",
+    "hero.bullet2": "Aprenda fazendo, não assistindo",
+    "hero.bullet3": "Caminho de aprendizagem personalizado com IA",
+    "hero.bullet4": "Junte-se a mais de 11.000 alunos aprendendo",
+    "hero.cta.primary": "Comece Grátis",
+    "hero.cta.secondary": "Veja a Jornada",
+
+    // TERMINAL
+    "terminal.out1": "futuro-desenvolvedor",
+    "terminal.out2": "Eu consigo",
+
+    // JOURNEY
+    "journey.title": "A Jornada",
+    "journey.subtitle": "14 níveis. 147 aulas. De iniciante curioso a construtor confiante.",
+
+    "level1.name": "Computadores Não São Mágica",
+    "level1.subtitle": "Arquivos, pastas, caminhos e o que é um terminal de verdade",
+    "level1.encouragement": "Comece aqui. A gente explica tudo.",
+    "level1.lessons": "6 aulas práticas",
+
+    "level2.name": "Seus Primeiros 30 Minutos no Terminal",
+    "level2.subtitle": "Navegue, crie e gerencie arquivos como um desenvolvedor",
+    "level2.encouragement": "Digite seu primeiro comando. É mais fácil do que você imagina.",
+    "level2.lessons": "13 aulas práticas",
+
+    "level3.name": "Lendo e Escrevendo Arquivos",
+    "level3.subtitle": "Olhe dentro de arquivos, busque texto e encadeie comandos",
+    "level3.encouragement": "Olhe dentro de arquivos e busque como um profissional.",
+    "level3.lessons": "13 aulas práticas",
+
+    "level4.name": "Seu Código Tem Uma História",
+    "level4.subtitle": "Git e GitHub — nunca mais perca seu trabalho",
+    "level4.encouragement": "Nunca mais perca seu trabalho com Git.",
+    "level4.lessons": "17 aulas práticas",
+
+    "level5.name": "Como o Software Realmente Funciona",
+    "level5.subtitle": "Cliente, servidor, APIs, bancos de dados e a nuvem — desmistificados",
+    "level5.encouragement": "Finalmente entenda APIs, servidores e a nuvem.",
+    "level5.lessons": "14 aulas práticas",
+
+    "level6.name": "Fale com a Internet",
+    "level6.subtitle": "Faça requisições HTTP reais, chame APIs reais, leia dados reais",
+    "level6.encouragement": "Faça requisições reais para sites reais.",
+    "level6.lessons": "12 aulas práticas",
+
+    "level7.name": "Construindo com Ferramentas Reais",
+    "level7.subtitle": "Instale o Node.js, execute código, construa um servidor real",
+    "level7.encouragement": "Instale o Node.js e construa um servidor real.",
+    "level7.lessons": "15 aulas práticas",
+
+    "level8.name": "Claude Code — Seu Programador IA",
+    "level8.subtitle": "Construa projetos reais descrevendo o que você quer",
+    "level8.encouragement": "Descreva o que você quer. A IA constrói.",
+    "level8.lessons": "15 aulas práticas",
+
+    "level9.name": "Claude Skills — Ensine o Claude Seu Fluxo de Trabalho",
+    "level9.subtitle": "Comandos slash personalizados e arquivos SKILL.md",
+    "level9.encouragement": "Faça o Claude trabalhar do seu jeito.",
+    "level9.lessons": "5 aulas práticas",
+
+    "level10.name": "MCP — Conecte o Claude a Tudo",
+    "level10.subtitle": "Servidores MCP, transportes e Tool Search",
+    "level10.encouragement": "Dê ao Claude acesso às suas ferramentas e dados.",
+    "level10.lessons": "5 aulas práticas",
+
+    "level11.name": "Contexto É Tudo",
+    "level11.subtitle": "CLAUDE.md, memória, sessões, specs e handoffs",
+    "level11.encouragement": "Ajude o Claude a entender seu projeto profundamente.",
+    "level11.lessons": "5 aulas práticas",
+
+    "level12.name": "Claude Code Avançado",
+    "level12.subtitle": "Subagentes, worktrees, hooks, modo headless e custos",
+    "level12.encouragement": "Desbloqueie os recursos mais poderosos do Claude.",
+    "level12.lessons": "5 aulas práticas",
+
+    "level13.name": "Padrões de Desenvolvedor Júnior",
+    "level13.subtitle": "Debug, deploy e trabalho profissional",
+    "level13.encouragement": "Faça debug, deploy e pense como um profissional.",
+    "level13.lessons": "12 aulas práticas",
+
+    "level14.name": "O Projeto — Construa um Jogo Real",
+    "level14.subtitle": "Construa e faça deploy de um jogo multiplayer de jogo da velha em tempo real",
+    "level14.encouragement": "Tudo se junta. Lance um jogo multiplayer de verdade.",
+    "level14.lessons": "10 aulas práticas",
+
+    // HOW IT WORKS
+    "how.title": "Como Funciona",
+    "how.subtitle": "Quatro passos simples até seu primeiro projeto",
+
+    "step1.title": "Cadastre-se em Segundos",
+    "step1.text": "Sem cartão de crédito, sem formulários longos. Escolha um nome de usuário e pronto.",
+
+    "step2.title": "Receba Seu Plano Pessoal com IA",
+    "step2.text": "Conte sobre você. Nossa IA cria um caminho de aprendizagem personalizado só para você.",
+
+    "step3.title": "Aprenda Brincando",
+    "step3.text": "Exercícios interativos, quizzes e prática real no terminal. Sem vídeos chatos.",
+
+    "step4.title": "Veja Seu Progresso",
+    "step4.text": "Acompanhe seu progresso, ganhe conquistas e veja o quanto você evoluiu.",
+
+    // FEATURES
+    "features.title": "Aprender Deveria Ser Divertido",
+    "features.subtitle": "Criamos cada recurso para manter você engajado e avançando",
+
+    "feature1.title": "10 Formas de Aprender",
+    "feature1.text": "Quizzes, preencher lacunas, clicar para combinar, árvores de arquivos interativas, simulações de terminal e mais. Você nunca vai se entediar.",
+
+    "feature2.title": "Seu Coach de IA",
+    "feature2.text": "Travou? Peça ajuda. Nossa IA entende sua aula atual e te guia sem entregar a resposta.",
+
+    "feature3.title": "Conquistas e Sequências",
+    "feature3.text": "Desbloqueie 16 conquistas enquanto aprende. Construa sequências diárias. Comemore cada marco.",
+
+    "feature4.title": "Continue de Onde Parou",
+    "feature4.text": "Seu progresso sincroniza entre dispositivos. Feche o notebook, abra o celular, continue aprendendo.",
+
+    "feature5.title": "Reporte um Bug, a IA Corrige",
+    "feature5.text": "Encontrou um bug? Reporte. Nosso agente de IA investiga e cria uma correção — geralmente em horas.",
+
+    "feature6.title": "Onboarding com IA",
+    "feature6.text": "Nossa IA analisa seu perfil e cria um plano de aprendizagem personalizado com níveis de prioridade.",
+
+    "feature7.title": "Ouça Suas Aulas",
+    "feature7.text": "Prefere áudio? Ative o texto para fala e ouça enquanto acompanha.",
+
+    // PERSONAS
+    "personas.title": "Feito para Mentes Curiosas",
+    "personas.subtitle": "Não importa de onde você vem",
+
+    "persona1.title": "O Criativo Curioso",
+    "persona1.text": "Designers, escritores e makers que querem entender como software funciona — e talvez construir suas próprias ferramentas.",
+
+    "persona2.title": "O Profissional em Transição",
+    "persona2.text": "Profissionais explorando tecnologia. Você não precisa de diploma em computação para começar a construir com código e IA.",
+
+    "persona3.title": "O Eterno Aprendiz",
+    "persona3.text": "Você aprende pelo prazer de aprender. O terminal é só mais uma habilidade para adicionar ao seu repertório.",
+
+    // COMMUNITY
+    "community.title": "Você Não Está Aprendendo Sozinho",
+    "community.subtitle": "Faça parte de uma comunidade de alunos que se ajudam a crescer",
+
+    "community.tag": "🧞 Pedidos de Recursos",
+    "community.genie.title": "Seu Desejo É Uma Ordem",
+    "community.genie.text": "Quer um novo recurso? Faça um pedido. A comunidade vota e nós construímos o que mais importa.",
+    "community.genie.link": "Fazer um Pedido →",
+
+    "community.forum.title": "Fórum de Discussão",
+    "community.forum.text": "Faça perguntas, compartilhe ideias e conecte-se com outros alunos de todos os níveis.",
+    "community.forum.link": "Explorar o Fórum →",
+
+    "community.help.title": "Ajuda em Tempo Real",
+    "community.help.text": "Travou numa aula? Peça ajuda e seja conectado com alguém que já passou por isso.",
+
+    "community.vote.title": "Vote e Discuta",
+    "community.vote.text": "Vote nas respostas úteis. Discuta conceitos difíceis. Aprenda junto.",
+
+    // GETTING STARTED
+    "getStarted.title": "Pronto? São Só 30 Segundos.",
+
+    "getStarted.step1": "Acesse <a href=\"https://zero2claude.dev\">zero2claude.dev</a>",
+    "getStarted.step2": "Clique em \"Criar Conta\"",
+    "getStarted.step3": "Escolha um nome de usuário e senha",
+    "getStarted.step4": "Comece o Nível 1 — nenhuma experiência necessária",
+
+    "getStarted.formTitle": "Criar conta",
+    "getStarted.formSub": "Comece sua jornada de aprendizagem no terminal",
+
+    "getStarted.input1": "seu_usuario",
+    "getStarted.input2": "Seu Nome",
+    "getStarted.input3": "voce@exemplo.com",
+    "getStarted.input4": "8+ caracteres",
+    "getStarted.formBtn": "Criar conta",
+    "getStarted.cta": "Crie Sua Conta",
+    "getStarted.reassurance": "Sem cartão de crédito. Sem spam. Só aprendizado.",
+
+    // FOOTER
+    "footer.brand": "Do Zero ao Claude Code",
+    "footer.startLearning": "Comece a Aprender",
+    "footer.logIn": "Entrar",
+    "footer.forum": "Fórum da Comunidade",
+    "footer.terms": "Termos de Serviço",
+    "footer.privacy": "Política de Privacidade",
+    "footer.tagline": "De iniciante curioso a construtor confiante.",
+    "footer.copy": "© 2026 Do Zero ao Claude Code. Todos os direitos reservados."
   }
 };
