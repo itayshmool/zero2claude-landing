@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Translation SDK — From Zero to Claude Code</title>
+<meta name="description" content="Community Translation SDK for zero2claude.dev. Translate 148 lessons and 13 UI namespaces into any language using our REST API.">
+<meta name="theme-color" content="#09090B">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  :root {
+    --bg: #09090B; --surface: #141419; --surface-alt: #1C1C24;
+    --border: rgba(255,255,255,0.06); --border-strong: rgba(255,255,255,0.12);
+    --text: #EAEAEC; --text-dim: #8E8E9E; --text-muted: #78788A;
+    --accent: #FF6B35; --accent-soft: rgba(255,107,53,0.08);
+    --green: #22C55E; --green-soft: rgba(34,197,94,0.1);
+    --blue: #3B82F6; --blue-soft: rgba(59,130,246,0.1);
+    --yellow: #EAB308; --yellow-soft: rgba(234,179,8,0.1);
+    --red: #EF4444; --red-soft: rgba(239,68,68,0.1);
+    --teal: #14B8A6; --teal-soft: rgba(20,184,166,0.1);
+    --purple: #C084FC; --purple-soft: rgba(192,132,252,0.1);
+    --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+    --font-mono: 'Monaco', 'Menlo', 'JetBrains Mono', ui-monospace, monospace;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:80px; }
+  body { background:var(--bg); color:var(--text); font-family:var(--font-sans); font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; }
+  ::selection { background:rgba(255,107,53,0.25); }
+  a { color:var(--accent); text-decoration:none; }
+  a:hover { opacity:0.85; }
+  h1,h2,h3,h4 { font-family:var(--font-mono); font-weight:600; line-height:1.3; }
+
+  /* Layout */
+  .container { max-width:880px; margin:0 auto; padding:0 24px; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; font-size:14px; color:var(--text-dim); margin-bottom:32px; padding-top:32px; }
+  .back-link:hover { color:var(--accent); }
+
+  /* Hero */
+  .hero { padding:48px 0 40px; border-bottom:1px solid var(--border); margin-bottom:48px; }
+  .hero h1 { font-size:2rem; margin-bottom:8px; }
+  .hero .subtitle { color:var(--text-dim); font-size:1.1rem; max-width:600px; }
+  .hero-badges { display:flex; gap:12px; flex-wrap:wrap; margin-top:20px; }
+  .badge { font-size:13px; font-family:var(--font-mono); padding:6px 14px; border-radius:8px; font-weight:600; }
+  .badge-orange { background:var(--accent-soft); color:var(--accent); border:1px solid rgba(255,107,53,0.2); }
+  .badge-green { background:var(--green-soft); color:var(--green); border:1px solid rgba(34,197,94,0.15); }
+  .badge-blue { background:var(--blue-soft); color:var(--blue); border:1px solid rgba(59,130,246,0.15); }
+
+  /* Nav */
+  .doc-nav { position:sticky; top:0; z-index:10; background:rgba(9,9,11,0.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:12px 0; margin-bottom:40px; overflow-x:auto; }
+  .doc-nav-inner { display:flex; gap:8px; max-width:880px; margin:0 auto; padding:0 24px; }
+  .doc-nav a { font-size:13px; font-family:var(--font-mono); color:var(--text-dim); padding:6px 12px; border-radius:6px; white-space:nowrap; transition:all 0.15s; }
+  .doc-nav a:hover { color:var(--text); background:var(--surface); }
+
+  /* Sections */
+  .doc-section { margin-bottom:56px; }
+  .doc-section h2 { font-size:1.35rem; margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--border); }
+  .doc-section h3 { font-size:1rem; margin:28px 0 12px; color:var(--accent); }
+  .doc-section p { color:var(--text-dim); margin-bottom:12px; }
+  .doc-section ul, .doc-section ol { color:var(--text-dim); margin-bottom:16px; padding-left:24px; }
+  .doc-section li { margin-bottom:6px; }
+  .doc-section li code { font-size:13px; }
+
+  /* Code blocks */
+  pre { background:var(--surface); border:1px solid var(--border); border-radius:10px; padding:16px 20px; overflow-x:auto; margin-bottom:16px; font-family:var(--font-mono); font-size:13px; line-height:1.7; color:var(--text); }
+  code { font-family:var(--font-mono); font-size:0.9em; background:var(--surface); padding:2px 6px; border-radius:4px; }
+  pre code { background:none; padding:0; font-size:inherit; }
+  .comment { color:var(--text-muted); }
+  .string { color:var(--green); }
+  .key { color:var(--blue); }
+  .method { color:var(--accent); font-weight:700; }
+  .url { color:var(--teal); }
+
+  /* Endpoint cards */
+  .endpoint { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 24px; margin-bottom:16px; }
+  .endpoint-header { display:flex; align-items:center; gap:10px; margin-bottom:10px; flex-wrap:wrap; }
+  .method-badge { font-family:var(--font-mono); font-size:12px; font-weight:700; padding:4px 10px; border-radius:6px; }
+  .method-get { background:var(--green-soft); color:var(--green); }
+  .method-post { background:var(--blue-soft); color:var(--blue); }
+  .endpoint-path { font-family:var(--font-mono); font-size:14px; color:var(--text); }
+  .endpoint-desc { font-size:14px; color:var(--text-dim); margin-bottom:0; }
+  .endpoint-auth { font-size:12px; color:var(--text-muted); margin-top:8px; }
+  .endpoint-auth span { color:var(--yellow); }
+
+  /* QA check table */
+  .qa-table { width:100%; border-collapse:collapse; font-size:14px; margin-bottom:16px; }
+  .qa-table th { text-align:left; padding:10px 14px; border-bottom:2px solid var(--border-strong); color:var(--text-muted); font-size:12px; text-transform:uppercase; font-family:var(--font-mono); letter-spacing:0.5px; }
+  .qa-table td { padding:10px 14px; border-bottom:1px solid var(--border); }
+  .qa-table tr:last-child td { border-bottom:none; }
+  .qa-table .check-name { font-family:var(--font-mono); font-weight:600; color:var(--text); font-size:13px; }
+  .severity-error { color:var(--red); font-weight:600; font-size:12px; }
+  .severity-warning { color:var(--yellow); font-weight:600; font-size:12px; }
+
+  /* Workflow steps */
+  .workflow { display:grid; gap:16px; margin-bottom:16px; }
+  .workflow-step { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:20px 24px; display:flex; gap:16px; align-items:flex-start; }
+  .step-num { font-family:var(--font-mono); font-size:20px; font-weight:800; color:var(--accent); min-width:32px; }
+  .step-content h4 { font-size:15px; margin-bottom:4px; font-family:var(--font-mono); }
+  .step-content p { font-size:14px; color:var(--text-dim); margin-bottom:0; }
+
+  /* Status flow */
+  .status-flow { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:16px; }
+  .status-node { font-family:var(--font-mono); font-size:13px; padding:8px 14px; border-radius:8px; font-weight:600; }
+  .status-arrow { color:var(--text-muted); font-size:18px; }
+  .s-pending { background:var(--yellow-soft); color:var(--yellow); }
+  .s-passed { background:var(--green-soft); color:var(--green); }
+  .s-failed { background:var(--red-soft); color:var(--red); }
+  .s-approved { background:var(--blue-soft); color:var(--blue); }
+  .s-rejected { background:var(--purple-soft); color:var(--purple); }
+
+  /* Callout */
+  .callout { background:var(--surface); border-left:3px solid var(--accent); border-radius:0 10px 10px 0; padding:16px 20px; margin-bottom:16px; }
+  .callout-warn { border-left-color:var(--yellow); }
+  .callout p { margin-bottom:0; font-size:14px; }
+  .callout strong { color:var(--text); }
+
+  /* Footer */
+  .doc-footer { border-top:1px solid var(--border); padding:40px 0; margin-top:40px; text-align:center; color:var(--text-muted); font-size:14px; }
+  .doc-footer a { color:var(--accent); }
+
+  @media(max-width:600px) {
+    .hero h1 { font-size:1.5rem; }
+    .endpoint-header { flex-direction:column; align-items:flex-start; gap:6px; }
+    .doc-nav-inner { gap:4px; }
+    .status-flow { flex-direction:column; align-items:flex-start; }
+    .status-arrow { transform:rotate(90deg); }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <a href="/" class="back-link">&larr; Back to zero2claude.dev</a>
+
+  <div class="hero">
+    <h1>Community Translation SDK</h1>
+    <p class="subtitle">Translate zero2claude.dev into any language. Download the English content, build your translation, validate with our QA engine, and submit for review.</p>
+    <div class="hero-badges">
+      <span class="badge badge-orange">REST API</span>
+      <span class="badge badge-green">13 UI Namespaces</span>
+      <span class="badge badge-blue">148 Lessons</span>
+    </div>
+  </div>
+</div>
+
+<nav class="doc-nav">
+  <div class="doc-nav-inner">
+    <a href="#overview">Overview</a>
+    <a href="#auth">Authentication</a>
+    <a href="#endpoints">API Reference</a>
+    <a href="#payload">Payload Format</a>
+    <a href="#qa">QA Checks</a>
+    <a href="#workflow">Workflow</a>
+    <a href="#statuses">Statuses</a>
+    <a href="#limits">Rate Limits</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- OVERVIEW -->
+  <div class="doc-section" id="overview">
+    <h2>Overview</h2>
+    <p>The Translation SDK lets community developers translate the entire zero2claude.dev platform — UI strings and lesson content — via a simple REST API. Translations go through automated QA checks and admin review before being merged as a GitHub PR.</p>
+
+    <div class="workflow">
+      <div class="workflow-step">
+        <span class="step-num">1</span>
+        <div class="step-content">
+          <h4>Download</h4>
+          <p>Fetch the English manifest, UI namespaces, and lesson content.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">2</span>
+        <div class="step-content">
+          <h4>Translate</h4>
+          <p>Build your translation payload preserving placeholders, HTML, and terminal commands.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">3</span>
+        <div class="step-content">
+          <h4>Validate</h4>
+          <p>Run a dry-run QA check. Fix any errors before submitting.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">4</span>
+        <div class="step-content">
+          <h4>Submit</h4>
+          <p>Submit your translation. QA runs automatically and the admin is notified.</p>
+        </div>
+      </div>
+      <div class="workflow-step">
+        <span class="step-num">5</span>
+        <div class="step-content">
+          <h4>Review</h4>
+          <p>Admin reviews and approves. A GitHub PR with all translation files is created automatically.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUTH -->
+  <div class="doc-section" id="auth">
+    <h2>Authentication</h2>
+    <p>All endpoints require an API key. Keys are created by the platform admin and start with <code>trn_</code>. Include it as a Bearer token:</p>
+    <pre><code>curl -H <span class="string">"Authorization: Bearer trn_your_api_key_here"</span> \
+  https://zero2claude.dev/api/translate/base/manifest</code></pre>
+
+    <div class="callout callout-warn">
+      <p><strong>Keep your key secret.</strong> API keys are shown only once when created. If compromised, ask the admin to revoke it and create a new one.</p>
+    </div>
+  </div>
+
+  <!-- ENDPOINTS -->
+  <div class="doc-section" id="endpoints">
+    <h2>API Reference</h2>
+    <p>Base URL: <code>https://zero2claude.dev/api/translate</code></p>
+
+    <h3>Download Content</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-get">GET</span>
+        <span class="endpoint-path">/base/manifest</span>
+      </div>
+      <p class="endpoint-desc">Returns the content manifest: list of namespaces, lessons with keys/titles, and a content hash for change detection.</p>
+      <p class="endpoint-auth">Auth: <span>Bearer token required</span></p>
+    </div>
+
+    <pre><code><span class="comment">// Response</span>
+{
+  <span class="key">"namespaces"</span>: [<span class="string">"achievements"</span>, <span class="string">"auth"</span>, <span class="string">"common"</span>, ...],
+  <span class="key">"lessons"</span>: [
+    { <span class="key">"key"</span>: <span class="string">"level0/lesson-0.1"</span>, <span class="key">"title"</span>: <span class="string">"What Is a File?"</span>, ... }
+  ],
+  <span class="key">"lessonCount"</span>: 148,
+  <span class="key">"namespaceCount"</span>: 13,
+  <span class="key">"contentHash"</span>: <span class="string">"90b822d2..."</span>
+}</code></pre>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-get">GET</span>
+        <span class="endpoint-path">/base/ui</span>
+      </div>
+      <p class="endpoint-desc">Returns all 13 English UI namespace files as a single JSON object, keyed by namespace name.</p>
+    </div>
+
+    <pre><code><span class="comment">// Response</span>
+{
+  <span class="key">"common"</span>: { <span class="key">"loading"</span>: <span class="string">"Loading..."</span>, <span class="key">"save"</span>: <span class="string">"Save"</span>, ... },
+  <span class="key">"nav"</span>: { <span class="key">"home"</span>: <span class="string">"Home"</span>, <span class="key">"dashboard"</span>: <span class="string">"Dashboard"</span>, ... },
+  ...
+}</code></pre>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-get">GET</span>
+        <span class="endpoint-path">/base/lessons</span>
+      </div>
+      <p class="endpoint-desc">Returns all 148 English lesson files with protected fields stripped (game logic, answers, validation rules). Only translatable content is included.</p>
+    </div>
+
+    <h3>Validate &amp; Submit</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-post">POST</span>
+        <span class="endpoint-path">/validate</span>
+      </div>
+      <p class="endpoint-desc">Dry-run QA check. Send your translation payload and get a detailed quality report without creating a submission. Use this to iterate before submitting.</p>
+    </div>
+
+    <pre><code><span class="comment">// Response</span>
+{
+  <span class="key">"score"</span>: 97,
+  <span class="key">"passesReview"</span>: true,
+  <span class="key">"summary"</span>: <span class="string">"0 errors, 1 warning"</span>,
+  <span class="key">"checks"</span>: [
+    { <span class="key">"name"</span>: <span class="string">"completeness"</span>, <span class="key">"status"</span>: <span class="string">"pass"</span>, <span class="key">"severity"</span>: <span class="string">"error"</span>, ... },
+    ...
+  ]
+}</code></pre>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-post">POST</span>
+        <span class="endpoint-path">/submit</span>
+      </div>
+      <p class="endpoint-desc">Submit your translation for review. QA runs automatically. Returns the submission ID, status, and QA score.</p>
+    </div>
+
+    <pre><code><span class="comment">// Request body — see Payload Format section below</span>
+
+<span class="comment">// Response (201 Created)</span>
+{
+  <span class="key">"id"</span>: <span class="string">"uuid-here"</span>,
+  <span class="key">"status"</span>: <span class="string">"qa_passed"</span>,
+  <span class="key">"qaScore"</span>: 97,
+  <span class="key">"qaSummary"</span>: <span class="string">"0 errors, 1 warning"</span>,
+  <span class="key">"createdAt"</span>: <span class="string">"2026-05-25T..."</span>
+}</code></pre>
+
+    <h3>Check Status</h3>
+
+    <div class="endpoint">
+      <div class="endpoint-header">
+        <span class="method-badge method-get">GET</span>
+        <span class="endpoint-path">/submissions/:id</span>
+      </div>
+      <p class="endpoint-desc">Check the status of your submission. Returns QA results, admin feedback (if rejected), and the GitHub PR URL (if approved).</p>
+    </div>
+
+    <pre><code><span class="comment">// Response</span>
+{
+  <span class="key">"id"</span>: <span class="string">"uuid-here"</span>,
+  <span class="key">"status"</span>: <span class="string">"approved"</span>,
+  <span class="key">"qaResults"</span>: { ... },
+  <span class="key">"adminFeedback"</span>: null,
+  <span class="key">"githubPrUrl"</span>: <span class="string">"https://github.com/..."</span>,
+  <span class="key">"reviewedAt"</span>: <span class="string">"2026-05-25T..."</span>
+}</code></pre>
+  </div>
+
+  <!-- PAYLOAD FORMAT -->
+  <div class="doc-section" id="payload">
+    <h2>Payload Format</h2>
+    <p>Both <code>/validate</code> and <code>/submit</code> accept the same JSON payload:</p>
+
+    <pre><code>{
+  <span class="key">"languageCode"</span>: <span class="string">"fr"</span>,          <span class="comment">// ISO 639-1 (2-3 letter code, optional region)</span>
+  <span class="key">"languageName"</span>: <span class="string">"Fran&ccedil;ais"</span>,     <span class="comment">// Native name of the language</span>
+  <span class="key">"isRtl"</span>: false,                <span class="comment">// Right-to-left layout</span>
+  <span class="key">"uiNamespaces"</span>: {
+    <span class="key">"achievements"</span>: { ... },     <span class="comment">// All 13 namespaces required</span>
+    <span class="key">"auth"</span>: { ... },
+    <span class="key">"common"</span>: { ... },
+    <span class="key">"dashboard"</span>: { ... },
+    <span class="key">"errors"</span>: { ... },
+    <span class="key">"feedback"</span>: { ... },
+    <span class="key">"forum"</span>: { ... },
+    <span class="key">"help"</span>: { ... },
+    <span class="key">"home"</span>: { ... },
+    <span class="key">"lesson"</span>: { ... },
+    <span class="key">"maintenance"</span>: { ... },
+    <span class="key">"nav"</span>: { ... },
+    <span class="key">"onboarding"</span>: { ... }
+  },
+  <span class="key">"lessonOverlays"</span>: {
+    <span class="key">"level0/lesson-0.1"</span>: {      <span class="comment">// Key from manifest</span>
+      <span class="key">"title"</span>: <span class="string">"Qu'est-ce qu'un fichier ?"</span>,
+      <span class="key">"subtitle"</span>: <span class="string">"..."</span>,
+      <span class="key">"sections"</span>: [
+        { <span class="key">"content"</span>: <span class="string">"..."</span> },
+        { <span class="key">"instruction"</span>: <span class="string">"..."</span>, <span class="key">"explanation"</span>: <span class="string">"..."</span> }
+      ]
+    },
+    ...                            <span class="comment">// All 148 lessons required</span>
+  }
+}</code></pre>
+
+    <h3>Translation Rules</h3>
+    <ul>
+      <li>Translate all UI string values and lesson text fields (<code>title</code>, <code>subtitle</code>, <code>content</code>, <code>instruction</code>, <code>explanation</code>)</li>
+      <li>Preserve all <code>{{placeholder}}</code> markers exactly as they appear in English</li>
+      <li>Preserve all HTML tags (<code>&lt;strong&gt;</code>, <code>&lt;code&gt;</code>, <code>&lt;br&gt;</code>, etc.)</li>
+      <li>Preserve all backtick-wrapped terminal commands (e.g., <code>`cd Documents`</code>)</li>
+      <li>Do <strong>not</strong> translate UNIX commands (<code>cat</code>, <code>ls</code>, <code>cd</code>, <code>grep</code>, etc.)</li>
+      <li>Do <strong>not</strong> include protected fields (game logic, answers, validation) in overlays</li>
+      <li>Keep pluralization keys if the English source uses them (e.g., <code>_one</code>, <code>_other</code>)</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Tip:</strong> Download the English content first, then use it as a template. The QA engine will catch most mistakes before you submit.</p>
+    </div>
+  </div>
+
+  <!-- QA CHECKS -->
+  <div class="doc-section" id="qa">
+    <h2>QA Checks</h2>
+    <p>Every submission runs through 9 automated quality checks. Errors block approval; warnings are informational.</p>
+
+    <table class="qa-table">
+      <thead>
+        <tr><th>Check</th><th>Severity</th><th>What It Validates</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="check-name">completeness</td>
+          <td><span class="severity-error">error</span></td>
+          <td>All English UI keys are present in the translation</td>
+        </tr>
+        <tr>
+          <td class="check-name">extra_keys</td>
+          <td><span class="severity-warning">warning</span></td>
+          <td>No keys exist in translation that don't exist in English</td>
+        </tr>
+        <tr>
+          <td class="check-name">placeholders</td>
+          <td><span class="severity-error">error</span></td>
+          <td>All <code>{{variable}}</code> placeholders preserved exactly</td>
+        </tr>
+        <tr>
+          <td class="check-name">html_tags</td>
+          <td><span class="severity-error">error</span></td>
+          <td>HTML tags (<code>&lt;strong&gt;</code>, <code>&lt;code&gt;</code>, etc.) preserved</td>
+        </tr>
+        <tr>
+          <td class="check-name">terminal_commands</td>
+          <td><span class="severity-error">error</span></td>
+          <td>Backtick-wrapped commands (<code>`ls -la`</code>) not translated</td>
+        </tr>
+        <tr>
+          <td class="check-name">overlay_structure</td>
+          <td><span class="severity-error">error</span></td>
+          <td>No protected fields (answers, validation, game logic) in overlays</td>
+        </tr>
+        <tr>
+          <td class="check-name">length_ratio</td>
+          <td><span class="severity-warning">warning</span></td>
+          <td>Translated strings are within reasonable length range (0.5x&ndash;3x English)</td>
+        </tr>
+        <tr>
+          <td class="check-name">utf8</td>
+          <td><span class="severity-error">error</span></td>
+          <td>Clean UTF-8 encoding, no invisible characters or control bytes</td>
+        </tr>
+        <tr>
+          <td class="check-name">pluralization</td>
+          <td><span class="severity-warning">warning</span></td>
+          <td>Pluralization keys (<code>_one</code>, <code>_other</code>) are present when English uses them</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>A score of 90+ with zero errors means <code>passesReview: true</code> and the submission can be approved by the admin.</p>
+  </div>
+
+  <!-- WORKFLOW -->
+  <div class="doc-section" id="workflow">
+    <h2>Full Workflow Example</h2>
+
+    <h3>1. Download the manifest</h3>
+    <pre><code>curl -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  https://zero2claude.dev/api/translate/base/manifest</code></pre>
+
+    <h3>2. Download English content</h3>
+    <pre><code><span class="comment"># UI namespaces</span>
+curl -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  https://zero2claude.dev/api/translate/base/ui -o english_ui.json
+
+<span class="comment"># Lesson content</span>
+curl -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  https://zero2claude.dev/api/translate/base/lessons -o english_lessons.json</code></pre>
+
+    <h3>3. Build your translation</h3>
+    <p>Use the downloaded files as templates. Translate every string value while preserving placeholders, HTML, and terminal commands.</p>
+
+    <h3>4. Validate (dry-run)</h3>
+    <pre><code>curl -X <span class="method">POST</span> \
+  -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d @payload.json \
+  https://zero2claude.dev/api/translate/validate</code></pre>
+    <p>Fix any errors reported and re-validate until <code>passesReview: true</code>.</p>
+
+    <h3>5. Submit</h3>
+    <pre><code>curl -X <span class="method">POST</span> \
+  -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  -H <span class="string">"Content-Type: application/json"</span> \
+  -d @payload.json \
+  https://zero2claude.dev/api/translate/submit</code></pre>
+
+    <h3>6. Check status</h3>
+    <pre><code>curl -H <span class="string">"Authorization: Bearer trn_..."</span> \
+  https://zero2claude.dev/api/translate/submissions/YOUR_SUBMISSION_ID</code></pre>
+    <p>When approved, the response includes the GitHub PR URL with all your translation files.</p>
+  </div>
+
+  <!-- STATUSES -->
+  <div class="doc-section" id="statuses">
+    <h2>Submission Statuses</h2>
+
+    <div class="status-flow">
+      <span class="status-node s-pending">submitted</span>
+      <span class="status-arrow">&rarr;</span>
+      <span class="status-node s-passed">qa_passed</span>
+      <span class="status-arrow">&rarr;</span>
+      <span class="status-node s-approved">approved</span>
+    </div>
+    <div class="status-flow" style="margin-top:8px;">
+      <span class="status-node s-pending">submitted</span>
+      <span class="status-arrow">&rarr;</span>
+      <span class="status-node s-failed">qa_failed</span>
+    </div>
+    <div class="status-flow" style="margin-top:8px;">
+      <span class="status-node s-passed">qa_passed</span>
+      <span class="status-arrow">&rarr;</span>
+      <span class="status-node s-rejected">rejected</span>
+    </div>
+
+    <ul style="margin-top:16px;">
+      <li><strong>qa_passed</strong> &mdash; QA checks passed (score 90+, zero errors). Awaiting admin review.</li>
+      <li><strong>qa_failed</strong> &mdash; QA checks found errors. Fix issues and submit again.</li>
+      <li><strong>approved</strong> &mdash; Admin approved. A GitHub PR has been created with your translation files.</li>
+      <li><strong>rejected</strong> &mdash; Admin rejected with feedback. Check <code>adminFeedback</code> for details, fix, and resubmit.</li>
+    </ul>
+  </div>
+
+  <!-- RATE LIMITS -->
+  <div class="doc-section" id="limits">
+    <h2>Rate Limits</h2>
+    <ul>
+      <li><strong>API requests:</strong> 60 per hour per key (configurable by admin)</li>
+      <li><strong>Submissions:</strong> 2 per hour per key</li>
+      <li><strong>Payload size:</strong> 50 MB max</li>
+      <li><strong>Language code:</strong> ISO 639-1 format (<code>fr</code>, <code>ja</code>, <code>pt-BR</code>)</li>
+      <li><strong>Duplicate guard:</strong> Only one active submission per language at a time</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Need an API key?</strong> Contact the platform admin to get your translation API key. Include which language you plan to translate.</p>
+    </div>
+  </div>
+
+  <div class="doc-footer">
+    <p>From Zero to Claude Code &mdash; <a href="https://zero2claude.dev">zero2claude.dev</a></p>
+  </div>
+
+</div>
+
+</body>
+</html>
