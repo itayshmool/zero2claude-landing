@@ -34,6 +34,7 @@
   <link rel="alternate" hreflang="ja" href="https://about.zero2claude.dev?lang=ja">
   <link rel="alternate" hreflang="de" href="https://about.zero2claude.dev?lang=de">
   <link rel="alternate" hreflang="pt" href="https://about.zero2claude.dev?lang=pt">
+  <link rel="alternate" hreflang="tr" href="https://about.zero2claude.dev?lang=tr">
   <link rel="alternate" hreflang="x-default" href="https://about.zero2claude.dev">
 
   <!-- Favicon -->
@@ -42,7 +43,7 @@
   <!-- i18n early detection -->
   <script>
   (function(){
-    var A=['en','es','uk','he','ar','ja','de','pt'],l=null;
+    var A=['en','es','uk','he','ar','ja','de','pt','tr'],l=null;
     var p=new URLSearchParams(location.search).get('lang');
     if(p&&A.indexOf(p)>=0)l=p;
     if(!l){var s=localStorage.getItem('landing-lang');if(s&&A.indexOf(s)>=0)l=s;}
@@ -98,6 +99,7 @@
             <li role="option" data-lang="ja"><span class="lang-flag">🇯🇵</span> 日本語</li>
             <li role="option" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</li>
             <li role="option" data-lang="pt"><span class="lang-flag">🇧🇷</span> Português</li>
+            <li role="option" data-lang="tr"><span class="lang-flag">🇹🇷</span> Türkçe</li>
           </ul>
         </div>
       </nav>
@@ -133,6 +135,7 @@
       <button class="mobile-lang-btn" data-lang="ja">JA</button>
       <button class="mobile-lang-btn" data-lang="de">DE</button>
       <button class="mobile-lang-btn" data-lang="pt">PT</button>
+      <button class="mobile-lang-btn" data-lang="tr">TR</button>
     </div>
     <a href="#journey" data-i18n="nav.journey">Your Journey</a>
     <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
@@ -468,6 +471,12 @@
             <p data-i18n="feature7.text">Prefer listening over reading? Tap the listen button and every lesson reads itself aloud — perfect for multitasking or accessibility.</p>
           </div>
 
+          <div class="card feature-card fade-in">
+            <div class="icon-box" style="background:rgba(20,184,166,0.1); color:#14B8A6;">&#x1F310;</div>
+            <h3 data-i18n="feature8.title">Community Translation SDK</h3>
+            <p data-i18n="feature8.text">An open translation pipeline that lets anyone translate the platform into their language. Built-in QA engine with 10 automated checks. 9 languages and growing.</p>
+          </div>
+
         </div>
       </div>
     </section>
@@ -559,6 +568,14 @@
             <div class="icon-box yellow">&#x1F44D;</div>
             <h3 data-i18n-html="community.vote.title">Upvote &amp; Discuss</h3>
             <p data-i18n="community.vote.text">Every thread and reply can be upvoted. The best answers and ideas rise to the top, powered by the community.</p>
+          </div>
+
+          <!-- Translation SDK -->
+          <div class="card community-card fade-in">
+            <div class="icon-box" style="background:rgba(20,184,166,0.1); color:#14B8A6;">&#x1F310;</div>
+            <h3 data-i18n="community.translate.title">Translate the Platform</h3>
+            <p data-i18n="community.translate.text">Use our Translation SDK to translate all 148 lessons into your language. Download, translate, validate, and submit — all via REST API.</p>
+            <a href="translate.html" class="community-link" data-i18n-html="community.translate.link">Developer Docs &rarr;</a>
           </div>
 
         </div>

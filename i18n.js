@@ -1,6 +1,6 @@
 /**
  * Internationalization strings for Zero2Claude landing page
- * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar), Japanese (ja), German (de), Portuguese (pt)
+ * Languages: English (en), Spanish (es), Ukrainian (uk), Hebrew (he), Arabic (ar), Japanese (ja), German (de), Portuguese (pt), Turkish (tr)
  */
 window.I18N = {
   en: {
@@ -173,6 +173,9 @@ window.I18N = {
     "feature7.title": "Listen to Your Lessons",
     "feature7.text": "Prefer audio? Turn on text-to-speech and listen while you follow along.",
 
+    "feature8.title": "Community Translation SDK",
+    "feature8.text": "An open translation pipeline that lets anyone translate the platform into their language. Built-in QA with 10 automated checks. 9 languages and growing.",
+
     // PERSONAS
     "personas.title": "Built for Curious Minds",
     "personas.subtitle": "No matter where you're starting from",
@@ -204,6 +207,10 @@ window.I18N = {
 
     "community.vote.title": "Upvote & Discuss",
     "community.vote.text": "Upvote helpful answers. Discuss tricky concepts. Learn together.",
+
+    "community.translate.title": "Translate the Platform",
+    "community.translate.text": "Use our Translation SDK to bring all 148 lessons to your language. Download, translate, validate, and submit — all via REST API.",
+    "community.translate.link": "Developer Docs →",
 
     // GETTING STARTED
     "getStarted.title": "Ready? It Takes 30 Seconds.",
@@ -404,6 +411,9 @@ window.I18N = {
     "feature7.title": "Escucha tus Lecciones",
     "feature7.text": "¿Prefieres audio? Activa el texto a voz y escucha mientras sigues la lección.",
 
+    "feature8.title": "SDK de Traducción Comunitaria",
+    "feature8.text": "Un pipeline de traducción abierto que permite a cualquiera traducir la plataforma a su idioma. QA integrado con 10 verificaciones automáticas. 9 idiomas y creciendo.",
+
     // PERSONAS
     "personas.title": "Hecho para Mentes Curiosas",
     "personas.subtitle": "Sin importar de dónde empiezas",
@@ -435,6 +445,10 @@ window.I18N = {
 
     "community.vote.title": "Vota y Discute",
     "community.vote.text": "Vota las respuestas útiles. Discute conceptos difíciles. Aprende en comunidad.",
+
+    "community.translate.title": "Traduce la Plataforma",
+    "community.translate.text": "Usa nuestro SDK de Traducción para llevar las 148 lecciones a tu idioma. Descarga, traduce, valida y envía — todo vía API REST.",
+    "community.translate.link": "Documentación →",
 
     // GETTING STARTED
     "getStarted.title": "¿Listo? Solo Toma 30 Segundos.",
@@ -635,6 +649,9 @@ window.I18N = {
     "feature7.title": "Слухайте Ваші Уроки",
     "feature7.text": "Віддаєте перевагу аудіо? Увімкніть озвучення тексту та слухайте, поки слідкуєте за уроком.",
 
+    "feature8.title": "SDK Перекладу від Спільноти",
+    "feature8.text": "Відкритий конвеєр перекладу, який дозволяє будь-кому перекласти платформу своєю мовою. Вбудований QA з 10 автоматичними перевірками. 9 мов і це не межа.",
+
     // PERSONAS
     "personas.title": "Створено для Допитливих Умів",
     "personas.subtitle": "Незалежно від того, з чого ви починаєте",
@@ -666,6 +683,10 @@ window.I18N = {
 
     "community.vote.title": "Голосуйте та Обговорюйте",
     "community.vote.text": "Голосуйте за корисні відповіді. Обговорюйте складні концепції. Вчіться разом.",
+
+    "community.translate.title": "Перекладіть Платформу",
+    "community.translate.text": "Використовуйте наш SDK перекладу, щоб перекласти всі 148 уроків вашою мовою. Завантажте, перекладіть, перевірте та надішліть — все через REST API.",
+    "community.translate.link": "Документація →",
 
     // GETTING STARTED
     "getStarted.title": "Готові? Це Займає 30 Секунд.",
@@ -866,6 +887,9 @@ window.I18N = {
     "feature7.title": "הקשיבו לשיעורים שלכם",
     "feature7.text": "מעדיפים אודיו? הפעילו טקסט לדיבור והקשיבו תוך כדי מעקב.",
 
+    "feature8.title": "SDK תרגום קהילתי",
+    "feature8.text": "צינור תרגום פתוח שמאפשר לכל אחד לתרגם את הפלטפורמה לשפה שלו. QA מובנה עם 10 בדיקות אוטומטיות. 9 שפות וממשיכים לגדול.",
+
     // PERSONAS
     "personas.title": "נבנה למוחות סקרנים",
     "personas.subtitle": "לא משנה מאיפה אתם מתחילים",
@@ -897,6 +921,10 @@ window.I18N = {
 
     "community.vote.title": "הצביעו ודונו",
     "community.vote.text": "הצביעו לתשובות מועילות. דונו במושגים מסובכים. למדו ביחד.",
+
+    "community.translate.title": "תרגמו את הפלטפורמה",
+    "community.translate.text": "השתמשו ב-SDK התרגום שלנו כדי לתרגם את כל 148 השיעורים לשפה שלכם. הורידו, תרגמו, בדקו ושלחו — הכל דרך REST API.",
+    "community.translate.link": "תיעוד למפתחים →",
 
     // GETTING STARTED
     "getStarted.title": "מוכנים? זה לוקח 30 שניות.",
@@ -1098,6 +1126,9 @@ window.I18N = {
     "feature7.title": "استمع إلى دروسك",
     "feature7.text": "تفضّل الصوت؟ شغّل تحويل النص إلى كلام واستمع أثناء المتابعة.",
 
+    "feature8.title": "SDK الترجمة المجتمعية",
+    "feature8.text": "خط ترجمة مفتوح يتيح لأي شخص ترجمة المنصة إلى لغته. ضمان جودة مدمج مع 10 فحوصات آلية. 9 لغات والعدد في ازدياد.",
+
     // PERSONAS
     "personas.title": "مصمّم للعقول الفضولية",
     "personas.subtitle": "بغض النظر عن نقطة انطلاقك",
@@ -1129,6 +1160,10 @@ window.I18N = {
 
     "community.vote.title": "صوّت وناقش",
     "community.vote.text": "صوّت للإجابات المفيدة. ناقش المفاهيم الصعبة. تعلّم مع الآخرين.",
+
+    "community.translate.title": "ترجم المنصة",
+    "community.translate.text": "استخدم SDK الترجمة لترجمة جميع الدروس الـ 148 إلى لغتك. حمّل، ترجم، تحقق وأرسل — كل شيء عبر REST API.",
+    "community.translate.link": "وثائق المطورين →",
 
     // GETTING STARTED
     "getStarted.title": "مستعد؟ يستغرق 30 ثانية فقط.",
@@ -1330,6 +1365,9 @@ window.I18N = {
     "feature7.title": "レッスンを聴ける",
     "feature7.text": "音声のほうが好みですか？ テキスト読み上げをオンにして、聞きながら進められます。",
 
+    "feature8.title": "コミュニティ翻訳SDK",
+    "feature8.text": "誰でもプラットフォームを自分の言語に翻訳できるオープンな翻訳パイプラインです。10項目の自動QAチェック機能を内蔵。現在9言語に対応し、さらに拡大中です。",
+
     // PERSONAS
     "personas.title": "学んでみたい気持ちがあれば大丈夫",
     "personas.subtitle": "世界のどこからでも、自分のペースで始められます",
@@ -1361,6 +1399,10 @@ window.I18N = {
 
     "community.vote.title": "投票して議論する",
     "community.vote.text": "役立つ回答に投票したり、難しいポイントを話し合ったりしながら、一緒に学べます。",
+
+    "community.translate.title": "プラットフォームを翻訳する",
+    "community.translate.text": "翻訳SDKを使って、148のレッスンすべてをあなたの言語に翻訳できます。ダウンロード、翻訳、検証、送信 — すべてREST APIで完結します。",
+    "community.translate.link": "開発者ドキュメント →",
 
     // GETTING STARTED
     "getStarted.title": "準備ができたら、30秒で始められます。",
@@ -1562,6 +1604,9 @@ window.I18N = {
     "feature7.title": "Höre Deine Lektionen",
     "feature7.text": "Lieber Audio? Schalte Text-to-Speech ein und höre zu, während du mitmachst.",
 
+    "feature8.title": "Community-Übersetzungs-SDK",
+    "feature8.text": "Eine offene Übersetzungs-Pipeline, mit der jeder die Plattform in seine Sprache übersetzen kann. Eingebaute QA mit 10 automatischen Prüfungen. 9 Sprachen und wachsend.",
+
     // PERSONAS
     "personas.title": "Für Neugierige Köpfe Gebaut",
     "personas.subtitle": "Egal, wo du startest",
@@ -1593,6 +1638,10 @@ window.I18N = {
 
     "community.vote.title": "Abstimmen & Diskutieren",
     "community.vote.text": "Stimme für hilfreiche Antworten. Diskutiere knifflige Konzepte. Lerne gemeinsam.",
+
+    "community.translate.title": "Plattform Übersetzen",
+    "community.translate.text": "Nutze unser Übersetzungs-SDK, um alle 148 Lektionen in deine Sprache zu bringen. Herunterladen, übersetzen, validieren und einreichen — alles über REST API.",
+    "community.translate.link": "Entwickler-Docs →",
 
     // GETTING STARTED
     "getStarted.title": "Bereit? Dauert Nur 30 Sekunden.",
@@ -1794,6 +1843,9 @@ window.I18N = {
     "feature7.title": "Ouça Suas Aulas",
     "feature7.text": "Prefere áudio? Ative o texto para fala e ouça enquanto acompanha.",
 
+    "feature8.title": "SDK de Tradução Comunitária",
+    "feature8.text": "Um pipeline de tradução aberto que permite a qualquer pessoa traduzir a plataforma para seu idioma. QA integrado com 10 verificações automáticas. 9 idiomas e crescendo.",
+
     // PERSONAS
     "personas.title": "Feito para Mentes Curiosas",
     "personas.subtitle": "Não importa de onde você vem",
@@ -1826,6 +1878,10 @@ window.I18N = {
     "community.vote.title": "Vote e Discuta",
     "community.vote.text": "Vote nas respostas úteis. Discuta conceitos difíceis. Aprenda junto.",
 
+    "community.translate.title": "Traduza a Plataforma",
+    "community.translate.text": "Use nosso SDK de Tradução para traduzir todas as 148 lições para o seu idioma. Baixe, traduza, valide e envie — tudo via REST API.",
+    "community.translate.link": "Documentação →",
+
     // GETTING STARTED
     "getStarted.title": "Pronto? São Só 30 Segundos.",
 
@@ -1854,5 +1910,244 @@ window.I18N = {
     "footer.privacy": "Política de Privacidade",
     "footer.tagline": "De iniciante curioso a construtor confiante.",
     "footer.copy": "© 2026 Do Zero ao Claude Code. Todos os direitos reservados."
+  },
+
+  tr: {
+    // META
+    "meta.title": "Sıfırdan Claude Code'a — Terminal ve Yapay Zeka Programlamayı Öğrenin",
+    "meta.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders. Deneyim gerekmez.",
+    "meta.og.title": "Sıfırdan Claude Code'a",
+    "meta.og.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders.",
+    "meta.og.imageAlt": "Sıfırdan Claude Code'a - Etkileşimli Terminal Eğitimi",
+    "meta.twitter.title": "Sıfırdan Claude Code'a",
+    "meta.twitter.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders.",
+
+    // NAV
+    "nav.journey": "Yolculuk",
+    "nav.how": "Nasıl Çalışır",
+    "nav.features": "Özellikler",
+    "nav.community": "Topluluk",
+    "nav.getStarted": "Başlayın",
+    "nav.startLearning": "Öğrenmeye Başla",
+    "nav.skip": "Ana içeriğe geç",
+    "nav.logoAria": "Sıfırdan Claude Code'a — Ana Sayfa",
+    "nav.themeToggle": "Açık/koyu tema değiştir",
+    "nav.openMenu": "Menüyü aç",
+    "nav.closeMenu": "Menüyü kapat",
+    "nav.navMenu": "Gezinme menüsü",
+
+    // LEVEL NUMBERS
+    "level1.number": "Seviye 1",
+    "level2.number": "Seviye 2",
+    "level3.number": "Seviye 3",
+    "level4.number": "Seviye 4",
+    "level5.number": "Seviye 5",
+    "level6.number": "Seviye 6",
+    "level7.number": "Seviye 7",
+    "level8.number": "Seviye 8",
+    "level9.number": "Seviye 9",
+    "level10.number": "Seviye 10",
+    "level11.number": "Seviye 11",
+    "level12.number": "Seviye 12",
+    "level13.number": "Seviye 13",
+    "level14.number": "Seviye 14",
+
+    // HERO
+    "hero.title": "Sıfırdan Claude Code'a",
+    "hero.headline": "Geliştirici olmanıza gerek yok<br>geliştirici gibi düşünmek için.",
+    "hero.subtext": "147 etkileşimli ders sizi \"Terminal nedir?\" sorusundan yapay zeka ile gerçek projeler kurmaya taşır. Kodlama deneyimi gerekmez.",
+    "hero.bullet1": "Tamamen tarayıcı tabanlı — kurulum gerekmez",
+    "hero.bullet2": "İzleyerek değil, yaparak öğrenin",
+    "hero.bullet3": "Yapay zeka destekli kişisel öğrenme yolu",
+    "hero.bullet4": "11.000'den fazla öğrenciye katılın",
+    "hero.cta.primary": "Ücretsiz Öğrenmeye Başla",
+    "hero.cta.secondary": "Yolculuğu Gör",
+
+    // TERMINAL
+    "terminal.out1": "gelecek-geliştirici",
+    "terminal.out2": "Bunu yapabilirim",
+
+    // JOURNEY
+    "journey.title": "Yolculuk",
+    "journey.subtitle": "14 seviye. 147 ders. Meraklı başlangıçtan kendine güvenen geliştiriciye.",
+
+    "level1.name": "Bilgisayarlar Sihir Değil",
+    "level1.subtitle": "Dosyalar, klasörler, yollar ve terminal nedir",
+    "level1.encouragement": "Buradan başlayın. Her şeyi açıklıyoruz.",
+    "level1.lessons": "6 kısa ders",
+
+    "level2.name": "Terminaldeki İlk 30 Dakikanız",
+    "level2.subtitle": "Bir geliştirici gibi dosya gezinin, oluşturun ve yönetin",
+    "level2.encouragement": "İlk komutunuzu yazın. Düşündüğünüzden kolay.",
+    "level2.lessons": "13 kısa ders",
+
+    "level3.name": "Dosya Okuma ve Yazma",
+    "level3.subtitle": "Dosyaların içine bakın, metin arayın ve komutları zincirleme kullanın",
+    "level3.encouragement": "Dosyaların içine bakın ve profesyonel gibi arama yapın.",
+    "level3.lessons": "13 kısa ders",
+
+    "level4.name": "Kodunuzun Bir Geçmişi Var",
+    "level4.subtitle": "Git ve GitHub — çalışmanızı bir daha asla kaybetmeyin",
+    "level4.encouragement": "Git ile çalışmanızı bir daha asla kaybetmeyin.",
+    "level4.lessons": "17 kısa ders",
+
+    "level5.name": "Yazılım Gerçekte Nasıl Çalışır",
+    "level5.subtitle": "İstemci, sunucu, API'ler, veritabanları ve bulut — anlaşılır hale getirildi",
+    "level5.encouragement": "Sonunda API'leri, sunucuları ve bulutu anlayın.",
+    "level5.lessons": "14 kısa ders",
+
+    "level6.name": "İnternetle Konuşun",
+    "level6.subtitle": "Gerçek HTTP istekleri yapın, gerçek API'leri çağırın, gerçek verileri okuyun",
+    "level6.encouragement": "Gerçek web sitelerine gerçek istekler gönderin.",
+    "level6.lessons": "12 kısa ders",
+
+    "level7.name": "Gerçek Araçlarla İnşa Edin",
+    "level7.subtitle": "Node.js kurun, kod çalıştırın, gerçek bir sunucu oluşturun",
+    "level7.encouragement": "Node.js kurun ve gerçek bir sunucu oluşturun.",
+    "level7.lessons": "15 kısa ders",
+
+    "level8.name": "Claude Code — Yapay Zeka Eş Programcınız",
+    "level8.subtitle": "Ne istediğinizi anlatarak gerçek projeler oluşturun",
+    "level8.encouragement": "Ne istediğinizi anlatın. Yapay zeka onu kurar.",
+    "level8.lessons": "15 kısa ders",
+
+    "level9.name": "Claude Becerileri — Claude'a İş Akışınızı Öğretin",
+    "level9.subtitle": "Özel eğik çizgi komutları ve SKILL.md dosyaları",
+    "level9.encouragement": "Claude'un sizin çalışma şeklinize uymasını sağlayın.",
+    "level9.lessons": "5 kısa ders",
+
+    "level10.name": "MCP — Claude'u Her Şeye Bağlayın",
+    "level10.subtitle": "MCP sunucuları, taşıma katmanları ve Araç Arama",
+    "level10.encouragement": "Claude'a araçlarınıza ve verilerinize erişim verin.",
+    "level10.lessons": "5 kısa ders",
+
+    "level11.name": "Bağlam Her Şeydir",
+    "level11.subtitle": "CLAUDE.md, bellek, oturumlar, spesifikasyonlar ve devirler",
+    "level11.encouragement": "Claude'un projenizi derinlemesine anlamasına yardım edin.",
+    "level11.lessons": "5 kısa ders",
+
+    "level12.name": "Claude Code İleri Düzey",
+    "level12.subtitle": "Alt ajanlar, çalışma ağaçları, kancalar, başsız mod ve maliyet",
+    "level12.encouragement": "Claude'un en güçlü özelliklerini açın.",
+    "level12.lessons": "5 kısa ders",
+
+    "level13.name": "Junior Geliştirici Kalıpları",
+    "level13.subtitle": "Hata ayıklayın, dağıtın ve profesyonel gibi çalışın",
+    "level13.encouragement": "Hata ayıklayın, dağıtın ve profesyonel gibi düşünün.",
+    "level13.lessons": "12 kısa ders",
+
+    "level14.name": "Proje — Gerçek Bir Oyun İnşa Edin",
+    "level14.subtitle": "Gerçek zamanlı çok oyunculu bir tic-tac-toe oyunu oluşturun ve dağıtın",
+    "level14.encouragement": "Her şey bir araya geliyor. Gerçek bir çok oyunculu oyun yayınlayın.",
+    "level14.lessons": "10 kısa ders",
+
+    // HOW IT WORKS
+    "how.title": "Nasıl Çalışır",
+    "how.subtitle": "İlk projenize dört basit adım",
+
+    "step1.title": "Saniyeler İçinde Kaydolun",
+    "step1.text": "Kredi kartı yok, uzun formlar yok. Sadece bir kullanıcı adı seçin ve başlayın.",
+
+    "step2.title": "Kişisel Yapay Zeka Planınızı Alın",
+    "step2.text": "Geçmişinizi anlatın. Yapay zekamız size özel bir öğrenme yolu oluşturur.",
+
+    "step3.title": "Oynayarak Öğrenin",
+    "step3.text": "Etkileşimli alıştırmalar, quizler ve gerçek terminal pratiği. Sıkıcı videolar yok.",
+
+    "step4.title": "Seviye Atlayışınızı İzleyin",
+    "step4.text": "İlerlemenizi takip edin, başarılar kazanın ve ne kadar yol aldığınızı görün.",
+
+    // FEATURES
+    "features.title": "Öğrenmek Oyun Gibi Hissettirmeli",
+    "features.subtitle": "Sizi meşgul ve ileriye doğru hareket halinde tutmak için her özelliği oluşturduk",
+
+    "feature1.title": "10 Farklı Öğrenme Yolu",
+    "feature1.text": "Quizler, boşluk doldurma, tıkla-eşleştir, etkileşimli dosya ağaçları, terminal simülasyonları ve daha fazlası. Asla sıkılmazsınız.",
+
+    "feature2.title": "Yapay Zeka Koçunuz",
+    "feature2.text": "Takıldınız mı? Yardım isteyin. Yapay zekamız şu anki dersinizi anlar ve cevabı vermeden sizi yönlendirir.",
+
+    "feature3.title": "Başarılar ve Seriler",
+    "feature3.text": "Öğrenirken 16 başarı açın. Günlük seriler oluşturun. Her kilometre taşını kutlayın.",
+
+    "feature4.title": "Kaldığınız Yerden Devam Edin",
+    "feature4.text": "İlerlemeniz cihazlar arasında senkronize edilir. Dizüstü bilgisayarınızı kapatın, telefonunuzu açın, öğrenmeye devam edin.",
+
+    "feature5.title": "Hata Bildirin, Yapay Zeka Düzeltir",
+    "feature5.text": "Bir hata mı buldunuz? Bildirin. Yapay zeka ajanımız araştırır ve genellikle saatler içinde bir düzeltme oluşturur.",
+
+    "feature6.title": "Yapay Zeka Destekli Başlangıç",
+    "feature6.text": "Yapay zekamız geçmişinizi analiz eder ve öncelik seviyeleriyle kişiselleştirilmiş bir öğrenme planı oluşturur.",
+
+    "feature7.title": "Derslerinizi Dinleyin",
+    "feature7.text": "Sesi mi tercih ediyorsunuz? Metinden konuşmaya özelliğini açın ve takip ederken dinleyin.",
+
+    "feature8.title": "Topluluk Çeviri SDK'sı",
+    "feature8.text": "Herkesin platformu kendi diline çevirmesine olanak tanıyan açık bir çeviri hattı. 10 otomatik kontrolle yerleşik QA. 9 dil ve artıyor.",
+
+    // PERSONAS
+    "personas.title": "Meraklı Zihinler İçin Tasarlandı",
+    "personas.subtitle": "Nereden başlarsanız başlayın",
+
+    "persona1.title": "Meraklı Yaratıcı",
+    "persona1.text": "Yazılımın nasıl çalıştığını anlamak isteyen tasarımcılar, yazarlar ve yapımcılar — ve belki kendi araçlarını yapmak isteyenler.",
+
+    "persona2.title": "Kariyer Değiştiren",
+    "persona2.text": "Teknolojiyi keşfeden profesyoneller. Kod ve yapay zeka ile bir şeyler yapmaya başlamak için bilgisayar bilimi diplomasına ihtiyacınız yok.",
+
+    "persona3.title": "Ömür Boyu Öğrenen",
+    "persona3.text": "Öğrenmenin keyfini yaşayan biri. Terminal, araç kutunuza ekleyeceğiniz bir başka beceri.",
+
+    // COMMUNITY
+    "community.title": "Yalnız Öğrenmiyorsunuz",
+    "community.subtitle": "Birlikte büyümeye yardım eden bir öğrenci topluluğuna katılın",
+
+    "community.tag": "🧞 Özellik İstekleri",
+    "community.genie.title": "Dileğiniz Emrimdir",
+    "community.genie.text": "Yeni bir özellik mi istiyorsunuz? Bir dilek dileyin. Topluluk oy verir ve biz en önemli olanı yaparız.",
+    "community.genie.link": "Dilek Dile →",
+
+    "community.forum.title": "Tartışma Forumu",
+    "community.forum.text": "Sorular sorun, fikirlerinizi paylaşın ve her seviyeden öğrencilerle bağlantı kurun.",
+    "community.forum.link": "Forumu Gez →",
+
+    "community.help.title": "Gerçek Zamanlı Akran Yardımı",
+    "community.help.text": "Bir derste mi takıldınız? Yardım isteyin ve daha önce o dersi tamamlamış biriyle eşleşin.",
+
+    "community.vote.title": "Oyla ve Tartış",
+    "community.vote.text": "Yararlı yanıtları oylamak. Zor kavramları tartışmak. Birlikte öğrenmek.",
+
+    "community.translate.title": "Platformu Çevirin",
+    "community.translate.text": "Çeviri SDK'mızı kullanarak 148 dersin tamamını kendi dilinize çevirin. İndirin, çevirin, doğrulayın ve gönderin — hepsi REST API üzerinden.",
+    "community.translate.link": "Geliştirici Belgeleri →",
+
+    // GETTING STARTED
+    "getStarted.title": "Hazır mısınız? Sadece 30 Saniye Sürer.",
+
+    "getStarted.step1": "<a href=\"https://zero2claude.dev\">zero2claude.dev</a> adresine gidin",
+    "getStarted.step2": "\"Hesap Oluştur\"a tıklayın",
+    "getStarted.step3": "Bir kullanıcı adı ve şifre seçin",
+    "getStarted.step4": "Seviye 1'e başlayın — deneyim gerekmez",
+
+    "getStarted.formTitle": "Hesap oluştur",
+    "getStarted.formSub": "Terminal eğitim yolculuğunuza başlayın",
+
+    "getStarted.input1": "kullanici_adiniz",
+    "getStarted.input2": "Adınız",
+    "getStarted.input3": "siz@ornek.com",
+    "getStarted.input4": "8+ karakter",
+    "getStarted.formBtn": "Hesap oluştur",
+    "getStarted.cta": "Hesabınızı Oluşturun",
+    "getStarted.reassurance": "Kredi kartı yok. Spam yok. Sadece öğrenme.",
+
+    // FOOTER
+    "footer.brand": "Sıfırdan Claude Code'a",
+    "footer.startLearning": "Öğrenmeye Başla",
+    "footer.logIn": "Giriş Yap",
+    "footer.forum": "Topluluk Forumu",
+    "footer.terms": "Kullanım Koşulları",
+    "footer.privacy": "Gizlilik Politikası",
+    "footer.tagline": "Meraklı başlangıçtan kendine güvenen geliştiriciye.",
+    "footer.copy": "© 2026 Sıfırdan Claude Code'a. Tüm hakları saklıdır."
   }
 };
