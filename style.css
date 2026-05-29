@@ -243,18 +243,12 @@ section {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  color: var(--text-primary);
-  font-family: var(--font-mono);
-  font-size: 0.95rem;
-  font-weight: 600;
   white-space: nowrap;
 }
 
 .logo svg {
-  width: 24px;
   height: 24px;
-  color: var(--accent);
+  width: auto;
   flex-shrink: 0;
 }
 
@@ -1234,18 +1228,12 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
   margin-bottom: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--text-primary);
 }
 
 .footer-logo svg {
-  width: 20px;
   height: 20px;
-  color: var(--accent);
+  width: auto;
 }
 
 .footer-links {
