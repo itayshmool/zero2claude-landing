@@ -1,0 +1,95 @@
+<!doctype html>
+<!--
+  Source template for social-share.png (Open Graph / Twitter card, 1200x630).
+  Regenerate after editing:
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 \
+      --window-size=1200,630 --screenshot=social-share.png \
+      "file://$PWD/social-share-card.html"
+-->
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 1200px; height: 630px; }
+  body {
+    background:
+      radial-gradient(900px 520px at 42% 46%, rgba(255,107,53,0.10), rgba(255,107,53,0) 60%),
+      #0b0a0a;
+    font-family: -apple-system, "SF Pro Display", "Helvetica Neue", Arial, sans-serif;
+    color: #F5F2EC;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+  }
+  /* faint grid */
+  body::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: 200px 200px;
+  }
+  .wrap { display: flex; align-items: center; width: 100%; padding: 0 72px; gap: 48px; position: relative; z-index: 1; }
+  .left { flex: 1.25; }
+  .eyebrow { color: #FF6B35; font-size: 17px; font-weight: 700; letter-spacing: 3px; text-transform: uppercase; }
+  .eyebrow-bar { width: 132px; height: 3px; background: #FF6B35; margin-top: 10px; border-radius: 2px; }
+  .headline { font-size: 76px; font-weight: 800; line-height: 1.04; letter-spacing: -1.5px; margin-top: 30px; }
+  .headline .orange { color: #FF6B35; }
+  .subtitle { color: #9b9690; font-size: 25px; margin-top: 22px; font-weight: 400; }
+  .pills { display: flex; gap: 16px; margin-top: 34px; }
+  .pill {
+    display: inline-flex; align-items: center; gap: 9px;
+    background: #161412; border: 1px solid #2e2a26; border-radius: 12px;
+    padding: 13px 18px; font-size: 18px; color: #d8d4cc; font-weight: 500;
+  }
+  .footer { position: absolute; left: 72px; bottom: 40px; color: #5f5b54; font-size: 16px;
+    font-family: "SF Mono", Monaco, monospace; z-index: 1; }
+
+  /* terminal mockup */
+  .right { flex: 1; display: flex; justify-content: center; }
+  .term { width: 430px; background: #1d1a16; border: 2px solid #FF6B35; border-radius: 16px;
+    box-shadow: 0 0 0 1px rgba(255,107,53,0.15), 0 24px 60px rgba(0,0,0,0.5); overflow: hidden; }
+  .term-bar { background: #262220; padding: 14px 18px; display: flex; align-items: center; }
+  .dots { display: flex; gap: 9px; }
+  .dot { width: 13px; height: 13px; border-radius: 50%; }
+  .dot.r { background: #E85B4A; } .dot.y { background: #D4A843; } .dot.g { background: #6ABF69; }
+  .term-title { margin-left: auto; color: #7a756c; font: 14px "SF Mono", Monaco, monospace; }
+  .term-body { padding: 24px 22px; font: 19px/1.7 "SF Mono", Monaco, monospace; color: #F0ECE4; }
+  .term-body .p { color: #6ABF69; }
+  .term-body .muted { color: #8a857c; }
+  .term-body .cmd { color: #F0ECE4; font-weight: 600; }
+  .cursor { display: inline-block; width: 12px; height: 22px; background: #FF6B35; vertical-align: -4px; }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="left">
+      <div class="eyebrow">Learn the Terminal from Zero</div>
+      <div class="eyebrow-bar"></div>
+      <div class="headline">From Zero to<br><span class="orange">Claude</span> Code</div>
+      <div class="subtitle">151 interactive lessons across 17 levels</div>
+      <div class="pills">
+        <span class="pill">🎯 No experience needed</span>
+        <span class="pill">🤖 AI-guided learning path</span>
+      </div>
+    </div>
+    <div class="right">
+      <div class="term">
+        <div class="term-bar"><div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div><span class="term-title">terminal</span></div>
+        <div class="term-body">
+          <div><span class="p">$</span> <span class="cmd">whoami</span></div>
+          <div class="muted">future-developer</div>
+          <div>&nbsp;</div>
+          <div><span class="p">$</span> <span class="cmd">start-learning</span></div>
+          <div class="muted">level-1 unlocked 🔒</div>
+          <div><span class="cursor"></span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">about.zero2claude.dev</div>
+</body>
+</html>
