@@ -42,6 +42,9 @@ window.I18N = {
     "level12.number": "Level 12",
     "level13.number": "Level 13",
     "level14.number": "Level 14",
+    "level15.number": "Level 15 · ✦ Experts Zone",
+    "level16.number": "Level 16 · ✦ Experts Zone",
+    "level17.number": "Level 17 · ✦ Experts Zone",
 
     // HERO
     "hero.title": "From Zero to Claude Code",
@@ -131,6 +134,18 @@ window.I18N = {
     "level14.subtitle": "Build and deploy a real-time multiplayer tic-tac-toe game",
     "level14.encouragement": "Everything comes together. Ship a real multiplayer game.",
     "level14.lessons": "10 bite-sized lessons",
+    "level15.name": "Claude Agents",
+    "level15.subtitle": "Custom subagents that own a job, run in their own context, and report back",
+    "level15.encouragement": "Build a bench of specialists Claude delegates to.",
+    "level15.lessons": "1 bite-sized lesson",
+    "level16.name": "Claude Code from Mobile",
+    "level16.subtitle": "Drive a Claude Code session from your phone — remote or in the cloud",
+    "level16.encouragement": "Kick off and check on work from anywhere.",
+    "level16.lessons": "1 bite-sized lesson",
+    "level17.name": "Opus 4.8 & Workflows",
+    "level17.subtitle": "Pick the strongest engine, then orchestrate many agents at once",
+    "level17.encouragement": "Command a whole fleet of agents.",
+    "level17.lessons": "1 bite-sized lesson",
 
     // HOW IT WORKS
     "how.title": "How It Works",
