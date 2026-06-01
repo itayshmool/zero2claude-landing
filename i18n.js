@@ -6,12 +6,12 @@ window.I18N = {
   en: {
     // META
     "meta.title": "From Zero to Claude Code — Learn Terminal & AI Programming",
-    "meta.description": "Master the terminal and Claude Code from scratch. 147 interactive lessons across 14 levels. No experience needed.",
+    "meta.description": "Master the terminal and Claude Code from scratch. 151 interactive lessons across 17 levels. No experience needed.",
     "meta.og.title": "From Zero to Claude Code",
-    "meta.og.description": "Master the terminal and Claude Code from scratch. 147 interactive lessons across 14 levels.",
+    "meta.og.description": "Master the terminal and Claude Code from scratch. 151 interactive lessons across 17 levels.",
     "meta.og.imageAlt": "From Zero to Claude Code - Interactive Terminal Training",
     "meta.twitter.title": "From Zero to Claude Code",
-    "meta.twitter.description": "Master the terminal and Claude Code from scratch. 147 interactive lessons across 14 levels.",
+    "meta.twitter.description": "Master the terminal and Claude Code from scratch. 151 interactive lessons across 17 levels.",
 
     // NAV
     "nav.journey": "The Journey",
@@ -46,7 +46,7 @@ window.I18N = {
     // HERO
     "hero.title": "From Zero to Claude Code",
     "hero.headline": "You don't need to be a developer<br>to think like one.",
-    "hero.subtext": "147 interactive lessons take you from \"What's a terminal?\" to building real projects with AI. No coding experience required.",
+    "hero.subtext": "151 interactive lessons take you from \"What's a terminal?\" to building real projects with AI. No coding experience required.",
     "hero.bullet1": "100% browser-based — nothing to install",
     "hero.bullet2": "Learn by doing, not watching",
     "hero.bullet3": "AI-powered personalized learning path",
@@ -60,7 +60,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "The Journey",
-    "journey.subtitle": "14 levels. 147 lessons. From curious beginner to confident builder.",
+    "journey.subtitle": "17 levels. 151 lessons. From curious beginner to confident builder.",
 
     "level1.name": "Computers Are Not Magic",
     "level1.subtitle": "Files, folders, paths, and what a terminal actually is",
@@ -209,7 +209,7 @@ window.I18N = {
     "community.vote.text": "Upvote helpful answers. Discuss tricky concepts. Learn together.",
 
     "community.translate.title": "Translate the Platform",
-    "community.translate.text": "Use our Translation SDK to bring all 148 lessons to your language. Download, translate, validate, and submit — all via REST API.",
+    "community.translate.text": "Use our Translation SDK to bring all 151 lessons to your language. Download, translate, validate, and submit — all via REST API.",
     "community.translate.link": "Developer Docs →",
 
     // GETTING STARTED
@@ -245,12 +245,12 @@ window.I18N = {
   es: {
     // META
     "meta.title": "De Cero a Claude Code — Aprende Terminal y Programación con IA",
-    "meta.description": "Domina la terminal y Claude Code desde cero. 147 lecciones interactivas en 14 niveles. No se necesita experiencia.",
+    "meta.description": "Domina la terminal y Claude Code desde cero. 151 lecciones interactivas en 17 niveles. No se necesita experiencia.",
     "meta.og.title": "De Cero a Claude Code",
-    "meta.og.description": "Domina la terminal y Claude Code desde cero. 147 lecciones interactivas en 14 niveles.",
+    "meta.og.description": "Domina la terminal y Claude Code desde cero. 151 lecciones interactivas en 17 niveles.",
     "meta.og.imageAlt": "De Cero a Claude Code - Entrenamiento Interactivo de Terminal",
     "meta.twitter.title": "De Cero a Claude Code",
-    "meta.twitter.description": "Domina la terminal y Claude Code desde cero. 147 lecciones interactivas en 14 niveles.",
+    "meta.twitter.description": "Domina la terminal y Claude Code desde cero. 151 lecciones interactivas en 17 niveles.",
 
     // NAV
     "nav.journey": "El Viaje",
@@ -284,7 +284,7 @@ window.I18N = {
     // HERO
     "hero.title": "De Cero a Claude Code",
     "hero.headline": "No necesitas ser desarrollador<br>para pensar como uno.",
-    "hero.subtext": "147 lecciones interactivas te llevan desde \"¿Qué es una terminal?\" hasta construir proyectos reales con IA. No se requiere experiencia en programación.",
+    "hero.subtext": "151 lecciones interactivas te llevan desde \"¿Qué es una terminal?\" hasta construir proyectos reales con IA. No se requiere experiencia en programación.",
     "hero.bullet1": "100% en el navegador — nada que instalar",
     "hero.bullet2": "Aprende haciendo, no mirando",
     "hero.bullet3": "Ruta de aprendizaje personalizada con IA",
@@ -298,7 +298,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "El Viaje",
-    "journey.subtitle": "14 niveles. 147 lecciones. De principiante curioso a constructor seguro.",
+    "journey.subtitle": "17 niveles. 151 lecciones. De principiante curioso a constructor seguro.",
 
     "level1.name": "Las Computadoras No Son Magia",
     "level1.subtitle": "Archivos, carpetas, rutas y qué es realmente una terminal",
@@ -447,7 +447,7 @@ window.I18N = {
     "community.vote.text": "Vota las respuestas útiles. Discute conceptos difíciles. Aprende en comunidad.",
 
     "community.translate.title": "Traduce la Plataforma",
-    "community.translate.text": "Usa nuestro SDK de Traducción para llevar las 148 lecciones a tu idioma. Descarga, traduce, valida y envía — todo vía API REST.",
+    "community.translate.text": "Usa nuestro SDK de Traducción para llevar las 151 lecciones a tu idioma. Descarga, traduce, valida y envía — todo vía API REST.",
     "community.translate.link": "Documentación →",
 
     // GETTING STARTED
@@ -483,12 +483,12 @@ window.I18N = {
   uk: {
     // META
     "meta.title": "Від Нуля до Claude Code — Вивчайте Термінал та Програмування з ШІ",
-    "meta.description": "Опануйте термінал та Claude Code з нуля. 147 інтерактивних уроків у 14 рівнях. Досвід не потрібен.",
+    "meta.description": "Опануйте термінал та Claude Code з нуля. 151 інтерактивних уроків у 17 рівнях. Досвід не потрібен.",
     "meta.og.title": "Від Нуля до Claude Code",
-    "meta.og.description": "Опануйте термінал та Claude Code з нуля. 147 інтерактивних уроків у 14 рівнях.",
+    "meta.og.description": "Опануйте термінал та Claude Code з нуля. 151 інтерактивних уроків у 17 рівнях.",
     "meta.og.imageAlt": "Від Нуля до Claude Code - Інтерактивне Навчання Терміналу",
     "meta.twitter.title": "Від Нуля до Claude Code",
-    "meta.twitter.description": "Опануйте термінал та Claude Code з нуля. 147 інтерактивних уроків у 14 рівнях.",
+    "meta.twitter.description": "Опануйте термінал та Claude Code з нуля. 151 інтерактивних уроків у 17 рівнях.",
 
     // NAV
     "nav.journey": "Подорож",
@@ -522,7 +522,7 @@ window.I18N = {
     // HERO
     "hero.title": "Від Нуля до Claude Code",
     "hero.headline": "Не потрібно бути розробником,<br>щоб думати як розробник.",
-    "hero.subtext": "147 інтерактивних уроків проведуть вас від \"Що таке термінал?\" до створення реальних проектів зі ШІ. Досвід програмування не потрібен.",
+    "hero.subtext": "151 інтерактивних уроків проведуть вас від \"Що таке термінал?\" до створення реальних проектів зі ШІ. Досвід програмування не потрібен.",
     "hero.bullet1": "100% у браузері — нічого встановлювати",
     "hero.bullet2": "Вчіться на практиці, а не переглядаючи відео",
     "hero.bullet3": "Персоналізований шлях навчання на основі ШІ",
@@ -536,7 +536,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "Подорож",
-    "journey.subtitle": "14 рівнів. 147 уроків. Від допитливого початківця до впевненого творця.",
+    "journey.subtitle": "17 рівнів. 151 уроків. Від допитливого початківця до впевненого творця.",
 
     "level1.name": "Комп'ютери — Це Не Магія",
     "level1.subtitle": "Файли, папки, шляхи та що насправді таке термінал",
@@ -685,7 +685,7 @@ window.I18N = {
     "community.vote.text": "Голосуйте за корисні відповіді. Обговорюйте складні концепції. Вчіться разом.",
 
     "community.translate.title": "Перекладіть Платформу",
-    "community.translate.text": "Використовуйте наш SDK перекладу, щоб перекласти всі 148 уроків вашою мовою. Завантажте, перекладіть, перевірте та надішліть — все через REST API.",
+    "community.translate.text": "Використовуйте наш SDK перекладу, щоб перекласти всі 151 уроків вашою мовою. Завантажте, перекладіть, перевірте та надішліть — все через REST API.",
     "community.translate.link": "Документація →",
 
     // GETTING STARTED
@@ -721,12 +721,12 @@ window.I18N = {
   he: {
     // META
     "meta.title": "מאפס ל-Claude Code — למדו טרמינל ותכנות עם AI",
-    "meta.description": "שלטו בטרמינל וב-Claude Code מאפס. 147 שיעורים אינטראקטיביים ב-14 רמות. לא נדרש ניסיון קודם.",
+    "meta.description": "שלטו בטרמינל וב-Claude Code מאפס. 151 שיעורים אינטראקטיביים ב-17 רמות. לא נדרש ניסיון קודם.",
     "meta.og.title": "מאפס ל-Claude Code",
-    "meta.og.description": "שלטו בטרמינל וב-Claude Code מאפס. 147 שיעורים אינטראקטיביים ב-14 רמות.",
+    "meta.og.description": "שלטו בטרמינל וב-Claude Code מאפס. 151 שיעורים אינטראקטיביים ב-17 רמות.",
     "meta.og.imageAlt": "מאפס ל-Claude Code - אימון טרמינל אינטראקטיבי",
     "meta.twitter.title": "מאפס ל-Claude Code",
-    "meta.twitter.description": "שלטו בטרמינל וב-Claude Code מאפס. 147 שיעורים אינטראקטיביים ב-14 רמות.",
+    "meta.twitter.description": "שלטו בטרמינל וב-Claude Code מאפס. 151 שיעורים אינטראקטיביים ב-17 רמות.",
 
     // NAV
     "nav.journey": "המסע",
@@ -760,7 +760,7 @@ window.I18N = {
     // HERO
     "hero.title": "מאפס ל-Claude Code",
     "hero.headline": "לא צריך להיות מפתח<br>כדי לחשוב כמו אחד.",
-    "hero.subtext": "147 שיעורים אינטראקטיביים לוקחים אתכם מ\"מה זה טרמינל?\" לבניית פרויקטים אמיתיים עם AI. לא נדרש ניסיון בתכנות.",
+    "hero.subtext": "151 שיעורים אינטראקטיביים לוקחים אתכם מ\"מה זה טרמינל?\" לבניית פרויקטים אמיתיים עם AI. לא נדרש ניסיון בתכנות.",
     "hero.bullet1": "100% בדפדפן — אין מה להתקין",
     "hero.bullet2": "למדו דרך עשייה, לא צפייה",
     "hero.bullet3": "מסלול למידה מותאם אישית מבוסס AI",
@@ -774,7 +774,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "המסע",
-    "journey.subtitle": "14 רמות. 147 שיעורים. ממתחיל סקרן לבונה בטוח.",
+    "journey.subtitle": "17 רמות. 151 שיעורים. ממתחיל סקרן לבונה בטוח.",
 
     "level1.name": "מחשבים הם לא קסם",
     "level1.subtitle": "קבצים, תיקיות, נתיבים ומה זה בעצם טרמינל",
@@ -923,7 +923,7 @@ window.I18N = {
     "community.vote.text": "הצביעו לתשובות מועילות. דונו במושגים מסובכים. למדו ביחד.",
 
     "community.translate.title": "תרגמו את הפלטפורמה",
-    "community.translate.text": "השתמשו ב-SDK התרגום שלנו כדי לתרגם את כל 148 השיעורים לשפה שלכם. הורידו, תרגמו, בדקו ושלחו — הכל דרך REST API.",
+    "community.translate.text": "השתמשו ב-SDK התרגום שלנו כדי לתרגם את כל 151 השיעורים לשפה שלכם. הורידו, תרגמו, בדקו ושלחו — הכל דרך REST API.",
     "community.translate.link": "תיעוד למפתחים →",
 
     // GETTING STARTED
@@ -959,12 +959,12 @@ window.I18N = {
   ar: {
     // META
     "meta.title": "من الصفر إلى Claude Code — تعلّم الطرفية والبرمجة بالذكاء الاصطناعي",
-    "meta.description": "أتقن الطرفية وClaude Code من الصفر. 147 درسًا تفاعليًا عبر 14 مستوى. لا تحتاج إلى خبرة سابقة.",
+    "meta.description": "أتقن الطرفية وClaude Code من الصفر. 151 درسًا تفاعليًا عبر 17 مستوى. لا تحتاج إلى خبرة سابقة.",
     "meta.og.title": "من الصفر إلى Claude Code",
-    "meta.og.description": "أتقن الطرفية وClaude Code من الصفر. 147 درسًا تفاعليًا عبر 14 مستوى.",
+    "meta.og.description": "أتقن الطرفية وClaude Code من الصفر. 151 درسًا تفاعليًا عبر 17 مستوى.",
     "meta.og.imageAlt": "من الصفر إلى Claude Code - تدريب تفاعلي على الطرفية",
     "meta.twitter.title": "من الصفر إلى Claude Code",
-    "meta.twitter.description": "أتقن الطرفية وClaude Code من الصفر. 147 درسًا تفاعليًا عبر 14 مستوى.",
+    "meta.twitter.description": "أتقن الطرفية وClaude Code من الصفر. 151 درسًا تفاعليًا عبر 17 مستوى.",
 
     // NAV
     "nav.journey": "الرحلة",
@@ -999,7 +999,7 @@ window.I18N = {
     // HERO
     "hero.title": "من الصفر إلى Claude Code",
     "hero.headline": "لا تحتاج أن تكون مطوّرًا<br>لتفكّر كمطوّر.",
-    "hero.subtext": "147 درسًا تفاعليًا تأخذك من \"ما هي الطرفية؟\" إلى بناء مشاريع حقيقية مع الذكاء الاصطناعي. لا تحتاج إلى خبرة برمجية.",
+    "hero.subtext": "151 درسًا تفاعليًا تأخذك من \"ما هي الطرفية؟\" إلى بناء مشاريع حقيقية مع الذكاء الاصطناعي. لا تحتاج إلى خبرة برمجية.",
     "hero.bullet1": "100% في المتصفح — لا حاجة لتثبيت شيء",
     "hero.bullet2": "تعلّم بالممارسة، لا بالمشاهدة",
     "hero.bullet3": "مسار تعليمي مخصص مدعوم بالذكاء الاصطناعي",
@@ -1013,7 +1013,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "الرحلة",
-    "journey.subtitle": "14 مستوى. 147 درسًا. من مبتدئ فضولي إلى بانٍ واثق.",
+    "journey.subtitle": "17 مستوى. 151 درسًا. من مبتدئ فضولي إلى بانٍ واثق.",
 
     "level1.name": "الحواسيب ليست سحرًا",
     "level1.subtitle": "الملفات والمجلدات والمسارات وما هي الطرفية حقًا",
@@ -1162,7 +1162,7 @@ window.I18N = {
     "community.vote.text": "صوّت للإجابات المفيدة. ناقش المفاهيم الصعبة. تعلّم مع الآخرين.",
 
     "community.translate.title": "ترجم المنصة",
-    "community.translate.text": "استخدم SDK الترجمة لترجمة جميع الدروس الـ 148 إلى لغتك. حمّل، ترجم، تحقق وأرسل — كل شيء عبر REST API.",
+    "community.translate.text": "استخدم SDK الترجمة لترجمة جميع الدروس الـ 151 إلى لغتك. حمّل، ترجم، تحقق وأرسل — كل شيء عبر REST API.",
     "community.translate.link": "وثائق المطورين →",
 
     // GETTING STARTED
@@ -1198,12 +1198,12 @@ window.I18N = {
   ja: {
     // META
     "meta.title": "ゼロからClaude Codeへ — ターミナルとAI開発をゼロから学ぶ",
-    "meta.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。未経験でも大丈夫。",
+    "meta.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全17レベル・151のインタラクティブレッスンを完全な日本語で学べます。未経験でも大丈夫。",
     "meta.og.title": "ゼロからClaude Codeへ",
-    "meta.og.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。",
+    "meta.og.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全17レベル・151のインタラクティブレッスンを完全な日本語で学べます。",
     "meta.og.imageAlt": "ゼロからClaude Codeへ - インタラクティブなターミナルトレーニング",
     "meta.twitter.title": "ゼロからClaude Codeへ",
-    "meta.twitter.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全14レベル・147のインタラクティブレッスンを完全な日本語で学べます。",
+    "meta.twitter.description": "ターミナルとClaude Codeをゼロから学べる、学生のための無料学習プラットフォーム。全17レベル・151のインタラクティブレッスンを完全な日本語で学べます。",
 
     // NAV
     "nav.journey": "学習ロードマップ",
@@ -1238,7 +1238,7 @@ window.I18N = {
     // HERO
     "hero.title": "ゼロからClaude Codeへ",
     "hero.headline": "開発者じゃなくても大丈夫。<br>好奇心があれば、ここから始められます。",
-    "hero.subtext": "147のインタラクティブレッスンを完全な日本語で学びながら、「ターミナルって何？」からAIで実際のプロジェクトを作るところまで、一歩ずつ進めます。コーディング経験は不要です。",
+    "hero.subtext": "151のインタラクティブレッスンを完全な日本語で学びながら、「ターミナルって何？」からAIで実際のプロジェクトを作るところまで、一歩ずつ進めます。コーディング経験は不要です。",
     "hero.bullet1": "100%ブラウザ完結。インストール不要",
     "hero.bullet2": "見るだけで終わらない、手を動かす学習",
     "hero.bullet3": "AIがあなたに合った学び方を提案",
@@ -1252,7 +1252,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "学習ロードマップ",
-    "journey.subtitle": "全14レベル・147レッスン。はじめての一歩から、自分の力で作れるところまで。",
+    "journey.subtitle": "全17レベル・151レッスン。はじめての一歩から、自分の力で作れるところまで。",
 
     "level1.name": "コンピュータは魔法じゃない",
     "level1.subtitle": "ファイル、フォルダ、パス、そしてターミナルとは何か",
@@ -1401,7 +1401,7 @@ window.I18N = {
     "community.vote.text": "役立つ回答に投票したり、難しいポイントを話し合ったりしながら、一緒に学べます。",
 
     "community.translate.title": "プラットフォームを翻訳する",
-    "community.translate.text": "翻訳SDKを使って、148のレッスンすべてをあなたの言語に翻訳できます。ダウンロード、翻訳、検証、送信 — すべてREST APIで完結します。",
+    "community.translate.text": "翻訳SDKを使って、151のレッスンすべてをあなたの言語に翻訳できます。ダウンロード、翻訳、検証、送信 — すべてREST APIで完結します。",
     "community.translate.link": "開発者ドキュメント →",
 
     // GETTING STARTED
@@ -1437,12 +1437,12 @@ window.I18N = {
   de: {
     // META
     "meta.title": "Von Null auf Claude Code — Lerne Terminal & KI-Programmierung",
-    "meta.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln. Keine Vorkenntnisse nötig.",
+    "meta.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln. Keine Vorkenntnisse nötig.",
     "meta.og.title": "Von Null auf Claude Code",
-    "meta.og.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln.",
+    "meta.og.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln.",
     "meta.og.imageAlt": "Von Null auf Claude Code - Interaktives Terminal-Training",
     "meta.twitter.title": "Von Null auf Claude Code",
-    "meta.twitter.description": "Meistere das Terminal und Claude Code von Grund auf. 147 interaktive Lektionen in 14 Leveln.",
+    "meta.twitter.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln.",
 
     // NAV
     "nav.journey": "Die Reise",
@@ -1477,7 +1477,7 @@ window.I18N = {
     // HERO
     "hero.title": "Von Null auf Claude Code",
     "hero.headline": "Du musst kein Entwickler sein,<br>um wie einer zu denken.",
-    "hero.subtext": "147 interaktive Lektionen bringen dich von \"Was ist ein Terminal?\" bis zum Bauen echter Projekte mit KI. Keine Programmiererfahrung nötig.",
+    "hero.subtext": "151 interaktive Lektionen bringen dich von \"Was ist ein Terminal?\" bis zum Bauen echter Projekte mit KI. Keine Programmiererfahrung nötig.",
     "hero.bullet1": "100% im Browser — nichts installieren",
     "hero.bullet2": "Lerne durch Machen, nicht durch Zuschauen",
     "hero.bullet3": "KI-gestützter persönlicher Lernpfad",
@@ -1491,7 +1491,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "Die Reise",
-    "journey.subtitle": "14 Level. 147 Lektionen. Vom neugierigen Anfänger zum selbstbewussten Macher.",
+    "journey.subtitle": "14 Level. 151 Lektionen. Vom neugierigen Anfänger zum selbstbewussten Macher.",
 
     "level1.name": "Computer Sind Keine Magie",
     "level1.subtitle": "Dateien, Ordner, Pfade und was ein Terminal wirklich ist",
@@ -1640,7 +1640,7 @@ window.I18N = {
     "community.vote.text": "Stimme für hilfreiche Antworten. Diskutiere knifflige Konzepte. Lerne gemeinsam.",
 
     "community.translate.title": "Plattform Übersetzen",
-    "community.translate.text": "Nutze unser Übersetzungs-SDK, um alle 148 Lektionen in deine Sprache zu bringen. Herunterladen, übersetzen, validieren und einreichen — alles über REST API.",
+    "community.translate.text": "Nutze unser Übersetzungs-SDK, um alle 151 Lektionen in deine Sprache zu bringen. Herunterladen, übersetzen, validieren und einreichen — alles über REST API.",
     "community.translate.link": "Entwickler-Docs →",
 
     // GETTING STARTED
@@ -1676,12 +1676,12 @@ window.I18N = {
   pt: {
     // META
     "meta.title": "Do Zero ao Claude Code — Aprenda Terminal e Programação com IA",
-    "meta.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis. Nenhuma experiência necessária.",
+    "meta.description": "Domine o terminal e o Claude Code do zero. 151 aulas interativas em 17 níveis. Nenhuma experiência necessária.",
     "meta.og.title": "Do Zero ao Claude Code",
-    "meta.og.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis.",
+    "meta.og.description": "Domine o terminal e o Claude Code do zero. 151 aulas interativas em 17 níveis.",
     "meta.og.imageAlt": "Do Zero ao Claude Code - Treinamento Interativo de Terminal",
     "meta.twitter.title": "Do Zero ao Claude Code",
-    "meta.twitter.description": "Domine o terminal e o Claude Code do zero. 147 aulas interativas em 14 níveis.",
+    "meta.twitter.description": "Domine o terminal e o Claude Code do zero. 151 aulas interativas em 17 níveis.",
 
     // NAV
     "nav.journey": "A Jornada",
@@ -1716,7 +1716,7 @@ window.I18N = {
     // HERO
     "hero.title": "Do Zero ao Claude Code",
     "hero.headline": "Você não precisa ser desenvolvedor<br>para pensar como um.",
-    "hero.subtext": "147 aulas interativas levam você de \"O que é um terminal?\" até construir projetos reais com IA. Nenhuma experiência em programação necessária.",
+    "hero.subtext": "151 aulas interativas levam você de \"O que é um terminal?\" até construir projetos reais com IA. Nenhuma experiência em programação necessária.",
     "hero.bullet1": "100% no navegador — nada para instalar",
     "hero.bullet2": "Aprenda fazendo, não assistindo",
     "hero.bullet3": "Caminho de aprendizagem personalizado com IA",
@@ -1730,7 +1730,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "A Jornada",
-    "journey.subtitle": "14 níveis. 147 aulas. De iniciante curioso a construtor confiante.",
+    "journey.subtitle": "17 níveis. 151 aulas. De iniciante curioso a construtor confiante.",
 
     "level1.name": "Computadores Não São Mágica",
     "level1.subtitle": "Arquivos, pastas, caminhos e o que é um terminal de verdade",
@@ -1879,7 +1879,7 @@ window.I18N = {
     "community.vote.text": "Vote nas respostas úteis. Discuta conceitos difíceis. Aprenda junto.",
 
     "community.translate.title": "Traduza a Plataforma",
-    "community.translate.text": "Use nosso SDK de Tradução para traduzir todas as 148 lições para o seu idioma. Baixe, traduza, valide e envie — tudo via REST API.",
+    "community.translate.text": "Use nosso SDK de Tradução para traduzir todas as 151 lições para o seu idioma. Baixe, traduza, valide e envie — tudo via REST API.",
     "community.translate.link": "Documentação →",
 
     // GETTING STARTED
@@ -1915,12 +1915,12 @@ window.I18N = {
   tr: {
     // META
     "meta.title": "Sıfırdan Claude Code'a — Terminal ve Yapay Zeka Programlamayı Öğrenin",
-    "meta.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders. Deneyim gerekmez.",
+    "meta.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 17 seviyede 151 etkileşimli ders. Deneyim gerekmez.",
     "meta.og.title": "Sıfırdan Claude Code'a",
-    "meta.og.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders.",
+    "meta.og.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 17 seviyede 151 etkileşimli ders.",
     "meta.og.imageAlt": "Sıfırdan Claude Code'a - Etkileşimli Terminal Eğitimi",
     "meta.twitter.title": "Sıfırdan Claude Code'a",
-    "meta.twitter.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 14 seviyede 147 etkileşimli ders.",
+    "meta.twitter.description": "Terminali ve Claude Code'u sıfırdan öğrenin. 17 seviyede 151 etkileşimli ders.",
 
     // NAV
     "nav.journey": "Yolculuk",
@@ -1955,7 +1955,7 @@ window.I18N = {
     // HERO
     "hero.title": "Sıfırdan Claude Code'a",
     "hero.headline": "Geliştirici olmanıza gerek yok<br>geliştirici gibi düşünmek için.",
-    "hero.subtext": "147 etkileşimli ders sizi \"Terminal nedir?\" sorusundan yapay zeka ile gerçek projeler kurmaya taşır. Kodlama deneyimi gerekmez.",
+    "hero.subtext": "151 etkileşimli ders sizi \"Terminal nedir?\" sorusundan yapay zeka ile gerçek projeler kurmaya taşır. Kodlama deneyimi gerekmez.",
     "hero.bullet1": "Tamamen tarayıcı tabanlı — kurulum gerekmez",
     "hero.bullet2": "İzleyerek değil, yaparak öğrenin",
     "hero.bullet3": "Yapay zeka destekli kişisel öğrenme yolu",
@@ -1969,7 +1969,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "Yolculuk",
-    "journey.subtitle": "14 seviye. 147 ders. Meraklı başlangıçtan kendine güvenen geliştiriciye.",
+    "journey.subtitle": "17 seviye. 151 ders. Meraklı başlangıçtan kendine güvenen geliştiriciye.",
 
     "level1.name": "Bilgisayarlar Sihir Değil",
     "level1.subtitle": "Dosyalar, klasörler, yollar ve terminal nedir",
@@ -2118,7 +2118,7 @@ window.I18N = {
     "community.vote.text": "Yararlı yanıtları oylamak. Zor kavramları tartışmak. Birlikte öğrenmek.",
 
     "community.translate.title": "Platformu Çevirin",
-    "community.translate.text": "Çeviri SDK'mızı kullanarak 148 dersin tamamını kendi dilinize çevirin. İndirin, çevirin, doğrulayın ve gönderin — hepsi REST API üzerinden.",
+    "community.translate.text": "Çeviri SDK'mızı kullanarak 151 dersin tamamını kendi dilinize çevirin. İndirin, çevirin, doğrulayın ve gönderin — hepsi REST API üzerinden.",
     "community.translate.link": "Geliştirici Belgeleri →",
 
     // GETTING STARTED
