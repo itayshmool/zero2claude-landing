@@ -35,6 +35,8 @@
   <link rel="alternate" hreflang="de" href="https://about.zero2claude.dev?lang=de">
   <link rel="alternate" hreflang="pt" href="https://about.zero2claude.dev?lang=pt">
   <link rel="alternate" hreflang="tr" href="https://about.zero2claude.dev?lang=tr">
+  <link rel="alternate" hreflang="zh-CN" href="https://about.zero2claude.dev?lang=zh-CN">
+  <link rel="alternate" hreflang="fr" href="https://about.zero2claude.dev?lang=fr">
   <link rel="alternate" hreflang="x-default" href="https://about.zero2claude.dev">
 
   <!-- Favicon -->
@@ -43,11 +45,11 @@
   <!-- i18n early detection -->
   <script>
   (function(){
-    var A=['en','es','uk','he','ar','ja','de','pt','tr'],l=null;
+    var A=['en','es','uk','he','ar','ja','de','pt','tr','zh-CN','fr'],l=null;
     var p=new URLSearchParams(location.search).get('lang');
     if(p&&A.indexOf(p)>=0)l=p;
     if(!l){var s=localStorage.getItem('landing-lang');if(s&&A.indexOf(s)>=0)l=s;}
-    if(!l){var b=(navigator.language||'').slice(0,2);if(A.indexOf(b)>=0)l=b;}
+    if(!l){var b=navigator.language||'';if(b.slice(0,2)==='zh')b='zh-CN';else b=b.slice(0,2);if(A.indexOf(b)>=0)l=b;}
     if(!l)l='en';
     document.documentElement.lang=l;
     if(l==='he'||l==='ar')document.documentElement.dir='rtl';
@@ -99,6 +101,8 @@
             <li role="option" data-lang="de"><span class="lang-flag">🇩🇪</span> Deutsch</li>
             <li role="option" data-lang="pt"><span class="lang-flag">🇧🇷</span> Português</li>
             <li role="option" data-lang="tr"><span class="lang-flag">🇹🇷</span> Türkçe</li>
+            <li role="option" data-lang="zh-CN"><span class="lang-flag">🇨🇳</span> 中文</li>
+            <li role="option" data-lang="fr"><span class="lang-flag">🇫🇷</span> Français</li>
           </ul>
         </div>
       </nav>
@@ -135,6 +139,8 @@
       <button class="mobile-lang-btn" data-lang="de">DE</button>
       <button class="mobile-lang-btn" data-lang="pt">PT</button>
       <button class="mobile-lang-btn" data-lang="tr">TR</button>
+      <button class="mobile-lang-btn" data-lang="zh-CN">中文</button>
+      <button class="mobile-lang-btn" data-lang="fr">FR</button>
     </div>
     <a href="#journey" data-i18n="nav.journey">Your Journey</a>
     <a href="#how-it-works" data-i18n="nav.how">How It Works</a>
