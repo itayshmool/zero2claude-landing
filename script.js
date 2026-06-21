@@ -120,7 +120,7 @@
 
   // ---- i18n Translation Engine ----
   var LANG_KEY = 'landing-lang';
-  var AVAILABLE_LANGS = ['en', 'es', 'uk', 'he', 'ar', 'ja', 'de', 'pt', 'tr'];
+  var AVAILABLE_LANGS = ['en', 'es', 'uk', 'he', 'ar', 'ja', 'de', 'pt', 'tr', 'zh-CN', 'fr'];
   var RTL_LANGS = ['he', 'ar'];
 
   function getSavedLang() {
@@ -136,7 +136,8 @@
       return storedLang;
     }
 
-    var browserLang = (navigator.language || '').slice(0, 2).toLowerCase();
+    var rawBrowserLang = navigator.language || '';
+    var browserLang = rawBrowserLang.slice(0, 2).toLowerCase() === 'zh' ? 'zh-CN' : rawBrowserLang.slice(0, 2).toLowerCase();
     if (AVAILABLE_LANGS.indexOf(browserLang) !== -1) {
       return browserLang;
     }
@@ -213,7 +214,7 @@
     // Update desktop switcher
     var langCode = document.querySelector('.lang-code');
     if (langCode) {
-      langCode.textContent = lang.toUpperCase();
+      langCode.textContent = lang === 'zh-CN' ? '中文' : lang.toUpperCase();
     }
 
     // Update desktop dropdown options
