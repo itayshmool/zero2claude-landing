@@ -53,7 +53,7 @@ window.I18N = {
     "hero.bullet1": "100% browser-based — nothing to install",
     "hero.bullet2": "Learn by doing, not watching",
     "hero.bullet3": "AI-powered personalized learning path",
-    "hero.bullet4": "Join 11,000+ students already learning",
+    "hero.bullet4": "Join 80,000+ students already learning",
     "hero.cta.primary": "Start Learning Free",
     "hero.cta.secondary": "See the Journey",
 
@@ -303,7 +303,7 @@ window.I18N = {
     "hero.bullet1": "100% en el navegador — nada que instalar",
     "hero.bullet2": "Aprende haciendo, no mirando",
     "hero.bullet3": "Ruta de aprendizaje personalizada con IA",
-    "hero.bullet4": "Únete a más de 11,000 estudiantes aprendiendo",
+    "hero.bullet4": "Únete a más de 80,000 estudiantes aprendiendo",
     "hero.cta.primary": "Empieza Gratis",
     "hero.cta.secondary": "Ver el Viaje",
 
@@ -541,7 +541,7 @@ window.I18N = {
     "hero.bullet1": "100% у браузері — нічого встановлювати",
     "hero.bullet2": "Вчіться на практиці, а не переглядаючи відео",
     "hero.bullet3": "Персоналізований шлях навчання на основі ШІ",
-    "hero.bullet4": "Приєднуйтесь до 11,000+ студентів, які вже навчаються",
+    "hero.bullet4": "Приєднуйтесь до 80,000+ студентів, які вже навчаються",
     "hero.cta.primary": "Почати Безкоштовно",
     "hero.cta.secondary": "Переглянути Подорож",
 
@@ -779,7 +779,7 @@ window.I18N = {
     "hero.bullet1": "100% בדפדפן — אין מה להתקין",
     "hero.bullet2": "למדו דרך עשייה, לא צפייה",
     "hero.bullet3": "מסלול למידה מותאם אישית מבוסס AI",
-    "hero.bullet4": "הצטרפו ל-11,000+ סטודנטים שכבר לומדים",
+    "hero.bullet4": "הצטרפו ל-80,000+ סטודנטים שכבר לומדים",
     "hero.cta.primary": "התחילו ללמוד בחינם",
     "hero.cta.secondary": "צפו במסע",
 
@@ -1018,7 +1018,7 @@ window.I18N = {
     "hero.bullet1": "100% في المتصفح — لا حاجة لتثبيت شيء",
     "hero.bullet2": "تعلّم بالممارسة، لا بالمشاهدة",
     "hero.bullet3": "مسار تعليمي مخصص مدعوم بالذكاء الاصطناعي",
-    "hero.bullet4": "انضم إلى أكثر من 11,000 طالب يتعلّمون حاليًا",
+    "hero.bullet4": "انضم إلى أكثر من 80,000 طالب يتعلّمون حاليًا",
     "hero.cta.primary": "ابدأ التعلّم مجانًا",
     "hero.cta.secondary": "شاهد الرحلة",
 
@@ -1452,12 +1452,12 @@ window.I18N = {
   de: {
     // META
     "meta.title": "Von Null auf Claude Code — Lerne Terminal & KI-Programmierung",
-    "meta.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln. Keine Vorkenntnisse nötig.",
+    "meta.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 17 Leveln. Keine Vorkenntnisse nötig.",
     "meta.og.title": "Von Null auf Claude Code",
-    "meta.og.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln.",
+    "meta.og.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 17 Leveln.",
     "meta.og.imageAlt": "Von Null auf Claude Code - Interaktives Terminal-Training",
     "meta.twitter.title": "Von Null auf Claude Code",
-    "meta.twitter.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 14 Leveln.",
+    "meta.twitter.description": "Meistere das Terminal und Claude Code von Grund auf. 151 interaktive Lektionen in 17 Leveln.",
 
     // NAV
     "nav.journey": "Die Reise",
@@ -1496,7 +1496,7 @@ window.I18N = {
     "hero.bullet1": "100% im Browser — nichts installieren",
     "hero.bullet2": "Lerne durch Machen, nicht durch Zuschauen",
     "hero.bullet3": "KI-gestützter persönlicher Lernpfad",
-    "hero.bullet4": "Schließ dich 11.000+ Lernenden an",
+    "hero.bullet4": "Schließ dich 80.000+ Lernenden an",
     "hero.cta.primary": "Kostenlos Loslegen",
     "hero.cta.secondary": "Die Reise ansehen",
 
@@ -1506,7 +1506,7 @@ window.I18N = {
 
     // JOURNEY
     "journey.title": "Die Reise",
-    "journey.subtitle": "14 Level. 151 Lektionen. Vom neugierigen Anfänger zum selbstbewussten Macher.",
+    "journey.subtitle": "17 Level. 151 Lektionen. Vom neugierigen Anfänger zum selbstbewussten Macher.",
 
     "level1.name": "Computer Sind Keine Magie",
     "level1.subtitle": "Dateien, Ordner, Pfade und was ein Terminal wirklich ist",
@@ -1735,7 +1735,7 @@ window.I18N = {
     "hero.bullet1": "100% no navegador — nada para instalar",
     "hero.bullet2": "Aprenda fazendo, não assistindo",
     "hero.bullet3": "Caminho de aprendizagem personalizado com IA",
-    "hero.bullet4": "Junte-se a mais de 11.000 alunos aprendendo",
+    "hero.bullet4": "Junte-se a mais de 80.000 alunos aprendendo",
     "hero.cta.primary": "Comece Grátis",
     "hero.cta.secondary": "Veja a Jornada",
 
@@ -1974,7 +1974,7 @@ window.I18N = {
     "hero.bullet1": "Tamamen tarayıcı tabanlı — kurulum gerekmez",
     "hero.bullet2": "İzleyerek değil, yaparak öğrenin",
     "hero.bullet3": "Yapay zeka destekli kişisel öğrenme yolu",
-    "hero.bullet4": "11.000'den fazla öğrenciye katılın",
+    "hero.bullet4": "80.000'den fazla öğrenciye katılın",
     "hero.cta.primary": "Ücretsiz Öğrenmeye Başla",
     "hero.cta.secondary": "Yolculuğu Gör",
 
@@ -2216,7 +2216,7 @@ window.I18N = {
     "hero.bullet1": "100% 浏览器运行——无需安装",
     "hero.bullet2": "在实践中学习，而非观看视频",
     "hero.bullet3": "AI 驱动的个性化学习路径",
-    "hero.bullet4": "加入 11,000+ 名学员的行列",
+    "hero.bullet4": "加入 80,000+ 名学员的行列",
     "hero.cta.primary": "免费开始学习",
     "hero.cta.secondary": "查看学习之旅",
 
@@ -2473,7 +2473,7 @@ window.I18N = {
     "hero.bullet1": "100 % dans le navigateur — rien à installer",
     "hero.bullet2": "Apprenez en pratiquant, pas en regardant",
     "hero.bullet3": "Parcours d'apprentissage personnalisé par l'IA",
-    "hero.bullet4": "Rejoignez plus de 11 000 étudiants déjà en formation",
+    "hero.bullet4": "Rejoignez plus de 80 000 étudiants déjà en formation",
     "hero.cta.primary": "Commencer gratuitement",
     "hero.cta.secondary": "Voir le parcours",
 
